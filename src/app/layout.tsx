@@ -4,7 +4,6 @@ import "./globals.css";
 import "./style.scss";
 import LandingNavbar from "@/components/navbar/LandingNavBar";
 import { cormorant, manrope } from "./font";
-import Landingfooter from "@/components/footer/Landingfooter";
 import Footer from "@/components/footer/Landingfooter";
 
 const geistSans = Geist({

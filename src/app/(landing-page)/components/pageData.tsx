@@ -613,12 +613,15 @@ export const GalleryData = {
   description:
     "A look at the rooms, lounge spaces and quiet corners across the ASPA building.",
   images: [
-    "/images/gallery/gallery-1.jpg",
-    "/images/gallery/gallery-2.jpg",
-    "/images/gallery/gallery-3.jpg",
-    "/images/gallery/gallery-4.jpg",
-    "/images/gallery/gallery-5.jpg",
-    "/images/gallery/gallery-6.jpg",
+    "/images/img1.jpg",
+    "/images/img2.jpg",
+    "/images/img3.jpg",
+    "/images/img4.jpg",
+    "/images/img5.jpg",
+    "/images/img6.jpg",
+    "/images/img7.jpg",
+    "/images/img8.jpg",
+    "/images/img9.jpg",
   ],
   buttons: {
     enquire: {

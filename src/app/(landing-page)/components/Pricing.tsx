@@ -20,7 +20,7 @@ const Pricing = ({ data }: Props) => {
           </p>
 
           <h2
-            className="mt-2 font-serif text-5xl leading-tight"
+            className="mt-2 font-serif text-5xl leading-tight text-p2"
             dangerouslySetInnerHTML={{ __html: data.title }}
           />
         </div>
@@ -32,7 +32,7 @@ const Pricing = ({ data }: Props) => {
               className={`rounded-3xl border p-8 ${
                 card.variant === "dark"
                   ? "bg-p1 border-p2 text-white"
-                  : "bg-white border-[#ECE7DD]"
+                  : "bg-white border-[#ECE7DD] text-p2"
               }`}
             >
               <div className="flex justify-between">

@@ -1,6 +1,6 @@
 export const enCodeText = encodeURIComponent(`Hi,
 
-I'm interested in booking a stay at Aroha Palms.
+I'm interested in booking a stay at Aspa .
 
 Please share the best available options and rates.
 
