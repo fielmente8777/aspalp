@@ -7,6 +7,10 @@ import { cormorant, manrope } from "./font";
 import Footer from "@/components/footer/Landingfooter";
 import { WebProvider } from "@/context-api/WebContext";
 import ImagePopup from "@/components/pop-up/ImagePopup";
+import Script from "next/script";
+import Call from "@/components/ContactButton/Call";
+import { contact } from "@/utils/constent";
+import Whatsapp from "@/components/ContactButton/WhatsApp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +41,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <LandingNavbar />
           {children}
           <Footer />
-          <ImagePopup/>
+          <ImagePopup />
+          <Call callNumber={contact.phone[0]}/>
+          <Whatsapp whatsAppNumber={contact.phone[0]}/>
+
         </WebProvider>
       </body>
+
+      <Script id="chatbot-config" strategy="afterInteractive">
+        {`
+    window.eazbotConfig = {
+       ndid: "272710ae-0ff8-4684-a39c-a3a4756173dd",
+       hid: "69831210",
+    };
+  `}
+      </Script>
+      <Script
+        src="https://cb-script.dyq28lyxrazm2.amplifyapp.com/widget/lead-chatbot.js"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }

@@ -6,22 +6,20 @@ Please share the best available options and rates.
 
 Thank you!`);
 
-
 export const contact = {
   email: "",
   mapUrl: "",
-  phone: ["+91xxxxxxxx"],
-  address:
-    "",
+  phone: ["+917208010831"],
+  address: "",
   addressLink: "",
   socialMedia: {
     facebook: "https://www.facebook.com",
     instagram: "https://www.instagram.com/",
   },
-  callCta: `tel:+91xxxxxxxx`,
-  WhatsappCta: ``,
-  // formDomain: "",
-  formDomain: "testmulti", //for testing
+  callCta: `tel: +917208010831`,
+  WhatsappCta: `https://wa.me/+917208010831?text=${enCodeText}`,
+  formDomain: "aspa",
+  // formDomain: "testmulti", //for testing
   formHid: "",
   // formHid: "",
 };
