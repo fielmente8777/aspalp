@@ -37,6 +37,9 @@ const Footer = () => {
                 />
               </div>
 
+
+              
+
               <p className="text-white/70 leading-7">
                 {footerData.description}
               </p>
