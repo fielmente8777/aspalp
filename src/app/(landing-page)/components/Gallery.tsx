@@ -15,22 +15,26 @@ const Gallery = ({
   buttons,
 }: GalleryData) => {
   return (
-    <SectionWithContainer sectionClassName="bg-cream-bg" containerId="#gallery">
+    <SectionWithContainer
+      sectionClassName="bg-cream-bg py-8"
+      containerId="#gallery"
+      defaultPadding={false}
+    >
       <div>
         {/* Header */}
         <div className="mb-14 grid gap-8 lg:grid-cols-[1fr_420px] lg:items-start">
           <div>
-            <p className="mb-2 text-sm uppercase tracking-[0.2em] text-gold">
+            <p className="mb-2 text-xs md:text-sm uppercase tracking-[0.2em] text-gold">
               {tagline}
             </p>
 
             <h2
-              className="font-serif text-[56px] leading-[1.1] text-p2 [&>span]:text-gold"
+              className="font-serif text-3xl md:text-[56px] leading-[1.1] text-p2 [&>span]:text-gold"
               dangerouslySetInnerHTML={{ __html: title }}
             />
           </div>
 
-          <p className="max-w-md text-lg leading-8 text-[#6E6E6E]">
+          <p className="max-w-md text-md md:text-lg leading-8 text-[#6E6E6E]">
             {description}
           </p>
         </div>
@@ -54,7 +58,7 @@ const Gallery = ({
         {/* Gallery */}
         <div className="relative mt-12">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {images.map((image, index) => (
+            {images.slice(0, 9).map((image, index) => (
               <div
                 key={index}
                 className="relative aspect-[4/3] overflow-hidden rounded-2xl"
@@ -73,15 +77,13 @@ const Gallery = ({
             href="/gallery"
             className="absolute bottom-5 right-5 flex items-center gap-2 rounded-lg bg-p2 px-4 py-2 text-sm font-medium text-white shadow-lg backdrop-blur transition hover:bg-white"
           >
-
             <GalleryIcon />
-            
             View All
           </Link>
         </div>
 
         {/* CTA */}
-        <div className="mt-16 flex flex-wrap justify-center gap-4">
+        <div className="mt-16 flex flex-col sm:flex-row  justify-center gap-4">
           <Link
             href={buttons.enquire.href}
             className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg border border-gold bg-white text-p1 font-medium transition hover:bg-gray-100 "

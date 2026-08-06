@@ -2,7 +2,7 @@ import { FooterIcon } from "@/utils/Icons";
 import { ReactNode } from "react";
 
 export interface FooterData {
-  logo: ReactNode;
+  logo: string;
   description: string;
   lists: {
     title: string;
@@ -15,8 +15,7 @@ export interface FooterData {
 }
 
 export const footerData: FooterData = {
-  logo: <FooterIcon/>,
-
+  logo: "/images/footer.png",
   description:
     "A 10-room boutique stay. Built for travellers who want calm, comfort and easy access to Navi Mumbai's most important corridor.",
 

@@ -24,8 +24,17 @@ export default function Home() {
   return (
     <main>
       <HeroSection {...heroPageData.hero} />
-  
-      <Form2 />
+      <SectionWithContainer
+        defaultPadding={false}
+        sectionClassName="py-8 bg-p1"
+        containerClassName="space-y-4"
+      >
+        <Form2 />
+        <p className="text-center text-white">
+          Free cancellation on most dates* · Instant confirmation
+        </p>
+      </SectionWithContainer>
+
       <AboutSection {...AboutData} />
       <StatsSection stats={statsData} />
       <StayGrid {...StayData} />

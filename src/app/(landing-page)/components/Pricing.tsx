@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
 import { PricingData } from "./pageData";
 import { CheckIcon, GoldenCHeckIcon } from "@/utils/Icons";
-import SectionWithContainer from "@/components/sectionComponants/SectionWithContainer";
+import { Container, Section } from "@/components/sectionComponants";
 
 interface Props {
   data: PricingData;
@@ -12,20 +12,22 @@ interface Props {
 
 const Pricing = ({ data }: Props) => {
   return (
-    <SectionWithContainer sectionClassName="bg-cream-bg ">
-      <div className="max_width">
-        <div className="mx-auto max-w-xl text-center">
-          <p className="text-gold text-sm uppercase tracking-[0.2em]">
-            {data.tagline}
-          </p>
+    <Section className="bg-cream-bg ">
+      <div className="">
+        <Container>
+          <div className="mx-auto max-w-xl text-center">
+            <p className="text-gold text-xs md:text-sm uppercase tracking-[0.2em]">
+              {data.tagline}
+            </p>
 
-          <h2
-            className="mt-2 font-serif text-5xl leading-tight text-p2"
-            dangerouslySetInnerHTML={{ __html: data.title }}
-          />
-        </div>
-
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+            <h2
+              className="mt-2 font-serif text-3xl md:text-5xl leading-tight text-p2"
+              dangerouslySetInnerHTML={{ __html: data.title }}
+            />
+          </div>
+        </Container>
+        
+        <div className="mt-8 md:mt-14 grid gap-8 lg:grid-cols-2 max_width px-0!">
           {data.cards.map((card, index) => (
             <div
               key={index}
@@ -41,7 +43,9 @@ const Pricing = ({ data }: Props) => {
                     {card.tag}
                   </p>
 
-                  <h3 className="mt-2 font-serif text-4xl">{card.title}</h3>
+                  <h3 className="mt-2 font-serif text-3xl md:text-4xl">
+                    {card.title}
+                  </h3>
                 </div>
 
                 <span className="inline-flex h-7 items-center justify-center rounded-full border border-gold px-4 text-[10px] font-medium uppercase tracking-wide text-gold">
@@ -70,10 +74,10 @@ const Pricing = ({ data }: Props) => {
                 ))}
               </ul>
 
-              <div className="mt-10 flex gap-3">
+              <div className="mt-10 flex flex-col sm:flex-row gap-3">
                 <Link
                   href={card.buttons.enquire.href}
-                  className={`flex-1 flex items-center justify-center gap-2 rounded-lg border py-3 transition ${
+                  className={`w-full sm:flex-1 flex items-center justify-center gap-2 rounded-lg border py-3 transition ${
                     card.variant === "dark"
                       ? "border-white/20 bg-white text-p1 hover:bg-gray-100"
                       : " border border-p2 bg-white text-p1 hover:bg-gray-100 "
@@ -85,7 +89,7 @@ const Pricing = ({ data }: Props) => {
 
                 <Link
                   href={card.buttons.book.href}
-                  className={`flex-1 flex justify-center items-center gap-2 rounded-lg py-3 ${
+                  className={`w-full sm:flex-1 flex justify-center items-center gap-2 rounded-lg py-3 ${
                     card.variant === "dark"
                       ? "bg-gold text-white"
                       : "bg-p1 text-white"
@@ -101,7 +105,7 @@ const Pricing = ({ data }: Props) => {
 
         <p className="mt-10 text-center text-sm text-[#707070]">{data.note}</p>
       </div>
-    </SectionWithContainer>
+    </Section>
   );
 };
 

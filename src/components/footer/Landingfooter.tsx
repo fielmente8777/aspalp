@@ -3,15 +3,24 @@
 import Image from "next/image";
 import { footerData, FooterData } from "./footerdata";
 import Form2 from "../forms/Form2";
-import { Container, Section } from "../sectionComponants";
+import { Container, Section, SectionWithContainer } from "../sectionComponants";
 import Link from "next/dist/client/link";
 
 const Footer = () => {
   const data = footerData;
   return (
-    <footer className="bg-p1 text-white">
+    <footer className="bg-p1">
       <Section defaultPadding={false}>
-        <Form2 />
+        <SectionWithContainer
+          defaultPadding={false}
+          sectionClassName="py-8 bg-p1"
+          containerClassName="space-y-4"
+        >
+          <Form2 />
+          <p className="text-center text-white">
+            Free cancellation on most dates* · Instant confirmation
+          </p>
+        </SectionWithContainer>
 
         <div className="border-b border-gold" />
 
@@ -19,8 +28,13 @@ const Footer = () => {
           <div className="grid py-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_.7fr_.5fr] gap-12">
             {/* Logo */}
             <div className="flex flex-col gap-6 lg:max-w-sm">
-              <div className="relative w-40 aspect-[4/1]">
-                {footerData.logo}
+              <div className="relative w-40 aspect-[4/3]">
+                <Image
+                  src={footerData.logo}
+                  alt="ASPA Apartments Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
 
               <p className="text-white/70 leading-7">
@@ -79,4 +93,3 @@ const Footer = () => {
 };
 
 export default Footer;
-  

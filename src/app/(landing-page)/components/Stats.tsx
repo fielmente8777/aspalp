@@ -1,6 +1,6 @@
 "use client";
 
-import { SectionWithContainer } from "@/components/sectionComponants";
+import { Section} from "@/components/sectionComponants";
 
 interface Stat {
   value: string;
@@ -13,10 +13,11 @@ interface StatsProps {
 
 const StatsSection = ({ stats }: StatsProps) => {
   return (
-    <SectionWithContainer>
+    <Section
+    defaultPadding={false}>
     <section className="border-y border-[#D8D1C4] bg-white">
       <div className="">
-        <div className="grid grid-cols-1 lg:grid-cols-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
           {stats.map((item, index) => (
             <div
               key={index}
@@ -37,7 +38,7 @@ const StatsSection = ({ stats }: StatsProps) => {
                 {item.value}
               </h3>
 
-              <p className="mt-2 font-sans text-[12px] uppercase tracking-[0.18em] text-[#7B7B7B]">
+              <p className="mt-2 font-mono text-[12px] uppercase tracking-[0.18em] text-[#7B7B7B]">
                 {item.label}
               </p>
             </div>
@@ -45,7 +46,7 @@ const StatsSection = ({ stats }: StatsProps) => {
         </div>
       </div>
     </section>
-    </SectionWithContainer>
+    </Section>
   );
 };
 

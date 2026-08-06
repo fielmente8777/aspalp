@@ -1,27 +1,38 @@
 "use client";
-
 import { getDateInputLimits } from "@/hooks/getDateInputLimits";
-import useForm from "@/hooks/useForm";
-import { CalendarIcon, CallIcon, MailIcon, UserIcon } from "@/utils/formIcons";
+import useBookingForm from "@/hooks/useBookingForm";
+import {
+  BookingCalenderIcon,
+  CalendarIcon,
+  CallIcon,
+  MailIcon,
+  UserIcon,
+} from "@/utils/formIcons";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { countries } from "../../utils/constent";
-import { Section, SectionWithContainer } from "../sectionComponants";
 
-interface Form2Props {
-  benefits?: string;
+interface Props {
   gridView?: boolean;
 }
-
-const Form2: React.FC<Form2Props> = ({
-  benefits = "Free cancellation on most dates* - Instant confirmation",
-  gridView,
-}) => {
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
-
+const Form2 = ({ gridView }: Props) => {
+  const {
+    isSubmitting,
+    errors,
+    handleSubmit,
+    formData,
+    handleChange,
+    setFieldValue,
+  } = useBookingForm({
+    includeCheckIn: true,
+    includeCheckOut: true,
+    onSubmitSuccess: () => {
+      setStartDate(null);
+      setEndDate(null);
+    },
+  });
   const { min, max } = getDateInputLimits({
     showPast: false,
     showFuture: true,
@@ -30,187 +41,166 @@ const Form2: React.FC<Form2Props> = ({
   const minDate = min ? new Date(min) : undefined;
   const maxDate = max ? new Date(max) : undefined;
 
-  const {
-    isSubmitting,
-    errors,
-    handleSubmit,
-    formData,
-    handleChange,
-    setFieldValue,
-    submitSuccess,
-  } = useForm({
-    includeCheckIn: true,
-    includeCheckOut: true,
-    includeMessage: false,
-    includeCity: false,
-    onSubmitSuccess: () => {
-      setStartDate(null);
-      setEndDate(null);
-      window.open("/thank-you/", "_blank");
-    },
-  });
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   const handleDateChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
+
     setStartDate(start);
     setEndDate(end);
 
     if (start) {
       setFieldValue("checkIn", start.toISOString().split("T")[0]);
     }
+
     if (end) {
       setFieldValue("checkOut", end.toISOString().split("T")[0]);
     }
   };
 
+  const formFields = [
+    {
+      name: "name",
+      label: "Name",
+      type: "text",
+      value: formData.name,
+      onChange: handleChange,
+      icon: <UserIcon />,
+    },
+    {
+      name: "phone",
+      label: "Ph Number",
+      type: "tel",
+      value: formData.phone,
+      onChange: handleChange,
+      icon: <CallIcon />,
+    },
+    {
+      name: "email",
+      label: "Email ID",
+      type: "email",
+      value: formData.email,
+      onChange: handleChange,
+      icon: <MailIcon />,
+    },
+    {
+      name: "checkIn",
+      label: "Check-in & out",
+      type: "date",
+      value: formData.checkIn || "",
+      onChange: handleChange,
+      icon: <CalendarIcon />,
+    },
+  ];
+  // useEffect(() => {
+  //   if (submitSuccess) {
+  //     setStartDate(null);
+  //     setEndDate(null);
+  //   }
+  // }, [submitSuccess]);
+
   return (
-    <Section
-    defaultPadding={false}
+    <form
+      onSubmit={handleSubmit}
+      className={`${gridView ? "flex flex-col gap-2" : "grid md:grid-cols-5 items-center gap-3.5 "} font-body px-4 bg-transparent  max-md:divide-y divide-p1`}
     >
-      <div className="relative z-20 w-full bg-p1 py-6 px-8 border-t border-white/10">
-        <div className="max_width">
-          <form
-            onSubmit={handleSubmit}
-            className={`flex flex-wrap lg:flex-nowrap items-center justify-between gap-3 ${
-              gridView ? "flex-col" : ""
-            }`}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 flex-1 w-full">
-              <div className="flex flex-col">
-                <div className="relative flex items-center bg-white rounded-md px-3 py-2">
-                  <span className="text-gray-500 mr-2 shrink-0">
-                    <UserIcon />
-                  </span>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name"
-                    value={formData.name || ""}
-                    onChange={handleChange}
-                    className="w-full text-sm text-gray-800 bg-transparent focus:outline-none placeholder:text-gray-400"
-                  />
-                </div>
-                {errors.name && (
-                  <span className="text-red-400 text-xs mt-1 px-1">
-                    {errors.name}
-                  </span>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <div className="relative flex items-center bg-white rounded-md px-3 py-2">
-                  <span className="text-gray-500 mr-2 shrink-0">
-                    <CallIcon />
-                  </span>
-                  <div className="relative flex items-center mr-1.5 shrink-0">
-                    <select
-                      className="cursor-pointer appearance-none bg-transparent pr-4 text-xs text-gray-700 font-medium focus:outline-none"
-                      name="countryCode"
-                      value={formData.countryCode || "+91"}
-                      onChange={(e) =>
-                        setFieldValue("countryCode", e.target.value)
-                      }
-                      style={{
-                        width: `${(formData.countryCode || "+91").length + 2}ch`,
-                      }}
-                      aria-label="Country Code"
-                    >
-                      {countries.map((country, index) => (
-                        <option key={index} value={country.code}>
-                          {country.code}
-                        </option>
-                      ))}
-                    </select>
-                    <IoIosArrowDown className="absolute right-0 text-gray-400 pointer-events-none text-xs" />
-                  </div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Ph Number"
-                    value={formData.phone || ""}
-                    onChange={handleChange}
-                    className="w-full text-sm text-gray-800 bg-transparent focus:outline-none placeholder:text-gray-400"
-                  />
-                </div>
-                {errors.phone && (
-                  <span className="text-red-400 text-xs mt-1 px-1">
-                    {errors.phone}
-                  </span>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <div className="relative flex items-center bg-white rounded-md px-3 py-2">
-                  <span className="text-gray-500 mr-2 shrink-0">
-                    <MailIcon />
-                  </span>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email ID"
-                    value={formData.email || ""}
-                    onChange={handleChange}
-                    className="w-full text-sm text-gray-800 bg-transparent focus:outline-none placeholder:text-gray-400"
-                  />
-                </div>
-                {errors.email && (
-                  <span className="text-red-400 text-xs mt-1 px-1">
-                    {errors.email}
-                  </span>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <div className="relative flex items-center bg-white rounded-md px-3 py-2">
-                  <span className="text-gray-500 mr-2 shrink-0">
-                    <CalendarIcon />
-                  </span>
-                  <DatePicker
-                    selected={startDate}
-                    onChange={handleDateChange}
-                    startDate={startDate}
-                    endDate={endDate}
-                    selectsRange
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    placeholderText="Check-In & Out"
-                    calendarClassName="!z-[99999]"
-                    popperClassName="!z-[99999]"
-                    className="w-full text-sm text-gray-800 bg-transparent focus:outline-none placeholder:text-gray-400 cursor-pointer"
-                    wrapperClassName="w-full flex items-center"
-                  />
-                </div>
-                {(errors.checkIn || errors.checkOut) && (
-                  <span className="text-red-400 text-xs mt-1 px-1">
-                    {errors.checkIn || errors.checkOut}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full lg:w-auto bg-gold hover:bg-gold/90 text-white font-semibold px-6 py-2.5 rounded-md text-sm transition-colors whitespace-nowrap flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+      {formFields.map((field, index) => (
+        <React.Fragment key={index}>
+          {field.type === "date" ? (
+            <div
+              className={`bg-background flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "max-md:pb-4 max-md:pt-2 py-3 lg:px-2"}`}
+              key={index}
             >
-              <CalendarIcon />
-              {isSubmitting
-                ? "Submitting..."
-                : submitSuccess
-                  ? "Thank You!"
-                  : "Book Now"}
-            </button>
-          </form>
-
-          {benefits && (
-            <p
-              className="text-xs text-gray-300 text-center mt-3 tracking-wide"
-              dangerouslySetInnerHTML={{ __html: benefits }}
-            />
+              <label className="text-secondary">{field.icon}</label>
+              <DatePicker
+                selected={startDate}
+                onChange={handleDateChange}
+                startDate={startDate}
+                endDate={endDate}
+                selectsRange
+                minDate={minDate}
+                maxDate={maxDate}
+                placeholderText={field.label}
+                calendarClassName="!z-[99999]"
+                popperClassName="!z-[99999]"
+                className={` pointer-events-auto placeholder:text-secondarya outline-none w-full h-full bg-transparent text-base text-secondarya`}
+                wrapperClassName="w-full h-full !flex items-center"
+              />
+            </div>
+          ) : field.type === "tel" ? (
+            <div
+              className={`bg-background flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "max-md:pb-4 max-md:pt-2 py-3 lg:px-2"}`}
+              key={index}
+            >
+              <label className="text-secondary">{field.icon}</label>
+              <div className="relative">
+                <select
+                  className="ps-2 cursor-pointer border-p1 appearance-none w-full placeholder:text-secondarya focus:outline-none text-secondarya"
+                  name="countryCode"
+                  value={formData.countryCode}
+                  onChange={(e) => setFieldValue("countryCode", e.target.value)}
+                  style={{ width: `${formData.countryCode.length * 2}ch` }}
+                  aria-label="Country Code"
+                >
+                  {countries.map((country, index) => (
+                    <option key={index} value={country.code} className="">
+                      {country.code}
+                    </option>
+                  ))}
+                </select>
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <IoIosArrowDown />
+                </span>
+              </div>
+              <input
+                type={field.type}
+                name={field.name}
+                placeholder={field.label}
+                className={`w-full placeholder:text-secondarya focus:outline-none text-secondarya `}
+                value={field.value}
+                onChange={field.onChange}
+              />
+            </div>
+          ) : (
+            <div
+              className={`flex bg-background items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "max-md:pb-4 max-md:pt-2 py-3 lg:px-2"}`}
+              key={index}
+            >
+              <label className="text-secondary">{field.icon}</label>
+              <input
+                key={index}
+                type={field.type}
+                name={field.name}
+                placeholder={field.label}
+                className={`w-full placeholder:text-secondarya focus:outline-none text-secondarya `}
+                value={field.value}
+                onChange={field.onChange}
+              />
+            </div>
           )}
-        </div>
-      </div>
-    </Section>
+
+          {errors[field.name] && (
+            <p className="text-red-500">{errors[field.name]}</p>
+          )}
+        </React.Fragment>
+      ))}
+      <button
+        type="submit"
+        className=" bg-gold w-full rounded-lg text-white text-lg py-3"
+      >
+        {isSubmitting ? (
+          "Submitting..."
+        ) : (
+          <span className="flex items-center justify-center gap-2.5">
+            <span className="">
+              <BookingCalenderIcon />
+            </span>{" "}
+            Book Now{" "}
+          </span>
+        )}
+      </button>
+    </form>
   );
 };
 
