@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
-import { SectionWithContainer } from "@/components/sectionComponants";
+import { Section, SectionWithContainer } from "@/components/sectionComponants";
 import { HeroFeature } from "./pageData";
 
 export interface HeroDataProps {
@@ -29,42 +29,43 @@ const ImageBanner: React.FC<HeroDataProps> = ({
 }: HeroDataProps) => {
   return (
     <>
-      <SectionWithContainer sectionClassName="relative w-full min-h-[85vh] md:min-h-[90vh] flex flex-col justify-between overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <SwiperCarousel<string>
-            data={images}
-            modules={[Autoplay, Pagination, EffectFade]}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
-            loop={true}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-              bulletClass:
-                "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
-              bulletActiveClass: "!w-8 !bg-white",
-            }}
-            className="h-full w-full hero-swiper"
-            swiperSlideClassName="relative w-full h-full"
-            renderSlide={(imgSrc: string, index?: number) => (
-              <div className="relative w-full h-full min-h-[90vh]">
-                <Image
-                  src={imgSrc}
-                  alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
-                  fill
-                  priority={index === 0}
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20" />
-              </div>
-            )}
-          />
-        </div>
+      <Section
+        className="relative w-full overflow-hidden"
+        defaultPadding={false}
+      >
+        <SwiperCarousel
+          data={images}
+          modules={[Autoplay, Pagination, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+            bulletClass:
+              "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
+            bulletActiveClass: "!w-8 !bg-white",
+          }}
+          className="h-full w-full"
+          swiperSlideClassName="relative aspect-square md:aspect-[16/7] "
+          renderSlide={(imgSrc: string, index?: number) => (
+            <div className="relative w-full h-full ">
+              <Image
+                src={imgSrc}
+                alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
+                fill
+                priority={index === 0}
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
+          )}
+        />
 
-        <div className="relative z-10 flex-1 flex items-center w-full py-20 md:py-20">
+        <div className="relative z-10 flex-1 flex items-center w-full">
           <div className="max_width">
             <div className="max-w-[480px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-md p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
               <h1
@@ -99,32 +100,29 @@ const ImageBanner: React.FC<HeroDataProps> = ({
               </div>
             </div>
             <div className="mt-8 hidden lg:block">
-              <div className="rounded-3xl border border-[#0EA5FF] bg-[#1B2C27]/90 backdrop-blur-xl px-8 py-6">
+              <div className="rounded-3xl bg-[#1B2C27]/90 backdrop-blur-xl px-8 py-6">
                 <div className="grid grid-cols-7 divide-x divide-white/20">
                   {features.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col text-center"
-                    >
-                       <div className="mb-3 flex items-start justify-center gap-3">
-    <div className="shrink-0">
-      {item.icon}
-    </div>
-                         {(item.stars || item.value) && (
-      <div className="flex flex-col items-start">
-        {item.stars && (
-          <span className="text-[11px] leading-none text-gold">
-            {item.stars}
-          </span>
-        )}
+                    <div key={index} className="flex flex-col text-center">
+                      <div className="mb-3 flex items-start justify-center gap-3">
+                        <div className="shrink-0">{item.icon}</div>
+                        {(item.stars || item.value) && (
+                          <div className="flex flex-col items-start">
+                            {item.stars && (
+                              <span className="text-[11px] leading-none text-gold">
+                                {item.stars}
+                              </span>
+                            )}
 
-                           <span className="mt-1 text-md font-semibold leading-none text-white">
-          {item.value}
-        </span>
-      </div>
-    )}
-  </div>
-                      <p className="mt-1 text-sm text-white text-start px-4">{item.title}</p>
+                            <span className="mt-1 text-md font-semibold leading-none text-white">
+                              {item.value}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <p className="mt-1 text-sm text-white text-start px-4">
+                        {item.title}
+                      </p>
 
                       <p className="mt-2 text-sm leading-5 text-white text-start px-4">
                         {item.subtitle}
@@ -136,7 +134,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
             </div>
           </div>
         </div>
-      </SectionWithContainer>
+      </Section>
       <div className="relative z-10 lg:hidden mt-4 pb-6">
         <div className="max_width">
           <SwiperCarousel<HeroFeature>
@@ -154,7 +152,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
             renderSlide={(item, index) => (
               <div
                 key={index}
-                className="rounded-2xl border border-[#0EA5FF] bg-[#1B2C27]/90 backdrop-blur-xl p-5"
+                className="rounded-2xl bg-[#1B2C27]/90 backdrop-blur-xl p-5"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-3 text-gold">{item.icon}</div>

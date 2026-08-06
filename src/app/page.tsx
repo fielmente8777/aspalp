@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection {...heroPageData.hero} />
-      
+  
       <Form2 />
       <AboutSection {...AboutData} />
       <StatsSection stats={statsData} />

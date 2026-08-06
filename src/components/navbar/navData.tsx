@@ -1,20 +1,20 @@
 import { contact } from "@/utils/constent";
-import { LogoIcon } from "@/utils/Icons";
+
 export const navData = {
-  logo: <LogoIcon/>,
+  logo: "/images/logo.png",
 
   links: [
     { label: "About", href: "#about" },
     { label: "Stays", href: "#stays" },
     { label: "Amenities", href: "#amenities" },
+    { label: "Nearby", href: "#nearby" },
     { label: "Gallery", href: "#gallery" },
     // { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" },
+    // { label: "Contact", href: "#contact" },
   ],
 
   buttons: [
-    { label: "Enquire Now", href: "#enquire" },
-    { label: "Book Now", href: "#book" },
+    { label: "Enquire Now", href: contact.WhatsappCta },
+    { label: "Book Now", href: "#form" },
   ],
 };
-

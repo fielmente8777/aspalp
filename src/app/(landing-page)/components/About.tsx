@@ -28,7 +28,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       <div>
         <div className="bg-cream-card rounded-[32px] p-6 md:p-10 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            
             {/* Image Container */}
             <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-gray-300">
               <Image
@@ -58,7 +57,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                 dangerouslySetInnerHTML={{ __html: description }}
               />
 
-    
               <div className="flex items-center gap-4 pt-2">
                 <Link
                   href={buttons.enquire.href}
@@ -80,7 +78,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                   <span>{buttons.book.label}</span>
                 </Link>
               </div>
-
             </div>
           </div>
         </div>

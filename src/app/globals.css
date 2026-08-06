@@ -23,7 +23,6 @@
   --font-man: var(--font-manrope);
   --font-serif: var(--font-cormorant);
 
-
   --color-p1: var(--primary);
   --color-p1-hover: var(--primary-hover);
   --color-p2: var(--secondary);
@@ -41,9 +40,8 @@
     --foreground: #ededed;
   }
 }
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* background: var(--background);
+  color: var(--foreground); */
   font-family: var(--font-man);
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CalendarIcon, WhatsAppIcon } from "../buttons/LinkButton";
 import { navData } from "./navData";
+import Image from "next/image";
 
 const LandingNavbar = () => {
   const pathName = usePathname();
@@ -27,12 +28,14 @@ const LandingNavbar = () => {
     <header className="absolute inset-x-0 top-0 z-50 w-full">
       <nav className="max_width relative flex items-center justify-between py-3 px-4 lg:py-4 lg:px-8">
         {/* Logo */}
-        <Link
-          href="/"
-          className="relative aspect-[4/2.22] w-28 md:w-36 lg:w-44 shrink-0 z-10"
-        >
-          {navData.logo}
-        </Link>
+        <div className="relative aspect-[4/2.22] w-36 md:w-36 lg:w-44 shrink-0 z-10">
+          <Image
+            src={navData.logo}
+            alt="ASPA Apartments Logo"
+            fill
+            className="object-contain"
+          />
+        </div>
 
         {/* Center Navigation */}
         <ul className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-6 py-2 backdrop-blur-md shadow-lg">
@@ -49,7 +52,7 @@ const LandingNavbar = () => {
           ))}
         </ul>
 
-        <ul className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-3 z-1">
+        <ul className="flex gap-2 lg:items-center lg:gap-3 z-1">
           {navData.buttons.map((link, index) => (
             <li key={index}>
               <Link
@@ -65,7 +68,7 @@ font-semibold transition ${
                 }`}
               >
                 {index === 0 ? <WhatsAppIcon /> : <CalendarIcon />}
-                <span>{link.label}</span>
+                <span className="hidden lg:inline-block">{link.label}</span>
               </Link>
             </li>
           ))}

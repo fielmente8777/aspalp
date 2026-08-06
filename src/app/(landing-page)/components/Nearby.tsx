@@ -12,7 +12,7 @@ const NearbyPlaces = ({
   places,
 }: NearbyPlacesData) => {
   return (
-    <SectionWithContainer sectionClassName="bg-p1 text-white">
+    <SectionWithContainer sectionClassName="bg-p1 text-white" containerId="#nearby">
       <div>
         <div className="grid gap-20 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Left */}
