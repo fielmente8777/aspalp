@@ -109,7 +109,7 @@ const Form2 = ({ gridView }: Props) => {
         <React.Fragment key={index}>
           {field.type === "date" ? (
             <div
-              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "max-md:pb-4 max-md:pt-2 py-3 lg:px-2"}`}
+              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "px-3 py-3 lg:px-2"}`}
               key={index}
             >
               <label className="text-secondary">{field.icon}</label>
@@ -121,7 +121,7 @@ const Form2 = ({ gridView }: Props) => {
                 selectsRange
                 minDate={minDate}
                 maxDate={maxDate}
-                placeholderText={field.label}
+                placeholderText={`${field.label} *`}
                 calendarClassName="!z-[99999]"
                 popperClassName="!z-[99999]"
                 className={` pointer-events-auto placeholder:text-secondarya outline-none w-full h-full bg-transparent text-base text-secondarya`}
@@ -130,7 +130,7 @@ const Form2 = ({ gridView }: Props) => {
             </div>
           ) : field.type === "tel" ? (
             <div
-              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "max-md:pb-4 max-md:pt-2 py-3 lg:px-2"}`}
+              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "px-3 py-3 lg:px-2"}`}
               key={index}
             >
               <label className="text-secondary">{field.icon}</label>
@@ -156,7 +156,7 @@ const Form2 = ({ gridView }: Props) => {
               <input
                 type={field.type}
                 name={field.name}
-                placeholder={field.label}
+                placeholder={`${field.label} *`}
                 className={`w-full placeholder:text-secondarya focus:outline-none text-secondarya `}
                 value={field.value}
                 onChange={field.onChange}
@@ -164,7 +164,7 @@ const Form2 = ({ gridView }: Props) => {
             </div>
           ) : (
             <div
-              className={`flex bg-white items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "max-md:pb-4 max-md:pt-2 py-3 lg:px-2"}`}
+              className={`flex bg-white items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${gridView ? "p-4" : "px-3 py-3 lg:px-2"}`}
               key={index}
             >
               <label className="text-secondary">{field.icon}</label>
@@ -172,7 +172,7 @@ const Form2 = ({ gridView }: Props) => {
                 key={index}
                 type={field.type}
                 name={field.name}
-                placeholder={field.label}
+                placeholder={`${field.label} *`}
                 className={`w-full placeholder:text-secondarya focus:outline-none text-secondarya `}
                 value={field.value}
                 onChange={field.onChange}

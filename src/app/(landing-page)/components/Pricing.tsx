@@ -12,8 +12,8 @@ interface Props {
 
 const Pricing = ({ data }: Props) => {
   return (
-    <Section className="bg-cream-bg ">
-      <div className="">
+    <Section className="bg-cream-bg px-4">
+      <div >
         <Container>
           <div className="mx-auto max-w-xl text-center">
             <p className="text-gold text-xs md:text-sm uppercase tracking-[0.2em]">
