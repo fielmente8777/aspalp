@@ -41,7 +41,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
             </p>
 
             <h2
-              className="font-serif text-2xl lg:text-5xl text-p2 leading-tight [&>span]:text-gold"
+              className="font-serif text-3xl lg:text-5xl text-p2 leading-tight [&>span]:text-gold"
               dangerouslySetInnerHTML={{ __html: title }}
             />
           </div>
@@ -75,7 +75,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
                 {item.icon}
               </div>
 
-              <h3 className="font-serif text-3xl text-p2">{item.title}</h3>
+              <h3 className="font-serif text-2xl lg:text-3xl text-p2">{item.title}</h3>
 
               <p className="mt-4 text-base leading-7 text-[#6B6B6B]">
                 {item.description}

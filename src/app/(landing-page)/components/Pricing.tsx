@@ -13,7 +13,7 @@ interface Props {
 const Pricing = ({ data }: Props) => {
   return (
     <Section className="bg-cream-bg px-4">
-      <div >
+      <div>
         <Container>
           <div className="mx-auto max-w-xl text-center">
             <p className="text-gold text-xs md:text-sm uppercase tracking-[0.2em]">
@@ -26,31 +26,30 @@ const Pricing = ({ data }: Props) => {
             />
           </div>
         </Container>
-        
+
         <div className="mt-8 md:mt-14 grid gap-8 lg:grid-cols-2 max_width px-0!">
           {data.cards.map((card, index) => (
             <div
               key={index}
-              className={`rounded-3xl border p-8 ${
+              className={`rounded-3xl border p-6 lg:p-8 ${
                 card.variant === "dark"
                   ? "bg-p1 border-p2 text-white"
                   : "bg-white border-[#ECE7DD] text-p2"
               }`}
             >
-              <div className="flex justify-between">
-                <div>
+              <div >
+                <div className="flex justify-between items-center">
                   <p className="text-xs tracking-[0.18em] uppercase text-gold">
                     {card.tag}
                   </p>
-
-                  <h3 className="mt-2 font-serif text-3xl md:text-4xl">
-                    {card.title}
-                  </h3>
+                  <span className="inline-flex h-7 items-center justify-center rounded-full border border-gold px-4 text-[10px] font-medium uppercase tracking-wide text-gold text-nowrap">
+                    {card.badge}
+                  </span>
                 </div>
 
-                <span className="inline-flex h-7 items-center justify-center rounded-full border border-gold px-4 text-[10px] font-medium uppercase tracking-wide text-gold">
-                  {card.badge}
-                </span>
+                <h3 className="mt-2 font-serif text-3xl md:text-4xl ">
+                  {card.title}
+                </h3>
               </div>
 
               <div className="mt-8 flex items-end gap-2">
