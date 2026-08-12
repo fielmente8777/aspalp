@@ -40,7 +40,6 @@ const ImageBanner: React.FC<HeroDataProps> = ({
                 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
-
               <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                 {description}
               </p>
