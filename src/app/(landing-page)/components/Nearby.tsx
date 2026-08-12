@@ -4,12 +4,14 @@ import Link from "next/link";
 import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
 import { NearbyPlacesData } from "./pageData";
 import { SectionWithContainer } from "@/components/sectionComponants";
+import LazyLoadedMap from "@/components/map/LazyLoadedMap";
 
 const NearbyPlaces = ({
   tagline,
   title,
   buttons,
   places,
+  mapSrc,
 }: NearbyPlacesData) => {
   return (
     <SectionWithContainer
@@ -19,7 +21,7 @@ const NearbyPlaces = ({
       <div>
         <div className="grid gap-3 lg:gap-20 grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Left */}
-          <div className="lg:sticky lg:top-28 h-fit">
+          <div>
             <p className="mb-4 text-xs md:text-sm uppercase tracking-[0.2em] text-gold">
               {tagline}
             </p>
@@ -32,7 +34,7 @@ const NearbyPlaces = ({
             <div className="mt-10 hidden lg:flex gap-4">
               <Link
                 href={buttons.enquire.href}
-                className="flex h-14 min-w-[220px] items-center justify-center gap-2 rounded-xl bg-white font-medium text-p1"
+                className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-white font-medium text-p1"
               >
                 <WhatsAppIcon />
                 {buttons.enquire.label}
@@ -40,11 +42,14 @@ const NearbyPlaces = ({
 
               <Link
                 href={buttons.book.href}
-                className="flex h-14 min-w-[220px] items-center justify-center gap-2 rounded-xl bg-gold text-white font-medium"
+                className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-gold text-white font-medium"
               >
                 <CalendarIcon />
                 {buttons.book.label}
               </Link>
+            </div>
+            <div className="mt-14 h-[630px] w-full overflow-hidden rounded-xl">
+              <LazyLoadedMap src={mapSrc} />
             </div>
           </div>
 

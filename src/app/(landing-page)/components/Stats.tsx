@@ -22,7 +22,7 @@ const StatsSection = ({ stats }: StatsProps) => {
                 key={index}
                 className={`
                flex flex-col items-center justify-center
-  py-8 lg:py-10
+  py-6
   text-center
   border-[#D8D1C4]
   border-b
@@ -32,11 +32,11 @@ const StatsSection = ({ stats }: StatsProps) => {
                 ${index !== stats.length - 1 ? "lg:border-r" : ""}
               `}
               >
-                <h3 className="font-serif text-[42px] leading-none text-p2">
-                  {item.value}
-                </h3>
+                <h3 className="font-serif text-[2.25rem] leading-none text-p2"
+                  dangerouslySetInnerHTML={{ __html: item.value }}
+                />
 
-                <p className="mt-2 font-mono text-[12px] uppercase tracking-[0.18em] text-[#7B7B7B]">
+                <p className="mt-2 font-mono text-sm uppercase tracking-[0.18em] text-p2">
                   {item.label}
                 </p>
               </div>

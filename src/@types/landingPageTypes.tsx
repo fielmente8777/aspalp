@@ -42,14 +42,16 @@ import { JSX } from "react/jsx-runtime";
 //   }[];
 // }
 
-// export interface TestimonialsProps {
-//   tagline: string;
-//   title: string;
-//   reviews: {
-//     name: string;
-//     review: string;
-//   }[];
-// }
+export interface Testimonial {
+  rating: number;
+  review: string;
+  name: string;
+  location: string;
+}
+
+export interface TestimonialDataType {
+  testimonials: Testimonial[];
+}
 
 export interface FaqSectionProps {
   tagline: string;

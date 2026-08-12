@@ -28,7 +28,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       <div>
         <div className="bg-cream-card rounded-[32px] p-6 md:p-10 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="relative hidden lg:block w-full aspect-[4/4.1] rounded-[24px] overflow-hidden bg-gray-300">
+            <div className="relative hidden lg:block w-full aspect-[4/4.1] rounded-xl overflow-hidden bg-gray-300">
               <Image
                 src={image}
                 alt="About ASPA Apartments"
@@ -37,7 +37,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
               />
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <p className="text-xs md:text-sm font-semibold tracking-widest text-gold uppercase">
                 {tagline}
               </p>

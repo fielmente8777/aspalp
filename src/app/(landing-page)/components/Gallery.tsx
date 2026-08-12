@@ -45,7 +45,14 @@ const Gallery = ({
             {images.slice(0, 9).map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl"
+                className="cursor-pointer relative aspect-[4/3] overflow-hidden rounded-2xl"
+                onClick={() =>
+                  openGallery({
+                    images,
+                    index,
+                  })
+                 
+                }
               >
                 <Image
                   src={image}

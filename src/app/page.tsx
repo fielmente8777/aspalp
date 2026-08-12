@@ -5,20 +5,22 @@ import AboutSection from "./(landing-page)/components/About";
 import {
   AboutData,
   AmenitiesData,
+  FAQData,
   GalleryData,
   heroPageData,
   NearbyPlacesData,
   PricingData,
   statsData,
   StayData,
+  TestimonialsData,
 } from "./(landing-page)/components/pageData";
 import StayGrid from "./(landing-page)/components/StayGrid";
 import Amenities from "./(landing-page)/components/Amenities";
 import NearbyPlaces from "./(landing-page)/components/Nearby";
 import Gallery from "./(landing-page)/components/Gallery";
 import StatsSection from "./(landing-page)/components/Stats";
-import Stats from "./(landing-page)/components/Stats";
-import Pricing from "./(landing-page)/components/Pricing";
+import Testimonials from "./(landing-page)/components/Reviews";
+import FAQ from "./(landing-page)/components/Faqs";
 
 export default function Home() {
   return (
@@ -26,7 +28,7 @@ export default function Home() {
       <HeroSection {...heroPageData.hero} />
       <SectionWithContainer
         defaultPadding={false}
-        sectionClassName="py-8 bg-p1"
+        sectionClassName="py-14 bg-p1"
         containerClassName="space-y-4"
       >
         <Form2 />
@@ -40,8 +42,10 @@ export default function Home() {
       <StayGrid {...StayData} />
       <Amenities {...AmenitiesData} />
       <NearbyPlaces {...NearbyPlacesData} />
-      <Pricing data={PricingData} />
+      <Testimonials {...TestimonialsData} />
+      {/* <Pricing data={PricingData} /> */}
       <Gallery {...GalleryData} />
+      <FAQ {...FAQData} />
     </main>
   );
 }
