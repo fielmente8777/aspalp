@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton, {
+  CalendarIcon,
+  WhatsAppIcon,
+} from "@/components/buttons/LinkButton";
 import SectionWithContainer from "@/components/sectionComponants/SectionWithContainer";
 import { ReactNode } from "react";
 
@@ -75,7 +78,9 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
                 {item.icon}
               </div>
 
-              <h3 className="font-serif text-2xl lg:text-2xl text-p2">{item.title}</h3>
+              <h3 className="font-serif text-2xl lg:text-2xl text-p2">
+                {item.title}
+              </h3>
 
               <p className="mt-4 text-base leading-7 text-[#6B6B6B]">
                 {item.description}
@@ -86,6 +91,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
 
         <div className="mt-8 flex flex-col gap-4 lg:hidden">
           <Link
+            target="_blank"
             href={buttons.enquire.href}
             className="w-full flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
           >
@@ -93,13 +99,13 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
             {buttons.enquire.label}
           </Link>
 
-          <Link
+          <LinkButton
             href={buttons.book.href}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-p1 px-6 py-3 font-medium text-white"
-          >
-            <CalendarIcon />
-            {buttons.book.label}
-          </Link>
+            className="flex rounded-md bg-p1 px-8 py-3 text-white text-sm font-medium flex items-center justify-center hover:bg-p1-hover transition"
+
+            label="Book Now"
+            calendarIcon
+          />
         </div>
       </div>
     </SectionWithContainer>

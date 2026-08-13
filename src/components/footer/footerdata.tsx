@@ -1,3 +1,4 @@
+import { contact } from "@/utils/constent";
 import { FooterIcon } from "@/utils/Icons";
 import { ReactNode } from "react";
 
@@ -24,7 +25,8 @@ export const footerData: FooterData = {
       title: "LOCATION",
       links: [
         {
-          title: "X2C8+6RF, Sector 9, Ulwe, Gavthan, Maharashtra 410206",
+          label: "X2C8+6RF, Sector 9, Ulwe, Gavthan, Maharashtra 410206",
+          href: contact.addressLink,
         },
       ],
     },

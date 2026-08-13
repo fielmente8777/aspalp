@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton, {
+  CalendarIcon,
+  WhatsAppIcon,
+} from "@/components/buttons/LinkButton";
 import { GalleryData } from "./pageData";
 import { SectionWithContainer } from "@/components/sectionComponants";
 import { GalleryIcon } from "@/utils/Icons";
@@ -51,7 +54,6 @@ const Gallery = ({
                     images,
                     index,
                   })
-                 
                 }
               >
                 <Image
@@ -81,6 +83,7 @@ const Gallery = ({
         {/* CTA */}
         <div className="mt-16 flex flex-col sm:flex-row  justify-center gap-4">
           <Link
+            target="_blank"
             href={buttons.enquire.href}
             className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg border border-gold bg-white text-p1 font-medium transition hover:bg-gray-100 "
           >
@@ -88,13 +91,13 @@ const Gallery = ({
             {buttons.enquire.label}
           </Link>
 
-          <Link
+          <LinkButton
             href={buttons.book.href}
-            className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg bg-p1 text-white font-medium transition hover:bg-p1-hover"
-          >
-            <CalendarIcon />
-            {buttons.book.label}
-          </Link>
+            className="flex-1 h-11 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
+
+            label="Book Now"
+            calendarIcon
+          />
         </div>
       </div>
     </SectionWithContainer>

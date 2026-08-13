@@ -11,6 +11,7 @@ import Script from "next/script";
 import Call from "@/components/ContactButton/Call";
 import { contact } from "@/utils/constent";
 import Whatsapp from "@/components/ContactButton/WhatsApp";
+import PopUpForm from "@/components/pop-up/PopUpForm";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ImagePopup />
           <Call callNumber={contact.phone[0]} />
           <Whatsapp whatsAppNumber={contact.phone[0]} />
+          <PopUpForm />
         </WebProvider>
       </body>
 

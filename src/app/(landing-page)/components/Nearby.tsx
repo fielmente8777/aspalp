@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton, { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
 import { NearbyPlacesData } from "./pageData";
 import { SectionWithContainer } from "@/components/sectionComponants";
 import LazyLoadedMap from "@/components/map/LazyLoadedMap";
@@ -75,6 +75,7 @@ const NearbyPlaces = ({
           </div>
           <div className="mt-8 flex flex-col gap-4 lg:hidden">
             <Link
+            target="_blank"
               href={buttons.enquire.href}
               className="w-full flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
             >
@@ -82,13 +83,13 @@ const NearbyPlaces = ({
               {buttons.enquire.label}
             </Link>
 
-            <Link
+            <LinkButton
               href={buttons.book.href}
-              className="w-full flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 font-medium text-white"
-            >
-              <CalendarIcon />
-              {buttons.book.label}
-            </Link>
+              className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium flex items-center justify-center hover:bg-p1-hover transition"
+
+              label="Book Now"
+              calendarIcon
+            />
           </div>
         </div>
       </div>

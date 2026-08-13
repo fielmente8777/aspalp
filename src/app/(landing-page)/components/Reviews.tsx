@@ -4,7 +4,7 @@ import { FC } from "react";
 import Link from "next/link";
 
 import TestimonialsSlider from "@/components/sliders/TestimonialsSlider";
-import {
+import LinkButton, {
   CalendarIcon,
   WhatsAppIcon,
 } from "@/components/buttons/LinkButton";
@@ -55,6 +55,7 @@ const Testimonials: FC<TestimonialsProps> = ({
           {/* CTA Buttons */}
           <div className="flex w-full gap-2.5 sm:w-auto">
             <Link
+              target="_blank"
               href={buttons.enquire.href}
               className="flex h-10 flex-1 items-center justify-center gap-2 rounded-lg border border-gold bg-white px-3 text-xs text-p2 transition hover:bg-gold hover:text-white sm:flex-none sm:px-5"
             >
@@ -62,13 +63,13 @@ const Testimonials: FC<TestimonialsProps> = ({
               {buttons.enquire.label}
             </Link>
 
-            <Link
-              href={buttons.book.href}
-              className="flex h-10 flex-1 items-center justify-center gap-2 rounded-lg bg-p1 px-3 text-xs text-white transition hover:opacity-90 sm:flex-none sm:px-5"
-            >
-              <CalendarIcon />
-              {buttons.book.label}
-            </Link>
+             <LinkButton
+                  href={buttons.book.href}
+                  className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium flex items-center justify-center hover:bg-p1-hover transition"
+
+                  label="Book Now"
+                  calendarIcon
+                />
           </div>
         </div>
 

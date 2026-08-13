@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
+import LinkButton, {
   CalendarIcon,
   WhatsAppIcon,
 } from "@/components/buttons/LinkButton";
@@ -39,10 +39,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
   };
 
   return (
-    <SectionWithContainer
-      sectionClassName="bg-cream-bg"
-      containerId="#stays"
-    >
+    <SectionWithContainer sectionClassName="bg-cream-bg" containerId="#stays">
       <div>
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-6">
@@ -66,7 +63,6 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                 key={index}
                 className="overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
               >
-                
                 <div className="relative h-[240px]">
                   <Image
                     src={stay.image}
@@ -76,13 +72,11 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                   />
                 </div>
 
-                
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="font-serif text-3xl text-p2 mb-3">
                     {stay.title}
                   </h3>
 
-                
                   <p
                     className={`text-sm text-gray-600 leading-7 ${
                       isExpanded ? "" : "line-clamp-3"
@@ -91,7 +85,6 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     {stay.description}
                   </p>
 
-                  
                   <button
                     type="button"
                     onClick={() => toggleDescription(index)}
@@ -100,9 +93,9 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     {isExpanded ? "Show Less" : "Know More"}
                   </button>
 
-
                   <div className="mt-auto pt-2 flex gap-4">
                     <Link
+                      target="_blank"
                       href={stay.buttons.enquire.href}
                       className="flex-1 h-11 rounded-md border border-p2 text-p2 text-sm font-medium flex items-center justify-center gap-2 hover:bg-p2 hover:text-white transition"
                     >
@@ -110,13 +103,22 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                       Enquire Now
                     </Link>
 
-                    <Link
+                    {/* <Link
                       href={stay.buttons.book.href}
                       className="flex-1 h-11 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
                     >
                       <CalendarIcon />
                       Book Now
-                    </Link>
+                    </Link> */}
+                    <LinkButton
+                      href={stay.buttons.book.href}
+                      className="flex-1 h-11 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
+
+                      label="Book Now"
+                      calendarIcon
+                    />
+                   
+                  
                   </div>
                 </div>
               </div>

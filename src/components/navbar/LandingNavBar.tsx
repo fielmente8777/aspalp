@@ -5,9 +5,12 @@ import { usePathname } from "next/navigation";
 import { CalendarIcon, WhatsAppIcon } from "../buttons/LinkButton";
 import { navData } from "./navData";
 import Image from "next/image";
+import { useState } from "react";
+import Form2 from "../forms/Form2";
 
 const LandingNavbar = () => {
   const pathName = usePathname();
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -55,7 +58,7 @@ const LandingNavbar = () => {
         <ul className="flex gap-2 lg:items-center lg:gap-3 z-1">
           {navData.buttons.map((link, index) => (
             <li key={index}>
-              <Link
+              {/* <Link
                 href={link.href}
                 className={`flex items-center gap-2 rounded-md
 px-3 py-2 text-xs
@@ -69,11 +72,50 @@ font-semibold transition ${
               >
                 {index === 0 ? <WhatsAppIcon /> : <CalendarIcon />}
                 <span className="hidden lg:inline-block">{link.label}</span>
-              </Link>
+              </Link> */}
+              {index === 0 ? (
+                <Link
+                  href={link.href}
+                  className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-xs font-semibold text-p1 transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
+                >
+                  <WhatsAppIcon />
+                  <span className="hidden lg:inline-block">{link.label}</span>
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setIsBookingOpen(true)}
+                  className="flex items-center gap-2 rounded-md border border-white/20 bg-p1 px-3 py-2 text-xs font-semibold text-white transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
+                >
+                  <CalendarIcon />
+                  <span className="hidden lg:inline-block">{link.label}</span>
+                </button>
+              )}
             </li>
           ))}
         </ul>
       </nav>
+      {isBookingOpen && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4"
+          onClick={() => setIsBookingOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-5xl rounded-xl bg-p1 p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsBookingOpen(false)}
+              className="absolute right-4 top-3 z-10 text-2xl text-white"
+            >
+              ×
+            </button>
+
+            <Form2 gridView />
+          </div>
+        </div>
+      )}
     </header>
   );
 };

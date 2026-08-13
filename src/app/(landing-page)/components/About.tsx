@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton, { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
 import { SectionWithContainer } from "@/components/sectionComponants";
 
 export interface AboutSectionProps {
@@ -60,8 +60,9 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                 dangerouslySetInnerHTML={{ __html: description }}
               />
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 ">
                 <Link
+                  target="_blank"
                   href={buttons.enquire.href}
                   className="w-full sm:w-fit flex items-center justify-center gap-2 bg-white text-p1 px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-95 shadow-sm border border-gold"
                 >
@@ -71,15 +72,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                   <span>{buttons.enquire.label}</span>
                 </Link>
 
-                <Link
+                <LinkButton
                   href={buttons.book.href}
-                  className="w-full sm:w-fit flex items-center justify-center gap-2 bg-p1 text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-p1-hover transition-all duration-300 hover:scale-95 shadow-sm border border-white/10"
-                >
-                  <span>
-                    <CalendarIcon />
-                  </span>
-                  <span>{buttons.book.label}</span>
-                </Link>
+                  className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium flex items-center justify-center hover:bg-p1-hover transition"
+
+                  label="Book Now"
+                  calendarIcon
+                />
               </div>
             </div>
           </div>

@@ -68,11 +68,11 @@ const Footer = () => {
                     </li>
                   ))}
                 </ul>
-                {list.title === "LOCATION" && (
+                {/* {list.title === "LOCATION" && (
                   <div className="mt-8 h-[200px] w-full overflow-hidden rounded-xl">
                     <LazyLoadedMap src={contact.mapUrl} />
                   </div>
-                )}
+                )} */}
               </div>
             ))}
           </div>
