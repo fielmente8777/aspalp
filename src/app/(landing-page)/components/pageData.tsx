@@ -289,8 +289,7 @@ export const statsData = [
   },
   {
     value: "Guest Favourite",
-    label:
-      `THIS HOME IS A GUEST FAVOURITE BASED ON RATINGS, REVIEWS AND RELIABILITY. <span class ="text-black/50">Source Air BnB</span>`,
+    label: `THIS HOME IS A GUEST FAVOURITE BASED ON RATINGS, REVIEWS AND RELIABILITY. <span class ="text-black/50">Source Air BnB</span>`,
   },
   {
     value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
@@ -707,7 +706,6 @@ export const GalleryData = {
     "/images/14.jpeg",
     "/images/15.jpeg",
 
-
     // "/images/2.jpeg",
     // "/images/7.jpeg",
     // "/images/15.jpeg",
@@ -721,7 +719,6 @@ export const GalleryData = {
     // "/images/42.jpeg",
     // "/images/47.jpeg",
     // "/images/52.jpeg",
-    
   ],
   buttons: {
     enquire: {

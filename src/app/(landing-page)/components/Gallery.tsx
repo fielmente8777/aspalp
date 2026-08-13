@@ -84,6 +84,7 @@ const Gallery = ({
         <div className="mt-16 flex flex-col sm:flex-row  justify-center gap-4">
           <Link
             target="_blank"
+
             href={buttons.enquire.href}
             className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg border border-gold bg-white text-p1 font-medium transition hover:bg-gray-100 "
           >
@@ -93,7 +94,7 @@ const Gallery = ({
 
           <LinkButton
             href={buttons.book.href}
-            className="flex-1 h-11 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
+            className="flex px-8 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
 
             label="Book Now"
             calendarIcon

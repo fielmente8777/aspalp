@@ -51,6 +51,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
 
           <div className="hidden lg:flex gap-4">
             <Link
+              target="_blank"
               href={buttons.enquire.href}
               className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
             >
@@ -58,13 +59,12 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
               {buttons.enquire.label}
             </Link>
 
-            <Link
+            <LinkButton
               href={buttons.book.href}
-              className="flex items-center gap-2 rounded-lg bg-p1 px-6 py-3 font-medium text-white"
-            >
-              <CalendarIcon />
-              {buttons.book.label}
-            </Link>
+              className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium items-center justify-center hover:bg-p1-hover transition"
+              label="Book Now"
+              calendarIcon
+            />
           </div>
         </div>
 

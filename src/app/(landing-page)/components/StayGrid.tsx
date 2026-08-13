@@ -97,7 +97,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     <Link
                       target="_blank"
                       href={stay.buttons.enquire.href}
-                      className="flex-1 h-11 rounded-md border border-p2 text-p2 text-sm font-medium flex items-center justify-center gap-2 hover:bg-p2 hover:text-white transition"
+                      className="flex px-6 rounded-md border border-p2 text-p2 text-sm font-medium flex items-center justify-center gap-2 hover:bg-p2 hover:text-white transition"
                     >
                       <WhatsAppIcon />
                       Enquire Now
@@ -112,7 +112,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     </Link> */}
                     <LinkButton
                       href={stay.buttons.book.href}
-                      className="flex-1 h-11 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
+                      className="flex px-6 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
 
                       label="Book Now"
                       calendarIcon

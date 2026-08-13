@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import LinkButton, { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton, {
+  CalendarIcon,
+  WhatsAppIcon,
+} from "@/components/buttons/LinkButton";
 import { NearbyPlacesData } from "./pageData";
 import { SectionWithContainer } from "@/components/sectionComponants";
 import LazyLoadedMap from "@/components/map/LazyLoadedMap";
@@ -33,21 +36,35 @@ const NearbyPlaces = ({
             />
 
             <div className="mt-10 hidden lg:flex gap-4">
-              <Link
+              {/* <Link
                 href={buttons.enquire.href}
-                className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-white font-medium text-p1"
+                className="flex h-14 w-[220px] rounded-md items-center justify-center gap-2 rounded-xl bg-white font-medium text-p1"
+              >
+                <WhatsAppIcon />
+                {buttons.enquire.label}
+              </Link> */}
+              <Link
+                target="_blank"
+                href={buttons.enquire.href}
+                className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
               >
                 <WhatsAppIcon />
                 {buttons.enquire.label}
               </Link>
 
-              <Link
+              {/* <Link
                 href={buttons.book.href}
                 className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-gold text-white font-medium"
               >
                 <CalendarIcon />
                 {buttons.book.label}
-              </Link>
+              </Link> */}
+              <LinkButton
+                href={buttons.book.href}
+                className="flex rounded-md px-10 border-none bg-gold px-6 py-3 text-white text-sm font-medium items-center justify-center"
+                label="Book Now"
+                calendarIcon
+              />
             </div>
             <div className="mt-14 h-[630px] w-full overflow-hidden rounded-xl">
               <LazyLoadedMap src={contact.mapUrl} />
@@ -75,7 +92,7 @@ const NearbyPlaces = ({
           </div>
           <div className="mt-8 flex flex-col gap-4 lg:hidden">
             <Link
-            target="_blank"
+              target="_blank"
               href={buttons.enquire.href}
               className="w-full flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
             >
@@ -85,8 +102,7 @@ const NearbyPlaces = ({
 
             <LinkButton
               href={buttons.book.href}
-              className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium flex items-center justify-center hover:bg-p1-hover transition"
-
+              className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium items-center justify-center hover:bg-p1-hover transition"
               label="Book Now"
               calendarIcon
             />

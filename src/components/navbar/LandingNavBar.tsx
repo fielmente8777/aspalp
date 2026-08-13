@@ -75,6 +75,7 @@ font-semibold transition ${
               </Link> */}
               {index === 0 ? (
                 <Link
+                  target="_blank"
                   href={link.href}
                   className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-xs font-semibold text-p1 transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
                 >

@@ -57,7 +57,7 @@ const Testimonials: FC<TestimonialsProps> = ({
             <Link
               target="_blank"
               href={buttons.enquire.href}
-              className="flex h-10 flex-1 items-center justify-center gap-2 rounded-lg border border-gold bg-white px-3 text-xs text-p2 transition hover:bg-gold hover:text-white sm:flex-none sm:px-5"
+              className="flex items-center justify-center gap-2 rounded-lg border border-gold bg-white px-3 text-sm text-p2 transition hover:bg-gold hover:text-white sm:flex-none sm:px-5"
             >
               <WhatsAppIcon />
               {buttons.enquire.label}
