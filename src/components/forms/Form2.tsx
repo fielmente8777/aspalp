@@ -193,21 +193,23 @@ const Form2 = ({ gridView }: Props) => {
           )}
         </React.Fragment>
       ))}
-      {/* Select Guests */}
+
       <div
         className={`relative z-[100] bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
           gridView ? "p-4" : "px-3 py-3 lg:px-2"
         }`}
         onClick={() => setGuestOpen((o) => !o)}
       >
-        <UserIcon />
+        <span className="text-secondarya/60">
+          <UserIcon />
+        </span>
 
-        <span className="flex-1 cursor-pointer text-secondarya">
+        <span className="flex-1 cursor-pointer text-base text-black/50">
           {guestLabel}
         </span>
 
         <IoIosArrowDown
-          className={`pointer-events-none transition-transform duration-200 ${
+          className={`pointer-events-none text-secondarya/60 transition-transform duration-200 ${
             guestOpen ? "rotate-180" : ""
           }`}
         />
@@ -233,7 +235,7 @@ const Form2 = ({ gridView }: Props) => {
           </div>
         )}
       </div>
-      {/* Check-in & out */}
+
       <div
         className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
           gridView ? "p-4" : "px-3 py-3 lg:px-2"

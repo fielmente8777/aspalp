@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import "./style.scss";
 import LandingNavbar from "@/components/navbar/LandingNavBar";
@@ -16,7 +16,11 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument-serif",
+});
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -34,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${cormorant.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <WebProvider>
@@ -42,9 +46,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <Footer />
           <ImagePopup />
-          <Call callNumber={contact.phone[0]}/>
-          <Whatsapp whatsAppNumber={contact.phone[0]}/>
-
+          <Call callNumber={contact.phone[0]} />
+          <Whatsapp whatsAppNumber={contact.phone[0]} />
         </WebProvider>
       </body>
 

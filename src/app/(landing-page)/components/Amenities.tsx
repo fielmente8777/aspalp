@@ -75,7 +75,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
                 {item.icon}
               </div>
 
-              <h3 className="font-serif text-2xl lg:text-3xl text-p2">{item.title}</h3>
+              <h3 className="font-serif text-2xl lg:text-2xl text-p2">{item.title}</h3>
 
               <p className="mt-4 text-base leading-7 text-[#6B6B6B]">
                 {item.description}

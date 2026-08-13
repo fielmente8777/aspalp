@@ -8,10 +8,11 @@ Thank you!`);
 
 export const contact = {
   email: "",
-  mapUrl: "",
+  mapUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.413032954366!2d73.01426037524773!3d18.970757382212376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c300237740f9%3A0xc81745c5125dcfee!2sASPA%20SERVICE%20APARTMENT!5e1!3m2!1sen!2sin!4v1786596319165!5m2!1sen!2sin",
   phone: ["+917208010831"],
   address: "",
-  addressLink: "",
+  addressLink: "https://maps.app.goo.gl/MjRRY26Xh3Hg7T7a8",
   socialMedia: {
     facebook: "https://www.facebook.com",
     instagram: "https://www.instagram.com/",

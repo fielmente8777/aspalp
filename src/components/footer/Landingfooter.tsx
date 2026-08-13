@@ -5,6 +5,8 @@ import { footerData, FooterData } from "./footerdata";
 import Form2 from "../forms/Form2";
 import { Container, Section, SectionWithContainer } from "../sectionComponants";
 import Link from "next/dist/client/link";
+import LazyLoadedMap from "../map/LazyLoadedMap";
+import { contact } from "@/utils/constent";
 
 const Footer = () => {
   const data = footerData;
@@ -37,9 +39,6 @@ const Footer = () => {
                 />
               </div>
 
-
-              
-
               <p className="text-white/70 leading-7">
                 {footerData.description}
               </p>
@@ -69,6 +68,11 @@ const Footer = () => {
                     </li>
                   ))}
                 </ul>
+                {list.title === "LOCATION" && (
+                  <div className="mt-8 h-[200px] w-full overflow-hidden rounded-xl">
+                    <LazyLoadedMap src={contact.mapUrl} />
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -66,7 +66,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                 key={index}
                 className="overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
               >
-                {/* Image */}
+                
                 <div className="relative h-[240px]">
                   <Image
                     src={stay.image}
@@ -76,13 +76,13 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                   />
                 </div>
 
-                {/* Content */}
+                
                 <div className="flex flex-1 flex-col p-4">
-                  <h3 className="font-serif text-2xl text-p2 mb-3">
+                  <h3 className="font-serif text-3xl text-p2 mb-3">
                     {stay.title}
                   </h3>
 
-                  {/* Description */}
+                
                   <p
                     className={`text-sm text-gray-600 leading-7 ${
                       isExpanded ? "" : "line-clamp-3"
@@ -91,7 +91,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     {stay.description}
                   </p>
 
-                  {/* Know More */}
+                  
                   <button
                     type="button"
                     onClick={() => toggleDescription(index)}
@@ -100,7 +100,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     {isExpanded ? "Show Less" : "Know More"}
                   </button>
 
-                  {/* Buttons */}
+
                   <div className="mt-auto pt-2 flex gap-4">
                     <Link
                       href={stay.buttons.enquire.href}

@@ -67,7 +67,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
               </div>
             </div>
             <div className="mt-8 hidden lg:block">
-              <div className="rounded-3xl bg-[#1B2C27]/90 backdrop-blur-xl px-8 py-6">
+              <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs px-8 py-6">
                 <div className="grid grid-cols-7 divide-x divide-white/20">
                   {features.map((item, index) => (
                     <div key={index} className="flex flex-col text-center">

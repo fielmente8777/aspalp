@@ -5,6 +5,7 @@ import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
 import { NearbyPlacesData } from "./pageData";
 import { SectionWithContainer } from "@/components/sectionComponants";
 import LazyLoadedMap from "@/components/map/LazyLoadedMap";
+import { contact } from "@/utils/constent";
 
 const NearbyPlaces = ({
   tagline,
@@ -49,7 +50,7 @@ const NearbyPlaces = ({
               </Link>
             </div>
             <div className="mt-14 h-[630px] w-full overflow-hidden rounded-xl">
-              <LazyLoadedMap src={mapSrc} />
+              <LazyLoadedMap src={contact.mapUrl} />
             </div>
           </div>
 
