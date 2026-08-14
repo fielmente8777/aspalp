@@ -63,7 +63,7 @@ const AboutSection: React.FC<AboutData> = ({
                       className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
+                        ? "bg-white text-p1 border border-[#c8a96a]"
                         : "border border-primary text-white bg-p1"
                     }
                     `}

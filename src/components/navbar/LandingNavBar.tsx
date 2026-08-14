@@ -77,7 +77,7 @@ font-semibold transition ${
                 <Link
                   target="_blank"
                   href={link.href}
-                  className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-xs font-semibold text-p1 transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
+                  className="flex items-center gap-2 rounded-md bg-white border border-[#c8a96a] px-3 py-2 text-xs font-semibold text-p1 transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
                 >
                   <WhatsAppIcon />
                   <span className="hidden xl:inline-block">{link.label}</span>
@@ -86,7 +86,7 @@ font-semibold transition ${
                 <button
                   type="button"
                   onClick={() => setIsBookingOpen(true)}
-                  className="flex items-center gap-2 rounded-md border border-white/20 bg-p1 px-3 py-2 text-xs font-semibold text-white transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
+                  className="flex items-center gap-2 rounded-md border-none bg-p1 px-3 py-2 text-xs font-semibold text-white transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
                 >
                   <CalendarIcon />
                   <span className="hidden xl:inline-block">{link.label}</span>

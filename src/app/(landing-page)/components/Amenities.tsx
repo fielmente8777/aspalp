@@ -38,8 +38,8 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
                   className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
-                        : "border border-primary text-white bg-p1"
+                        ? "bg-white text-p1 border-none"
+                        : "border-none text-white bg-p1"
                     }
                     `}
                 />
@@ -79,7 +79,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
                 className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
+                        ? "bg-white text-p1 border border-[#c8a96a]"
                         : "border border-primary text-white bg-p1"
                     }
                     `}

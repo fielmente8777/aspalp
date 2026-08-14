@@ -39,9 +39,10 @@ const Gallery = ({
             />
           </div>
 
-          <p className="max-w-md text-md md:text-lg leading-8 text-[#6E6E6E]">
-            {description}
-          </p>
+          <p
+            className="max-w-md text-md md:text-lg leading-8 text-[#6E6E6E]"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
         <div className="relative mt-12">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -92,7 +93,7 @@ const Gallery = ({
                 className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
+                        ? "bg-white text-p1 border border-[#c8a96a]"
                         : "border border-primary text-white bg-p1"
                     }
                     `}

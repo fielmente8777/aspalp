@@ -649,7 +649,7 @@ export const GalleryData = {
   title:
     'Step inside, <span class="text-gold italic">Before you Arrive.</span>',
   description:
-    "A look at the rooms, lounge spaces and quiet corners across the ASPA building.",
+    "A look at the rooms, lounge spaces and quiet corners across the <strong> aspa </strong> building.",
   images: [
     "/images/58.jpeg",
     "/images/69.jpeg",

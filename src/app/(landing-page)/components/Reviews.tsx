@@ -44,7 +44,7 @@ const Testimonials: FC<TestimonialsProps> = ({
           </div>
 
           {/* CTA Buttons */}
-         <ul className="lg:grid hidden grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          <ul className="lg:grid hidden grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
             {buttons.map((button, index) => (
               <li key={index}>
                 <LinkButton
@@ -55,7 +55,7 @@ const Testimonials: FC<TestimonialsProps> = ({
                   className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
+                        ? "bg-white text-p1 border border-[#c8a96a]"
                         : "border border-primary text-white bg-p1"
                     }
                     `}
@@ -69,25 +69,25 @@ const Testimonials: FC<TestimonialsProps> = ({
         <div className="py-6 drop-shadow-2xl">
           <TestimonialsSlider cards={testimonials} />
         </div>
-          <ul className="lg:hidden grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
-            {buttons.map((button, index) => (
-              <li key={index}>
-                <LinkButton
-                  href={button.link}
-                  label={button.label}
-                  whatsAppIcon={index === 0}
-                  calendarIcon={index === 1}
-                  className={`rounded-md w-full justify-center
+        <ul className="lg:hidden grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          {buttons.map((button, index) => (
+            <li key={index}>
+              <LinkButton
+                href={button.link}
+                label={button.label}
+                whatsAppIcon={index === 0}
+                calendarIcon={index === 1}
+                className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-white text-p1 border border-gold"
+                        ? "bg-white text-p1 border border-[#c8a96a]"
                         : "border-none text-white bg-p1"
                     }
                     `}
-                />
-              </li>
-            ))}
-          </ul>
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </SectionWithContainer>
   );
