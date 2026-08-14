@@ -53,18 +53,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </WebProvider>
       </body>
 
-      {/* <Script id="chatbot-config" strategy="afterInteractive">
+      <Script id="chatbot-config" strategy="afterInteractive">
         {`
     window.eazbotConfig = {
        ndid: "272710ae-0ff8-4684-a39c-a3a4756173dd",
        hid: "69831210",
     };
   `}
-      </Script> */}
-      {/* <Script
+      </Script>
+      <Script
         src="https://cb-script.dyq28lyxrazm2.amplifyapp.com/widget/lead-chatbot.js"
         strategy="afterInteractive"
-      /> */}
+      />
     </html>
   );
 }
