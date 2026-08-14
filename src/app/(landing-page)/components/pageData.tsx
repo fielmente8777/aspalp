@@ -406,6 +406,7 @@ export const StayData = {
         },
       ],
     },
+    
     {
       title: "Birthday Celebrations",
       description:
