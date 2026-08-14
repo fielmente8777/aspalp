@@ -47,7 +47,7 @@ const NearbyPlaces = ({
                     ${
                       index === 0
                         ? "bg-white text-p1"
-                        : "border border-primary text-white bg-p1"
+                        : "border-none text-white bg-gold"
                     }
                     `}
                   />
