@@ -29,7 +29,7 @@ const Footer = () => {
         <Container>
           <div className="grid py-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_.7fr_.5fr] gap-12">
             {/* Logo */}
-            <div className="flex flex-col gap-6 lg:max-w-sm items-center justify-center">
+            <div className="flex flex-col gap-6 lg:max-w-sm lg:items-center lg:justify-center">
               <div className="relative w-40 aspect-[4/3] ">
                 <Image
                   src={footerData.logo}
@@ -39,7 +39,7 @@ const Footer = () => {
                 />
               </div>
 
-              <p className="text-white/70 leading-7 text-center justify-center">
+              <p className="text-white/70 leading-7 lg:text-center lg:justify-center">
                 {footerData.description}
               </p>
             </div>
