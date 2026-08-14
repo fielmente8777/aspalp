@@ -121,49 +121,6 @@ const ImageBanner: React.FC<HeroData> = ({
           )}
         />
       </Section>
-      {/* <div className="relative z-10 lg:hidden mt-4 pb-6">
-        <div className="max_width">
-          <SwiperCarousel<HeroFeature>
-            data={features}
-            modules={[Pagination, Autoplay]}
-            slidesPerView={1.2}
-            spaceBetween={16}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            pagination={{ clickable: true }}
-            className="feature-swiper"
-            swiperSlideClassName="h-auto"
-            renderSlide={(item, index) => (
-              <div
-                key={index}
-                className="rounded-2xl bg-[#1B2C27]/90 backdrop-blur-xl p-5"
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-3 text-gold">{item.icon}</div>
-
-                  {item.stars && (
-                    <div className="mb-2 flex justify-center text-gold">
-                      {item.stars}
-                    </div>
-                  )}
-
-                  <p className="text-sm font-semibold text-white">
-                    {item.value}
-                  </p>
-
-                  <p className="mt-1 text-xs text-white">{item.title}</p>
-
-                  <p className="mt-2 text-[11px] leading-5 text-white/70">
-                    {item.subtitle}
-                  </p>
-                </div>
-              </div>
-            )}
-          />
-        </div>
-      </div> */}
     </main>
   );
 };

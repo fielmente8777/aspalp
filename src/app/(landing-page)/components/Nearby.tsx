@@ -34,38 +34,7 @@ const NearbyPlaces = ({
               className="font-serif text-3xl md:text-5xl leading-[1.1] [&>span]:text-gold"
               dangerouslySetInnerHTML={{ __html: title }}
             />
-            {/* 
-            <div className="mt-10 hidden lg:flex gap-4">
-              <Link
-                href={buttons.enquire.href}
-                className="flex h-14 w-[220px] rounded-md items-center justify-center gap-2 rounded-xl bg-white font-medium text-p1"
-              >
-                <WhatsAppIcon />
-                {buttons.enquire.label}
-              </Link>
-              <Link
-                target="_blank"
-                href={buttons.enquire.href}
-                className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 text-[16px] shadow"
-              >
-                <WhatsAppIcon />
-                {buttons.enquire.label}
-              </Link>
-
-              <Link
-                href={buttons.book.href}
-                className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-gold text-white font-medium"
-              >
-                <CalendarIcon />
-                {buttons.book.label}
-              </Link>
-              <LinkButton
-                href={buttons.book.href}
-                className="flex rounded-md px-10 border-none bg-gold px-6 py-3 text-white text-[16px] font-medium items-center justify-center"
-                label="Book Now"
-                calendarIcon
-              />
-            </div> */}
+            
             <ul className="hidden md:grid mt-10 grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
               {buttons.map((button, index) => (
                 <li key={index}>

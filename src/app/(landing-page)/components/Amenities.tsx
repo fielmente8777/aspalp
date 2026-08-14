@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import LinkButton, {
   CalendarIcon,
   WhatsAppIcon,
 } from "@/components/buttons/LinkButton";
 import SectionWithContainer from "@/components/sectionComponants/SectionWithContainer";
-import { ReactNode } from "react";
+
 import { AmenitiesData } from "./pageData";
 
 const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
@@ -69,44 +68,25 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
             </div>
           ))}
         </div>
-
-        {/* <div className="mt-8 flex flex-col gap-4 lg:hidden">
-          <Link
-            target="_blank"
-            href={buttons.enquire.href}
-            className="w-full flex items-center justify-center gap-2 rounded-lg text-[16px] bg-white px-6 py-3 font-medium text-p2 shadow"
-          >
-            <WhatsAppIcon />
-            {buttons.enquire.label}
-          </Link>
-
-          <LinkButton
-            href={buttons.book.href}
-            className="flex rounded-md bg-p1 px-8 py-3 text-white font-medium text-sm flex items-center justify-center hover:bg-p1-hover transition"
-
-            label="Book Now"
-            calendarIcon
-          />
-        </div> */}
-         <ul className="md:hidden mt-8 grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
-            {buttons.map((button, index) => (
-              <li key={index}>
-                <LinkButton
-                  href={button.link}
-                  label={button.label}
-                  whatsAppIcon={index === 0}
-                  calendarIcon={index === 1}
-                  className={`rounded-md w-full justify-center
+        <ul className="md:hidden mt-8 grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          {buttons.map((button, index) => (
+            <li key={index}>
+              <LinkButton
+                href={button.link}
+                label={button.label}
+                whatsAppIcon={index === 0}
+                calendarIcon={index === 1}
+                className={`rounded-md w-full justify-center
                     ${
                       index === 0
                         ? "bg-transparent text-p1"
                         : "border border-primary text-white bg-p1"
                     }
                     `}
-                />
-              </li>
-            ))}
-          </ul>
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </SectionWithContainer>
   );
