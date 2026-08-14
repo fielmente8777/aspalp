@@ -80,8 +80,8 @@ const Testimonials: FC<TestimonialsProps> = ({
                   className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
-                        : "border border-primary text-white bg-p1"
+                        ? "bg-white text-p1 border border-gold"
+                        : "border-none text-white bg-p1"
                     }
                     `}
                 />
