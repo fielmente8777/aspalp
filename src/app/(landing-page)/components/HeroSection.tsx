@@ -19,23 +19,23 @@ const ImageBanner: React.FC<HeroData> = ({
   features,
 }) => {
   return (
-    <>
+    <main>
       <Section
         className="relative w-full overflow-hidden"
         defaultPadding={false}
       >
         <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
           <div className="max_width">
-            <div className=" w-[540px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
+            <div className=" w-full max-w-[540px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
               <h1
-                className="font-serif text-4xl md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
+                className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
               <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                 {description}
               </p>
 
-              <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+              <ul className="md:grid hidden grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
                 {buttons.map((button, index) => (
                   <li key={index}>
                     <LinkButton
@@ -46,7 +46,7 @@ const ImageBanner: React.FC<HeroData> = ({
                       className={`rounded-md w-full justify-center
                     ${
                       index === 0
-                        ? "bg-transparent text-p1"
+                        ? "bg-white text-p1"
                         : "border border-primary text-white bg-p1"
                     }
                     `}
@@ -56,7 +56,7 @@ const ImageBanner: React.FC<HeroData> = ({
               </ul>
             </div>
             <div className="mt-8 hidden xl:block">
-              <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs px-8 py-6">
+              <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] px-8 py-6">
                 <div className="grid grid-cols-7 divide-x divide-white/20">
                   {features.map((item, index) => (
                     <div key={index} className="flex flex-col text-center">
@@ -108,7 +108,7 @@ const ImageBanner: React.FC<HeroData> = ({
           }}
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-[4/5] md:aspect-[16/8.9] ">
+            <div className="relative w-full aspect-[4/5.5] md:aspect-[16/8.9] ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
@@ -164,7 +164,7 @@ const ImageBanner: React.FC<HeroData> = ({
           />
         </div>
       </div> */}
-    </>
+    </main>
   );
 };
 

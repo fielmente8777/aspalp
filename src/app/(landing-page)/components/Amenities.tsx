@@ -28,7 +28,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
             />
           </div>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          <ul className="hidden md:grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
             {buttons.map((button, index) => (
               <li key={index}>
                 <LinkButton
@@ -53,7 +53,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
           {amenities.map((item, index) => (
             <div
               key={index}
-              className="rounded-2xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-2xl bg-white p-6 lg:p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="mb-8 flex h-10 w-10 items-center justify-center">
                 {item.icon}
@@ -88,6 +88,25 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
             calendarIcon
           />
         </div> */}
+         <ul className="md:hidden mt-8 grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+            {buttons.map((button, index) => (
+              <li key={index}>
+                <LinkButton
+                  href={button.link}
+                  label={button.label}
+                  whatsAppIcon={index === 0}
+                  calendarIcon={index === 1}
+                  className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-transparent text-p1"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+                />
+              </li>
+            ))}
+          </ul>
       </div>
     </SectionWithContainer>
   );

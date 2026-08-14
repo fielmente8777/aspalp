@@ -16,7 +16,7 @@ const AboutSection: React.FC<AboutData> = ({
   return (
     <SectionWithContainer sectionClassName="bg-cream-bg" containerId="#about">
       <div>
-        <div className="bg-cream-card rounded-[32px] p-6 md:p-10 lg:p-12">
+        <div className="bg-cream-card xl:rounded-[32px] rounded-2xl p-6 md:p-10 lg:p-12">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="relative hidden xl:block w-full aspect-[4/4.1] rounded-xl overflow-hidden bg-gray-300">
               <Image
@@ -37,7 +37,7 @@ const AboutSection: React.FC<AboutData> = ({
                 dangerouslySetInnerHTML={{ __html: title }}
               />
 
-              <div className="relative xl:hidden w-full aspect-[3/3] rounded-[24px] overflow-hidden bg-gray-300">
+              <div className="relative xl:hidden w-full aspect-[3/3] rounded-xl overflow-hidden bg-gray-300">
                 <Image
                   src={image}
                   alt="About ASPA Apartments"

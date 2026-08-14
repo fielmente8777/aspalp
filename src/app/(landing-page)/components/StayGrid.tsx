@@ -73,7 +73,7 @@ const StayGrid = ({ title, tagline, stays }: StayData) => {
                   </button>
 
                   <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
-                    {buttons.map((button, index) => (
+                    {stay.buttons.map((button, index) => (
                       <li key={index}>
                         <LinkButton
                           href={button.link}

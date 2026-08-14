@@ -102,7 +102,7 @@ const Form2 = ({ gridView }: Props) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`${gridView ? "flex flex-col gap-2" : "grid md:grid-cols-6 items-center gap-3.5 "} font-body px-4 bg-transparent  max-md:divide-y divide-p1`}
+      className={`${gridView ? "flex flex-col gap-2" : "grid md:grid-cols-6 items-center gap-3.5 "} font-body xl:px-4 bg-transparent  max-md:divide-y divide-p1`}
     >
       {formFields.map((field, index) => (
         <React.Fragment key={index}>

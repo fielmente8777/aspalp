@@ -26,7 +26,7 @@ const FAQ = ({ faqs }: FAQProps) => {
       sectionClassName="bg-white"
       containerId="#faqs"
     >
-      <div className="mx-auto w-full max-w-[530px] py-16 lg:py-16">
+      <div className="mx-auto w-full max-w-4xl py-16 lg:py-16">
         {/* Heading */}
         <h2 className="mb-9 text-center font-serif text-[48px] leading-none text-p2">
           FAQs
@@ -40,15 +40,15 @@ const FAQ = ({ faqs }: FAQProps) => {
             return (
               <div
                 key={index}
-                className="border-b border-[#D8B66A]/40"
+                className="py-4 border-b border-[#D8B66A]/40"
               >
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
-                  className="flex min-h-[52px] w-full items-center justify-between gap-6 text-left"
+                  className="flex w-full items-center justify-between gap-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-2xl leading-none text-p2">
+                  <span className="font-serif text-xl md:text-2xl leading-none text-p2">
                     {faq.question}
                   </span>
 

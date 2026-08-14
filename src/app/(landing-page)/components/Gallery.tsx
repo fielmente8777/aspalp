@@ -81,7 +81,7 @@ const Gallery = ({
         </div>
 
         {/* CTA */}
-        <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+        <ul className="grid grid-cols-1 mt-8 mx-auto md:grid-cols-2 max-w-sm gap-4 justify-center ">
           {buttons.map((button, index) => (
             <li key={index}>
               <LinkButton

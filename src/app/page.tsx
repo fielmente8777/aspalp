@@ -28,7 +28,7 @@ export default function Home() {
       <HeroSection {...heroPageData.hero} />
       <SectionWithContainer
         defaultPadding={false}
-        sectionClassName="py-14 bg-p1"
+        sectionClassName="lg:py-14 py-10 bg-p1"
         containerClassName="space-y-4"
       >
         <Form2 />

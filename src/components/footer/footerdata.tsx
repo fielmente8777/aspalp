@@ -16,7 +16,7 @@ export interface FooterData {
 }
 
 export const footerData: FooterData = {
-  logo: "/images/footer.png",
+  logo: "/images/footer1.png",
   description:
     "ASPA Apartments in Navi Mumbai offers spacious apartments with two bedrooms and two bathrooms. Each unit features a terrace and free WiFi, ensuring a comfortable stay.",
 
@@ -33,10 +33,10 @@ export const footerData: FooterData = {
     {
       title: "CONTACT",
       links: [
-        {
-          label: "WhatsApp: +9172080 10831",
-          href: "https://wa.me/917208010831",
-        },
+        // {
+        //   label: "WhatsApp: +9172080 10831",
+        //   href: "https://wa.me/917208010831",
+        // },
         {
           label: "Call: +9172080 10831",
           href: "tel:+917208010831",

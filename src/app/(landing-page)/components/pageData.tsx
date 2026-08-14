@@ -1,11 +1,18 @@
 import {
   AirIcon,
+  BottleIcon,
+  ChairIcon,
   EntryIcon,
   HouseKeepingIcon,
+  Item,
   KitchenIcon,
+  MachineIcon,
+  OvenIcon,
   ParkingIcon,
   PowerIcon,
   SecurityIcon,
+  TowelIcon,
+  TvIcon,
   WaterIcon,
   WifiIcon,
 } from "@/utils/amenities";
@@ -26,13 +33,13 @@ import { ReactNode } from "react";
 interface button {
   label: string;
   link: string;
-}[];
+};
 export interface HeroData {
   tag?: string;
   title: string;
   description: string;
   images: string[];
-  buttons: button;
+  buttons: button[];
   benefits: string;
   features: HeroFeature[];
 }
@@ -49,14 +56,14 @@ export interface AboutData {
   title: string;
   description: string;
   image: string;
-  buttons: button;
+  buttons: button[];
 }
 
 export interface StayCard {
   title: string;
   description: string;
   image: string;
-  buttons: button;
+  buttons: button[];
 }
 
 export interface StayData {
@@ -74,7 +81,7 @@ export interface AmenityCard {
 export interface AmenitiesData {
   tagline: string;
   title: string;
-  buttons: button;
+  buttons: button[];
   amenities: AmenityCard[];
 }
 
@@ -88,7 +95,7 @@ export interface NearbyPlacesData {
   tagline: string;
   title: string;
   mapSrc: string;
-  buttons: button;
+  buttons: button[];
   places: NearbyPlace[];
 }
 
@@ -97,7 +104,7 @@ export interface GalleryData {
   title: string;
   description: string;
   images: string[];
-  buttons: button;
+  buttons: button[];
 }
 
 export interface PricingCard {
@@ -109,7 +116,7 @@ export interface PricingCard {
   description: string;
   features: string[];
   variant: "light" | "dark";
-  buttons: button;
+  buttons: button[];
 }
 export interface PricingData {
   tagline: string;
@@ -514,43 +521,43 @@ export const AmenitiesData = {
         "Enhanced safety with secure biometric access for guests only.",
     },
     {
-      icon: <EntryIcon />,
+      icon: <TvIcon />,
       title: "Smart TV",
       description:
         "Enjoy your favorite shows, movies, and entertainment from the comfort of your stay.",
     },
     {
-      icon: <EntryIcon />,
+      icon: <MachineIcon />,
       title: "Washing Machine",
       description:
         "Convenient laundry facilities to keep your clothes fresh throughout your stay.",
     },
     {
-      icon: <EntryIcon />,
+      icon: <OvenIcon />,
       title: "Microwave",
       description: "Quickly heat and prepare your meals with ease.",
     },
     {
-      icon: <EntryIcon />,
+      icon: <BottleIcon />,
       title: "Bottled Water",
       description:
         "Enjoy clean, refreshing bottled water throughout your stay.",
     },
     {
-      icon: <EntryIcon />,
+      icon: <ChairIcon />,
       title: "IKEA Furniture",
       description:
         "Relax in stylish, thoughtfully designed IKEA furnishings for a comfortable stay.",
     },
     {
-      icon: <EntryIcon />,
+      icon: <TowelIcon />,
       title: "Fresh Linen & Towels",
       description:
         "Enjoy fresh, clean linen and soft towels for a comfortable stay.",
     },
 
     {
-      icon: <EntryIcon />,
+      icon: <Item />,
       title: "Kitchen Essentials",
       description:
         "Everything you need for convenient everyday cooking and dining.",
