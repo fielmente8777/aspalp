@@ -54,11 +54,11 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
               key={index}
               className="rounded-2xl bg-white p-4 lg:p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="mb:6 lg:mb-6 flex h-10 w-10 items-center justify-center">
+              <div className=" md:mb-6 flex h-10 w-10 items-center justify-center">
                 {item.icon}
               </div>
 
-              <h3 className="font-serif text-2xl lg:text-2xl text-p2">
+              <h3 className="font-serif mt-4 md:mt-0 text-2xl lg:text-2xl text-p2">
                 {item.title}
               </h3>
 

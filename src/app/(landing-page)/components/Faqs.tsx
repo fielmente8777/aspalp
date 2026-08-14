@@ -70,7 +70,7 @@ const FAQ = ({ faqs }: FAQProps) => {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-4 pr-8 font-body text-sm leading-6 text-[#777777]">
+                    <p className="pb-4 mt-4 pr-8 font-body text-sm leading-6 text-[#777777]">
                       {faq.answer}
                     </p>
                   </div>
