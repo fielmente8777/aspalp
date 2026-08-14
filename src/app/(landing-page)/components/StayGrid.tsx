@@ -23,21 +23,24 @@ export interface StayCard {
 
 interface StayGridProps {
   title: string;
-  highlight: string;
+  tagline: string;
   stays: StayCard[];
 }
 
-const StayGrid = ({ title, highlight, stays }: StayGridProps) => {
+const StayGrid = ({ title, tagline , stays }: StayGridProps) => {
   return (
     <SectionWithContainer sectionClassName="bg-cream-bg" containerId="#stays">
       <div className="">
         {/* Heading */}
-        <div className="text-center max-w-xl mx-auto mb-14">
-          <p className="font-serif text-4xl leading-tight text-p2">
-            {title}
-            <br />
-            <span className="text-gold">{highlight}</span>
+        <div className="text-center max-w-2xl mx-auto mb-6">
+          <p className="text-gold-tag uppercase tracking-[0.2em] text-xs md:text-sm font-medium font-man mb-2">
+            {tagline}
           </p>
+
+          <h2
+            className="font-serif text-2xl lg:text-5xl leading-tight text-p2"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
         </div>
 
         {/* Cards */}

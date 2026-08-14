@@ -33,6 +33,75 @@ const ImageBanner: React.FC<HeroDataProps> = ({
         className="relative w-full overflow-hidden"
         defaultPadding={false}
       >
+        <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
+          <div className="max_width">
+            <div className=" max-w-[480px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
+              <h1
+                className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight font-normal text-white [&>span]:text-gold"
+                dangerouslySetInnerHTML={{ __html: title }}
+              />
+
+              <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                {description}
+              </p>
+
+              <div className="hidden md:grid grid-cols-2 w-full items-center gap-4 pt-2">
+                <Link
+                  href={buttons.enquire.href}
+                  className="flex items-center justify-center gap-2 bg-white text-p1 px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-95 shadow-sm"
+                >
+                  <span>
+                    <WhatsAppIcon />
+                  </span>
+                  <span>{buttons.enquire.label}</span>
+                </Link>
+
+                <Link
+                  href={buttons.book.href}
+                  className="flex items-center justify-center gap-2 bg-p1 text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-p1-hover transition-all duration-300 hover:scale-95 shadow-sm border border-white/70"
+                >
+                  <span>
+                    <CalendarIcon />
+                  </span>
+                  <span>{buttons.book.label}</span>
+                </Link>
+              </div>
+            </div>
+            <div className="mt-8 hidden lg:block">
+              <div className="rounded-3xl bg-[#1B2C27]/90 backdrop-blur-xl px-8 py-6">
+                <div className="grid grid-cols-7 divide-x divide-white/20">
+                  {features.map((item, index) => (
+                    <div key={index} className="flex flex-col text-center">
+                      <div className="mb-3 flex items-center justify-center gap-3">
+                        <div className="shrink-0">{item.icon}</div>
+                        {(item.stars || item.value) && (
+                          <div className="flex flex-col items-start">
+                            {item.stars && (
+                              <span className="text-[11px] leading-none text-gold">
+                                {item.stars}
+                              </span>
+                            )}
+
+                            <span className="mt-1 text-md font-semibold leading-none text-white">
+                              {item.value}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <p className="mt-1 text-sm text-white text-center px-4">
+                        {item.title}
+                      </p>
+
+                      <p className="mt-2 text-sm leading-5 text-white text-center px-4">
+                        {item.subtitle}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <SwiperCarousel
           data={images}
           modules={[Autoplay, Pagination, EffectFade]}
@@ -49,10 +118,9 @@ const ImageBanner: React.FC<HeroDataProps> = ({
               "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
             bulletActiveClass: "!w-8 !bg-white",
           }}
-          className="h-full w-full"
-          swiperSlideClassName="relative aspect-square md:aspect-[16/7] "
+          swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full h-full ">
+            <div className="relative w-full aspect-[4/5] md:aspect-[16/8.6] ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
@@ -64,78 +132,8 @@ const ImageBanner: React.FC<HeroDataProps> = ({
             </div>
           )}
         />
-
-        <div className="relative z-10 flex-1 flex items-center w-full">
-          <div className="max_width">
-            <div className="max-w-[480px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-md p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
-              <h1
-                className="hero-title text-4xl md:text-5xl lg:text-6xl leading-tight font-normal text-white [&>span]:text-gold"
-                dangerouslySetInnerHTML={{ __html: title }}
-              />
-
-              <p className="text-gray-200 text-sm md:text-base leading-relaxed">
-                {description}
-              </p>
-
-              <div className="flex items-center gap-8 pt-2">
-                <Link
-                  href={buttons.enquire.href}
-                  className="flex items-center gap-2 bg-white text-p1 px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-95 shadow-sm"
-                >
-                  <span>
-                    <WhatsAppIcon />
-                  </span>
-                  <span>{buttons.enquire.label}</span>
-                </Link>
-
-                <Link
-                  href={buttons.book.href}
-                  className="flex items-center gap-2 bg-p1 text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-p1-hover transition-all duration-300 hover:scale-95 shadow-sm border border-white/20"
-                >
-                  <span>
-                    <CalendarIcon />
-                  </span>
-                  <span>{buttons.book.label}</span>
-                </Link>
-              </div>
-            </div>
-            <div className="mt-8 hidden lg:block">
-              <div className="rounded-3xl bg-[#1B2C27]/90 backdrop-blur-xl px-8 py-6">
-                <div className="grid grid-cols-7 divide-x divide-white/20">
-                  {features.map((item, index) => (
-                    <div key={index} className="flex flex-col text-center">
-                      <div className="mb-3 flex items-start justify-center gap-3">
-                        <div className="shrink-0">{item.icon}</div>
-                        {(item.stars || item.value) && (
-                          <div className="flex flex-col items-start">
-                            {item.stars && (
-                              <span className="text-[11px] leading-none text-gold">
-                                {item.stars}
-                              </span>
-                            )}
-
-                            <span className="mt-1 text-md font-semibold leading-none text-white">
-                              {item.value}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      <p className="mt-1 text-sm text-white text-start px-4">
-                        {item.title}
-                      </p>
-
-                      <p className="mt-2 text-sm leading-5 text-white text-start px-4">
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </Section>
-      <div className="relative z-10 lg:hidden mt-4 pb-6">
+      {/* <div className="relative z-10 lg:hidden mt-4 pb-6">
         <div className="max_width">
           <SwiperCarousel<HeroFeature>
             data={features}
@@ -177,7 +175,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
             )}
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

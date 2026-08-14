@@ -9,7 +9,7 @@ import {
   WaterIcon,
   WifiIcon,
 } from "@/utils/amenities";
-
+import { contact } from "@/utils/constent";
 import {
   AirBnbIcon,
   BookingIcon,
@@ -72,7 +72,7 @@ export interface StayCard {
 
 export interface StayData {
   title: string;
-  highlight: string;
+  tagline: string;
   stays: StayCard[];
 }
 
@@ -172,20 +172,20 @@ export const heroPageData: { hero: HeroData } = {
     description:
       "Spacious serviced apartments crafted for peaceful and luxurious stays.",
     images: [
-      "/images/bg.jpg",
-      "/images/bg.jpg",
-      "/images/bg.jpg",
-      "/images/bg.jpg",
-      "/images/bg.jpg",
+      "/images/68.jpeg",
+      "/images/1.jpeg",
+      "/images/22.jpeg",
+
+      "/images/20.jpeg",
     ],
     buttons: {
       enquire: {
         label: "Enquire Now",
-        href: "#enquire",
+        href: contact.WhatsappCta,
       },
       book: {
         label: "Book Now",
-        href: "#book",
+        href: "#form",
       },
     },
     benefits: "Free cancellation on most dates* - Instant confirmation",
@@ -249,7 +249,7 @@ export const heroPageData: { hero: HeroData } = {
 export const AboutData = {
   tagline: "ABOUT ASPA APARTMENTS",
   title:
-    'Don\'t Settle for a <em>Cramped Hotel Room.</em> Upgrade to a <span class="text-gold">Private Escape!</span>',
+    'Don\'t Settle for a <em>Cramped Hotel Room.</em> Upgrade to a <span class="text-gold-tag">Private Escape!</span>',
   description: `
     <p>
       Welcome to ASPA, a premium serviced apartment in the peaceful neighborhood of Ulwe, Navi Mumbai, designed for travelers who value comfort, convenience, and a true home-away-from-home experience.
@@ -261,15 +261,15 @@ export const AboutData = {
       With seamless connectivity via <strong>Atal Setu</strong>, easy access to the <strong>upcoming Navi Mumbai International Airport</strong>, <strong>Apollo Hospital</strong>, and <strong>South Mumbai</strong>, our spacious apartments, modern amenities, and secure environment make every stay relaxing and hassle-free. From short weekend getaways to extended business or family stays, ASPA is the perfect base for every journey.
     </p>
   `,
-  image: "/images/about.jpg",
+  image: "/images/69.jpeg",
   buttons: {
     enquire: {
       label: "Enquire Now",
-      href: "#enquire",
+      href: contact.WhatsappCta,
     },
     book: {
       label: "Book Now",
-      href: "#book",
+      href: "#form",
     },
   },
 };
@@ -292,8 +292,8 @@ export const statsData = [
   },
 ];
 export const StayData = {
-  title: "Find the Stay that",
-  highlight: "Matches your Trip.",
+  tagline: "STAYS",
+  title: `Find the Stay that <br /><span class="text-gold italic ">Matches</span> your Trip.`,
   stays: [
     {
       title: "Business Travel",
@@ -303,11 +303,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -319,11 +319,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -335,11 +335,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -351,11 +351,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -367,11 +367,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -383,11 +383,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -399,11 +399,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -414,11 +414,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -429,11 +429,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -445,11 +445,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -460,11 +460,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -476,11 +476,11 @@ export const StayData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -494,11 +494,11 @@ export const AmenitiesData = {
   buttons: {
     enquire: {
       label: "Enquire Now",
-      href: "#enquire",
+      href: contact.WhatsappCta,
     },
     book: {
       label: "Book Now",
-      href: "#book",
+      href: "#form",
     },
   },
   amenities: [
@@ -560,11 +560,11 @@ export const NearbyPlacesData = {
   buttons: {
     enquire: {
       label: "Enquire Now",
-      href: "#enquire",
+      href: contact.WhatsappCta,
     },
     book: {
       label: "Book Now",
-      href: "#book",
+      href: "#form",
     },
   },
   places: [
@@ -613,24 +613,29 @@ export const GalleryData = {
   description:
     "A look at the rooms, lounge spaces and quiet corners across the ASPA building.",
   images: [
-    "/images/img1.jpg",
-    "/images/img2.jpg",
-    "/images/img3.jpg",
-    "/images/img4.jpg",
-    "/images/img5.jpg",
-    "/images/img6.jpg",
-    "/images/img7.jpg",
-    "/images/img8.jpg",
-    "/images/img9.jpg",
+    "/images/2.jpeg",
+    "/images/7.jpeg",
+    "/images/15.jpeg",
+    "/images/16.jpeg",
+    "/images/17.jpeg",
+    "/images/21.jpeg",
+    "/images/28.jpeg",
+    "/images/31.jpeg",
+    "/images/40.jpeg",
+    "/images/44.jpeg",
+    "/images/42.jpeg",
+    "/images/47.jpeg",
+    "/images/52.jpeg",
+    "/images/58.jpeg",
   ],
   buttons: {
     enquire: {
       label: "Enquire Now",
-      href: "#enquire",
+      href: contact.WhatsappCta,
     },
     book: {
       label: "Book Now",
-      href: "#book",
+      href: "#form",
     },
   },
 };
@@ -658,11 +663,11 @@ export const PricingData: PricingData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
@@ -683,11 +688,11 @@ export const PricingData: PricingData = {
       buttons: {
         enquire: {
           label: "Enquire Now",
-          href: "#enquire",
+          href: contact.WhatsappCta,
         },
         book: {
           label: "Book Now",
-          href: "#book",
+          href: "#form",
         },
       },
     },
