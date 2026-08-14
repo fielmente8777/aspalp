@@ -107,23 +107,23 @@ export interface GalleryData {
   buttons: button[];
 }
 
-export interface PricingCard {
-  tag: string;
-  title: string;
-  badge: string;
-  price: string;
-  priceSuffix: string;
-  description: string;
-  features: string[];
-  variant: "light" | "dark";
-  buttons: button[];
-}
-export interface PricingData {
-  tagline: string;
-  title: string;
-  cards: PricingCard[];
-  note: string;
-}
+// export interface PricingCard {
+//   tag: string;
+//   title: string;
+//   badge: string;
+//   price: string;
+//   priceSuffix: string;
+//   description: string;
+//   features: string[];
+//   variant: "light" | "dark";
+//   buttons: button[];
+// }
+// export interface PricingData {
+//   tagline: string;
+//   title: string;
+//   cards: PricingCard[];
+//   note: string;
+// }
 
 export const heroPageData = {
   hero: {
@@ -690,66 +690,66 @@ export const GalleryData = {
   ],
 };
 
-export const PricingData: PricingData = {
-  tagline: "STAY WITH US",
-  title:
-    'Two ways to stay. Both <br/><span class="text-gold italic">fairly priced.</span>',
+// export const PricingData: PricingData = {
+//   tagline: "STAY WITH US",
+//   title:
+//     'Two ways to stay. Both <br/><span class="text-gold italic">fairly priced.</span>',
 
-  cards: [
-    {
-      tag: "SHORT STAY",
-      title: "Nightly Suite",
-      badge: "POPULAR",
-      price: "₹4.5k",
-      priceSuffix: "/ night",
-      description: "All-inclusive • No hidden charges",
-      variant: "light",
-      features: [
-        "Daily housekeeping",
-        "All utilities included",
-        "Fresh linen & toiletries",
-        "Wi-Fi + power backup",
-      ],
-      buttons: [
-        {
-          label: "Enquire Now",
-          link: contact.WhatsappCta,
-        },
-        {
-          label: "Book Now",
-          link: "#form",
-        },
-      ],
-    },
-    {
-      tag: "LONG STAY",
-      title: "Extended Residence",
-      badge: "SAVE ₹1K/NIGHT",
-      price: "₹3.5k",
-      priceSuffix: "/ night",
-      description: "Electricity billed on actuals • Ideal for 7+ nights",
-      variant: "dark",
-      features: [
-        "Kitchen access",
-        "Discounted weekly rate",
-        "Electricity on actuals",
-        "Workspace setup on request",
-      ],
-      buttons: [
-        {
-          label: "Enquire Now",
-          link: contact.WhatsappCta,
-        },
-        {
-          label: "Book Now",
-          link: "#form",
-        },
-      ],
-    },
-  ],
+//   cards: [
+//     {
+//       tag: "SHORT STAY",
+//       title: "Nightly Suite",
+//       badge: "POPULAR",
+//       price: "₹4.5k",
+//       priceSuffix: "/ night",
+//       description: "All-inclusive • No hidden charges",
+//       variant: "light",
+//       features: [
+//         "Daily housekeeping",
+//         "All utilities included",
+//         "Fresh linen & toiletries",
+//         "Wi-Fi + power backup",
+//       ],
+//       buttons: [
+//         {
+//           label: "Enquire Now",
+//           link: contact.WhatsappCta,
+//         },
+//         {
+//           label: "Book Now",
+//           link: "#form",
+//         },
+//       ],
+//     },
+//     {
+//       tag: "LONG STAY",
+//       title: "Extended Residence",
+//       badge: "SAVE ₹1K/NIGHT",
+//       price: "₹3.5k",
+//       priceSuffix: "/ night",
+//       description: "Electricity billed on actuals • Ideal for 7+ nights",
+//       variant: "dark",
+//       features: [
+//         "Kitchen access",
+//         "Discounted weekly rate",
+//         "Electricity on actuals",
+//         "Workspace setup on request",
+//       ],
+//       buttons: [
+//         {
+//           label: "Enquire Now",
+//           link: contact.WhatsappCta,
+//         },
+//         {
+//           label: "Book Now",
+//           link: "#form",
+//         },
+//       ],
+//     },
+//   ],
 
-  note: "All bookings are confirmed manually within a few hours. Prefer to talk? WhatsApp us directly.",
-};
+//   note: "All bookings are confirmed manually within a few hours. Prefer to talk? WhatsApp us directly.",
+// };
 
 export const TestimonialsData = {
   tagline: "REVIEWS",

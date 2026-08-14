@@ -9,7 +9,6 @@ import {
   GalleryData,
   heroPageData,
   NearbyPlacesData,
-  PricingData,
   statsData,
   StayData,
   TestimonialsData,
