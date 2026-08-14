@@ -69,7 +69,7 @@ const StayGrid = ({ title, tagline, stays }: StayData) => {
                     onClick={() => toggleDescription(index)}
                     className="mt-1 mb-4 w-fit text-sm font-medium text-gold underline underline-offset-4 hover:text-gold/80 transition-colors"
                   >
-                    {isExpanded ? "Show Less" : "Know More"}
+                    {isExpanded ? "Show Less" : "Read More"}
                   </button>
 
                   <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">

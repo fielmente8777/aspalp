@@ -128,7 +128,7 @@ export interface GalleryData {
 export const heroPageData = {
   hero: {
     // tag: "ASPA ULWE",
-    title: `For Stays You.<span class='text-gold'>Remember</span> Long After <br/> You've <span class='text-gold'>Checked </span> Out`,
+    title: `For Stays You.<span class='text-gold italic'>Remember</span> Long After <br/> You've <span class='text-gold italic'>Checked </span> Out`,
     description: "Refresh . Relax · Rejuvenate · Reimagine · Remember",
     images: [
       "/images/69.jpeg",

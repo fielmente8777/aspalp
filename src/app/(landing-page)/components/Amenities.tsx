@@ -52,9 +52,9 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
           {amenities.map((item, index) => (
             <div
               key={index}
-              className="rounded-2xl bg-white p-6 lg:p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-2xl bg-white p-4 lg:p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="mb-8 flex h-10 w-10 items-center justify-center">
+              <div className="mb:6 lg:mb-6 flex h-10 w-10 items-center justify-center">
                 {item.icon}
               </div>
 
@@ -62,7 +62,7 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
                 {item.title}
               </h3>
 
-              <p className="mt-4 text-base leading-7 text-[#6B6B6B]">
+              <p className="mt-2 mb:mt-4 text-base leading-7 text-[#6B6B6B]">
                 {item.description}
               </p>
             </div>

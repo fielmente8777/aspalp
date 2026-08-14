@@ -18,7 +18,7 @@ export interface FooterData {
 export const footerData: FooterData = {
   logo: "/images/footer1.png",
   description:
-    "ASPA Apartments in Navi Mumbai offers spacious apartments with two bedrooms and two bathrooms. Each unit features a terrace and free WiFi, ensuring a comfortable stay.",
+    "A premium serviced-apartment experience in the peaceful neighbourhood of Ulwe, Navi Mumbai",
 
   lists: [
     {

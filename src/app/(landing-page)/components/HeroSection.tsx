@@ -28,7 +28,7 @@ const ImageBanner: React.FC<HeroData> = ({
           <div className="max_width">
             <div className=" w-full max-w-[540px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
               <h1
-                className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
+                className="font-serif text-[28px] md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
               <p className="text-gray-200 text-sm md:text-base leading-relaxed">
