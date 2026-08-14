@@ -4,19 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import LinkButton, { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
 import { SectionWithContainer } from "@/components/sectionComponants";
+import { AboutData } from "./pageData";
 
-export interface AboutSectionProps {
-  tagline: string;
-  title: string;
-  description: string;
-  image: string;
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
-}
-
-const AboutSection: React.FC<AboutSectionProps> = ({
+const AboutSection: React.FC<AboutData> = ({
   tagline,
   title,
   description,
@@ -27,8 +17,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({
     <SectionWithContainer sectionClassName="bg-cream-bg" containerId="#about">
       <div>
         <div className="bg-cream-card rounded-[32px] p-6 md:p-10 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="relative hidden lg:block w-full aspect-[4/4.1] rounded-xl overflow-hidden bg-gray-300">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="relative hidden xl:block w-full aspect-[4/4.1] rounded-xl overflow-hidden bg-gray-300">
               <Image
                 src={image}
                 alt="About ASPA Apartments"
@@ -47,7 +37,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                 dangerouslySetInnerHTML={{ __html: title }}
               />
 
-              <div className="relative lg:hidden w-full aspect-[3/3] rounded-[24px] overflow-hidden bg-gray-300">
+              <div className="relative xl:hidden w-full aspect-[3/3] rounded-[24px] overflow-hidden bg-gray-300">
                 <Image
                   src={image}
                   alt="About ASPA Apartments"
@@ -60,7 +50,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                 dangerouslySetInnerHTML={{ __html: description }}
               />
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2 ">
+              {/* <div className="flex flex-col sm:flex-row gap-4 pt-2 ">
                 <Link
                   target="_blank"
                   href={buttons.enquire.href}
@@ -79,7 +69,26 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                   label="Book Now"
                   calendarIcon
                 />
-              </div>
+              </div> */}
+               <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+            {buttons.map((button, index) => (
+              <li key={index}>
+                <LinkButton
+                  href={button.link}
+                  label={button.label}
+                  whatsAppIcon={index === 0}
+                  calendarIcon={index === 1}
+                  className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-transparent text-p1"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+                />
+              </li>
+            ))}
+          </ul>
             </div>
           </div>
         </div>

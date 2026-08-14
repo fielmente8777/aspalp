@@ -47,7 +47,7 @@ const LandingNavbar = () => {
               <button
                 type="button"
                 onClick={() => scrollToSection(link.href)}
-                className="px-4 py-1.5 text-sm font-medium text-white transition hover:text-gold"
+                className="px-4 py-1.5 text-nowrap text-xs xl:text-sm font-medium text-white transition hover:text-gold"
               >
                 {link.label}
               </button>
@@ -80,7 +80,7 @@ font-semibold transition ${
                   className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-xs font-semibold text-p1 transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
                 >
                   <WhatsAppIcon />
-                  <span className="hidden lg:inline-block">{link.label}</span>
+                  <span className="hidden xl:inline-block">{link.label}</span>
                 </Link>
               ) : (
                 <button
@@ -89,7 +89,7 @@ font-semibold transition ${
                   className="flex items-center gap-2 rounded-md border border-white/20 bg-p1 px-3 py-2 text-xs font-semibold text-white transition md:px-4 md:text-sm lg:px-5 lg:py-2 lg:text-sm"
                 >
                   <CalendarIcon />
-                  <span className="hidden lg:inline-block">{link.label}</span>
+                  <span className="hidden xl:inline-block">{link.label}</span>
                 </button>
               )}
             </li>

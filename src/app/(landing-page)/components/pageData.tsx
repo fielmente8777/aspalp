@@ -23,15 +23,16 @@ import {
 } from "@/utils/Icons";
 import { ReactNode } from "react";
 
+interface button {
+  label: string;
+  link: string;
+}[];
 export interface HeroData {
   tag?: string;
   title: string;
   description: string;
   images: string[];
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
+  buttons: button;
   benefits: string;
   features: HeroFeature[];
 }
@@ -48,26 +49,14 @@ export interface AboutData {
   title: string;
   description: string;
   image: string;
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
+  buttons: button;
 }
 
 export interface StayCard {
   title: string;
   description: string;
   image: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
 }
 
 export interface StayData {
@@ -85,16 +74,7 @@ export interface AmenityCard {
 export interface AmenitiesData {
   tagline: string;
   title: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
   amenities: AmenityCard[];
 }
 
@@ -108,16 +88,7 @@ export interface NearbyPlacesData {
   tagline: string;
   title: string;
   mapSrc: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
   places: NearbyPlace[];
 }
 
@@ -126,16 +97,7 @@ export interface GalleryData {
   title: string;
   description: string;
   images: string[];
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
 }
 
 export interface PricingCard {
@@ -147,16 +109,7 @@ export interface PricingCard {
   description: string;
   features: string[];
   variant: "light" | "dark";
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
 }
 export interface PricingData {
   tagline: string;
@@ -165,13 +118,11 @@ export interface PricingData {
   note: string;
 }
 
-export const heroPageData: { hero: HeroData } = {
+export const heroPageData = {
   hero: {
     // tag: "ASPA ULWE",
-    title:
-      'Home,<br />Reimagined for<br /><span class="text-gold">Every Journey.</span>',
-    description:
-      "Spacious serviced apartments crafted for peaceful and luxurious stays.",
+    title: `For Stays You.<span class='text-gold'>Remember</span> Long After <br/> You've <span class='text-gold'>Checked </span> Out`,
+    description: "Refresh . Relax · Rejuvenate · Reimagine · Remember",
     images: [
       "/images/69.jpeg",
       "/images/58.jpeg",
@@ -181,16 +132,16 @@ export const heroPageData: { hero: HeroData } = {
       "/images/31.jpeg",
       "/images/22.jpeg",
     ],
-    buttons: {
-      enquire: {
+    buttons: [
+      {
         label: "Enquire Now",
-        href: contact.WhatsappCta,
+        link: contact.WhatsappCta,
       },
-      book: {
+      {
         label: "Book Now",
-        href: "#form",
+        link: "#form",
       },
-    },
+    ],
     benefits: "Free cancellation on most dates* - Instant confirmation",
 
     features: [
@@ -271,16 +222,16 @@ Ideally located with convenient connectivity to <strong> Atal Setu, South Mumbai
     </p>
   `,
   image: "/images/20.jpeg",
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
 };
 export const statsData = [
   {
@@ -309,192 +260,192 @@ export const StayData = {
       description:
         "Work comfortably. Stay conveniently.\nFast Wi-Fi, a dedicated dining/work desk, a quiet private apartment and 24×7 assistance—with GST invoicing available for corporate bookings.",
       image: "/images/img1.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Pet-Friendly Rentals",
       description:
         "When some of the family member has four legs. Bring the family pet. Room to roam, a private entrance and green walking space right outside the tower.",
       image: "/images/img2.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Group Travel",
       description:
         "Stay together, with space for everyone.\nIdeal for families, friends and larger groups, with multiple apartments available on the same floor. Enjoy the convenience of staying close together, with spacious bedrooms, multiple beds and fully equipped kitchens with large sized refrigerator & washing machines.",
       image: "/images/img3.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Weekend Getaways",
       description:
         "A balcony with skyline views, quick access to Mumbai's markets and temples, and a self-check-in that fits a two-night trip.",
       image: "/images/img4.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Long Stays",
       description:
         "Stay longer. Live comfortably. Ideal for extended stays, with monthly rates on request, a large refrigerator, washing machine, fully equipped kitchen and daily housekeeping—giving you all the comforts of home, even when you're away.",
       image: "/images/img5.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Family Rentals",
       description:
         "Because family time deserves more than a hotel room. Spread out, relax and enjoy quality time together in a spacious 650 sq. ft. apartment, complete with a comfortable living space, two bathrooms and a fully equipped kitchen. It's the freedom and privacy of having your own home while you're away from home.",
       image: "/images/img6.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Romantic Getaways",
       description:
         "A little more privacy. A little more togetherness.Enjoy quiet surroundings, a private balcony and an entire apartment to yourselves—the perfect setting to relax, reconnect and enjoy quality time together.",
       image: "/images/img7.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Medical Tourism",
       description:
         "Comfort when it matters most. A peaceful, wheelchair-friendly apartment, neat pathway within campus to walk, a fully equipped kitchen to prepare fresh, home-cooked meals suited to the patient’s recommended diet.",
       image: "/images/img8.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Religious & Cultural Visits",
       description:
         "Explore Mumbai’s diverse heritage.Conveniently visit, within an hour via Atal Setu, Siddhivinayak, Mahalakshmi, Haji Ali, St. Thomas Cathedral,  Babulnath, Mumbadevi, Gateway of India and CSMT while enjoying the comfort of your own apartment.",
       image: "/images/img9.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Birthday Celebrations",
       description:
         "Make your special day feel truly personal.Celebrate the occasion with your loved ones in the comfort and privacy of your own apartment.",
       image: "/images/img10.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "House Warming Stays",
       description:
         "Make room for the people who matter.Hosting friends and relatives for your new home? Give them the comfort, privacy and convenience of a spacious apartment while they celebrate this special milestone with you.",
       image: "/images/img11.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Religious & Cultural Visits",
       description:
         "Explore Mumbai’s diverse heritage. Conveniently visit, within an hour via Atal Setu, Siddhivinayak, Mahalakshmi, Haji Ali, St. Thomas Cathedral, Babulnath, Mumbadevi, Gateway of India and CSMT while enjoying the comfort of your own apartment.",
       image: "/images/img12.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
   ],
 };
@@ -503,16 +454,16 @@ export const AmenitiesData = {
   tagline: "AMENITIES",
   title:
     'Quietly thoughtful. <span class="text-gold italic">Nothing</span> Missing.',
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
   amenities: [
     {
       icon: <AirIcon />,
@@ -611,16 +562,16 @@ export const NearbyPlacesData = {
   tagline: "NEARBY PLACES",
   title:
     'Find the Stay that <span class="text-gold italic">Matches</span> your Trip',
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
   mapSrc: "",
   places: [
     {
@@ -720,16 +671,16 @@ export const GalleryData = {
     // "/images/47.jpeg",
     // "/images/52.jpeg",
   ],
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
 };
 
 export const PricingData: PricingData = {
@@ -752,16 +703,16 @@ export const PricingData: PricingData = {
         "Fresh linen & toiletries",
         "Wi-Fi + power backup",
       ],
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       tag: "LONG STAY",
@@ -777,16 +728,16 @@ export const PricingData: PricingData = {
         "Electricity on actuals",
         "Workspace setup on request",
       ],
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
   ],
 
@@ -820,16 +771,16 @@ export const TestimonialsData = {
     },
   ],
 
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
 };
 
 export const FAQData = {

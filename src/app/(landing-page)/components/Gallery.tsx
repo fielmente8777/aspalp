@@ -81,25 +81,25 @@ const Gallery = ({
         </div>
 
         {/* CTA */}
-        <div className="mt-16 flex flex-col sm:flex-row  justify-center gap-4">
-          <Link
-            target="_blank"
-
-            href={buttons.enquire.href}
-            className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg border border-gold bg-white text-p1 font-medium transition hover:bg-gray-100 "
-          >
-            <WhatsAppIcon />
-            {buttons.enquire.label}
-          </Link>
-
-          <LinkButton
-            href={buttons.book.href}
-            className="flex px-8 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
-
-            label="Book Now"
-            calendarIcon
-          />
-        </div>
+        <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          {buttons.map((button, index) => (
+            <li key={index}>
+              <LinkButton
+                href={button.link}
+                label={button.label}
+                whatsAppIcon={index === 0}
+                calendarIcon={index === 1}
+                className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-transparent text-p1"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </SectionWithContainer>
   );

@@ -4,29 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import SwiperCarousel from "@/components/sliders/SwiperCarousel";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton, {
+  CalendarIcon,
+  WhatsAppIcon,
+} from "@/components/buttons/LinkButton";
 import { Section, SectionWithContainer } from "@/components/sectionComponants";
-import { HeroFeature } from "./pageData";
+import { HeroData, HeroFeature } from "./pageData";
 
-export interface HeroDataProps {
-  title: string;
-  description: string;
-  images: string[];
-  features: HeroFeature[];
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
-  benefits?: string;
-}
-
-const ImageBanner: React.FC<HeroDataProps> = ({
+const ImageBanner: React.FC<HeroData> = ({
   title,
   description,
   images,
   buttons,
   features,
-}: HeroDataProps) => {
+}) => {
   return (
     <>
       <Section
@@ -35,38 +26,36 @@ const ImageBanner: React.FC<HeroDataProps> = ({
       >
         <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
           <div className="max_width">
-            <div className=" max-w-[480px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
+            <div className=" w-[540px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
               <h1
-                className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight font-normal text-white [&>span]:text-gold"
+                className="font-serif text-4xl md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
               <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                 {description}
               </p>
 
-              <div className="hidden md:grid grid-cols-2 w-full items-center gap-4 pt-2">
-                <Link
-                  href={buttons.enquire.href}
-                  className="flex items-center justify-center gap-2 bg-white text-p1 px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-95 shadow-sm"
-                >
-                  <span>
-                    <WhatsAppIcon />
-                  </span>
-                  <span>{buttons.enquire.label}</span>
-                </Link>
-
-                <Link
-                  href={buttons.book.href}
-                  className="flex items-center justify-center gap-2 bg-p1 text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-p1-hover transition-all duration-300 hover:scale-95 shadow-sm border border-white/70"
-                >
-                  <span>
-                    <CalendarIcon />
-                  </span>
-                  <span>{buttons.book.label}</span>
-                </Link>
-              </div>
+              <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+                {buttons.map((button, index) => (
+                  <li key={index}>
+                    <LinkButton
+                      href={button.link}
+                      label={button.label}
+                      whatsAppIcon={index === 0}
+                      calendarIcon={index === 1}
+                      className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-transparent text-p1"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="mt-8 hidden lg:block">
+            <div className="mt-8 hidden xl:block">
               <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs px-8 py-6">
                 <div className="grid grid-cols-7 divide-x divide-white/20">
                   {features.map((item, index) => (
@@ -119,7 +108,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
           }}
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-[4/5] md:aspect-[16/8.6] ">
+            <div className="relative w-full aspect-[4/5] md:aspect-[16/8.9] ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
