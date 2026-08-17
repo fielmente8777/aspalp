@@ -33,7 +33,7 @@ import { ReactNode } from "react";
 interface button {
   label: string;
   link: string;
-};
+}
 export interface HeroData {
   tag?: string;
   title: string;
@@ -128,14 +128,14 @@ export interface GalleryData {
 export const heroPageData = {
   hero: {
     // tag: "ASPA ULWE",
-    title: `For Stays You.<span class='text-gold italic'>Remember</span> Long After <br/> You've <span class='text-gold italic'>Checked </span> Out`,
+    title: `For Stays You <span class='text-gold italic'> Remember</span> Long After <br/> You've <span class='text-gold italic'>Checked </span> Out`,
     description: "Refresh . Relax · Rejuvenate · Reimagine · Remember",
     images: [
-      "/images/69.jpeg",
+      "/images/609.jpeg",
       "/images/58.jpeg",
       "/images/48.jpeg",
       "/images/50.jpeg",
-      "/images/20.jpeg",
+      "/images/banner.jpeg",
       "/images/31.jpeg",
       "/images/22.jpeg",
     ],
@@ -228,7 +228,7 @@ Ideally located with convenient connectivity to <strong> Atal Setu, South Mumbai
      </strong>
     </p>
   `,
-  image: "/images/20.jpeg",
+  image: "/images/68.jpeg",
   buttons: [
     {
       label: "Enquire Now",
@@ -243,19 +243,19 @@ Ideally located with convenient connectivity to <strong> Atal Setu, South Mumbai
 export const statsData = [
   {
     value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
-    label: "FROM 81 AIR BNB REVIEWS",
+    label: "From More Than 80+ Airbnb Reviews",
   },
   {
     value: "Guest Favourite",
-    label: `THIS HOME IS A GUEST FAVOURITE BASED ON RATINGS, REVIEWS AND RELIABILITY. <span class ="text-black/50">Source Air BnB</span>`,
+    label: `This Home is a guest favourite based on ratings, reviews and reliability. <span class ="text-black/50">Source Airbnb</span>`,
   },
   {
     value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
-    label: "FOR CLEANLINESS AIR BNB REVIEWS",
+    label: "For cleanliness Airbnb Reviews",
   },
   {
     value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
-    label: "FOR VALUE AIR BNB REVIEWS",
+    label: "For value Airbnb Reviews",
   },
 ];
 export const StayData = {
@@ -390,22 +390,22 @@ export const StayData = {
         },
       ],
     },
-    {
-      title: "Religious & Cultural Visits",
-      description:
-        "Explore Mumbai’s diverse heritage.Conveniently visit, within an hour via Atal Setu, Siddhivinayak, Mahalakshmi, Haji Ali, St. Thomas Cathedral,  Babulnath, Mumbadevi, Gateway of India and CSMT while enjoying the comfort of your own apartment.",
-      image: "/images/img9.jpg",
-      buttons: [
-        {
-          label: "Enquire Now",
-          link: contact.WhatsappCta,
-        },
-        {
-          label: "Book Now",
-          link: "#form",
-        },
-      ],
-    },
+    // {
+    //   title: "Religious & Cultural Visits",
+    //   description:
+    //     "Explore Mumbai’s diverse heritage.Conveniently visit, within an hour via Atal Setu, Siddhivinayak, Mahalakshmi, Haji Ali, St. Thomas Cathedral,  Babulnath, Mumbadevi, Gateway of India and CSMT while enjoying the comfort of your own apartment.",
+    //   image: "/images/img9.jpg",
+    //   buttons: [
+    //     {
+    //       label: "Enquire Now",
+    //       link: contact.WhatsappCta,
+    //     },
+    //     {
+    //       label: "Book Now",
+    //       link: "#form",
+    //     },
+    //   ],
+    // },
     {
       title: "Birthday Celebrations",
       description:
@@ -652,7 +652,7 @@ export const GalleryData = {
     "A look at the rooms, lounge spaces and quiet corners across the <strong> aspa </strong> building.",
   images: [
     "/images/58.jpeg",
-    "/images/69.jpeg",
+    "/images/609.jpeg",
     "/images/67.jpeg",
     "/images/50.jpeg",
     "/images/48.jpeg",
@@ -758,22 +758,36 @@ export const TestimonialsData = {
     {
       rating: 5,
       review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      name: "Ravi K.",
+        "Amazing service by the staff members, we were provided a very comfortable stay and the team was very responsive throughout our stay.  We’d definitely visit again and recommend for a short-medium term stay in a well connected neighbourhood.",
+      name: "Abhishek Nagekar",
       location: "Guest, Delhi",
     },
     {
       rating: 5,
       review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      name: "Ravi K.",
+        "The apartments are very clean, maintained, and well furnished. The staff is very friendly.Security is great too.Locality is nice.Overall it was a very nice experience and i struggle to find any negative points about it.",
+      name: "Saurabh Satavalekar",
       location: "Guest, Delhi",
     },
     {
       rating: 5,
       review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      name: "Ravi K.",
+        "Had a beautiful stay at ASPA Apartment. The staff were incredibly kind, welcoming, and made the whole place feel like home from the moment I arrived. Everything was very clean, comfortable, and well taken care of. You can really feel the warmth and hospitality here. Highly recommend to anyone looking for a peaceful and pleasant stay!",
+      name: "Dil Buttar",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "An amazing property. We stayed with our kids and parents in a 2 bedroom apartment. Super clean, and fully furnished with all the amenities. Well maintained, clean and decent place. Highly recommend for families. Special shoutout to the caretaker and host. They were very helpful. Even helped to return a missing item. Very courteous and friendly",
+      name: "Nestar K",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "ASPA Apartment is very neat, clean, and well maintained. The flat and common areas are properly managed, and the environment is peaceful and comfortable. The location is also very convenient with easy access to nearby facilities. Overall, it is a great place to live.",
+      name: "Anusko Chatterjee",
       location: "Guest, Delhi",
     },
   ],
@@ -798,15 +812,15 @@ export const FAQData = {
         "Check-in and check-out timings are subject to the property's standard policies. Please contact us for the exact timings and any early check-in or late check-out options.",
     },
     {
-      question: "Is complimentary Wi-Fi available?",
+      question: "Is Wi-Fi complimentary?",
       answer:
         "Yes, complimentary high-speed Wi-Fi is available for guests throughout their stay.",
     },
-    {
-      question: "Does the resort have a restaurant?",
-      answer:
-        "Please contact our team for information about dining options and nearby restaurants available during your stay.",
-    },
+    // {
+    //   question: "Does the resort have a restaurant?",
+    //   answer:
+    //     "Please contact our team for information about dining options and nearby restaurants available during your stay.",
+    // },
     {
       question: "Is parking available?",
       answer:

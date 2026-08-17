@@ -20,8 +20,9 @@ const Gallery = ({
 }: GalleryData) => {
   const { openGallery } = useWebContext();
   return (
+
     <SectionWithContainer
-      sectionClassName="bg-cream-bg py-8"
+      sectionClassName="bg-cream-bg py-8 border-t border-gold"
       containerId="#gallery"
       defaultPadding={false}
     >

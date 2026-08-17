@@ -26,7 +26,7 @@ const ImageBanner: React.FC<HeroData> = ({
       >
         <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
           <div className="max_width">
-            <div className=" w-full max-w-[540px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
+            <div className=" w-full max-w-[500px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
               <h1
                 className="font-serif text-[28px] md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
@@ -35,7 +35,7 @@ const ImageBanner: React.FC<HeroData> = ({
                 {description}
               </p>
 
-              <ul className="md:grid hidden grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+              {/* <ul className="md:grid hidden grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
                 {buttons.map((button, index) => (
                   <li key={index}>
                     <LinkButton
@@ -53,7 +53,7 @@ const ImageBanner: React.FC<HeroData> = ({
                     />
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className="mt-8 hidden xl:block">
               <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] px-8 py-6">
@@ -108,7 +108,7 @@ const ImageBanner: React.FC<HeroData> = ({
           }}
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-[4/5.5] md:aspect-[16/8.9] ">
+            <div className="relative w-full aspect-[4/5.5] md:aspect-[16/9] ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}

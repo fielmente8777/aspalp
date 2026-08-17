@@ -39,7 +39,7 @@ const StatsSection = ({ stats }: StatsProps) => {
                 />
 
                 <p
-                  className="mt-4 max-w-[400px] mx-auto font-mono text-xs text-p2"
+                  className="mt-4 max-w-[400px] mx-auto font-mono text-xs text-p2 capitalize "
                   dangerouslySetInnerHTML={{ __html: item.label }}
                 />
               </div>

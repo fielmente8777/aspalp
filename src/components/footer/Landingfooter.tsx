@@ -26,16 +26,16 @@ const Footer = () => {
         <div className="border-b border-gold" />
 
         <Container>
-          <div className="grid py-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_.7fr_.5fr] gap-12">
+          <div className="grid py-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_.7fr_.5fr] gap-12">
 
             {/* Logo */}
-            <div className="flex flex-col gap-6 lg:max-w-sm lg:items-center lg:justify-center">
-              <div className="relative w-40 aspect-[4/3]">
+            <div className="flex flex-col gap-2 lg:max-w-sm lg:items-center">
+              <div className="relative w-40 aspect-[4/2]">
                 <Image
                   src={footerData.logo}
                   alt="ASPA Apartments Logo"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
 
