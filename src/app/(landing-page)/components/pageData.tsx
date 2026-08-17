@@ -407,7 +407,7 @@ export const StayData = {
     //   ],
     // },
     {
-      title: "Birthday Celebrations",
+      title: "Celebrations",
       description:
         "Make your special day feel truly personal.Celebrate the occasion with your loved ones in the comfort and privacy of your own apartment.",
       image: "/images/img10.jpg",
