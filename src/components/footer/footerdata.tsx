@@ -1,3 +1,4 @@
+import { contact } from "@/utils/constent";
 import { FooterIcon } from "@/utils/Icons";
 import { ReactNode } from "react";
 
@@ -17,15 +18,15 @@ export interface FooterData {
 export const footerData: FooterData = {
   logo: "/images/footer.png",
   description:
-    "A 10-room boutique stay. Built for travellers who want calm, comfort and easy access to Navi Mumbai's most important corridor.",
+    "ASPA Apartments in Navi Mumbai offers spacious apartments with two bedrooms and two bathrooms. Each unit features a terrace and free WiFi, ensuring a comfortable stay.",
 
   lists: [
     {
       title: "LOCATION",
       links: [
         {
-          title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          label: "X2C8+6RF, Sector 9, Ulwe, Gavthan, Maharashtra 410206",
+          href: contact.addressLink,
         },
       ],
     },
@@ -33,16 +34,16 @@ export const footerData: FooterData = {
       title: "CONTACT",
       links: [
         {
-          label: "WhatsApp: +91XXXXXXXXXX",
-          href: "https://wa.me/91XXXXXXXXXX",
+          label: "WhatsApp: +9172080 10831",
+          href: "https://wa.me/917208010831",
         },
         {
-          label: "Call: +91XXXXXXXXXX",
-          href: "tel:+91XXXXXXXXXX",
+          label: "Call: +9172080 10831",
+          href: "tel:+917208010831",
         },
         {
-          label: "reserve@12345678.com",
-          href: "mailto:reserve@12345678.com",
+          label: "aspa@aspaserviceapartments.com",
+          href: "mailto:aspa@aspaserviceapartments.com",
         },
       ],
     },

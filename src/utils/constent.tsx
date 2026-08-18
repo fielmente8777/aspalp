@@ -6,22 +6,21 @@ Please share the best available options and rates.
 
 Thank you!`);
 
-
 export const contact = {
   email: "",
-  mapUrl: "",
-  phone: ["+91xxxxxxxx"],
-  address:
-    "",
-  addressLink: "",
+  mapUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.413032954366!2d73.01426037524773!3d18.970757382212376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c300237740f9%3A0xc81745c5125dcfee!2sASPA%20SERVICE%20APARTMENT!5e1!3m2!1sen!2sin!4v1786596319165!5m2!1sen!2sin",
+  phone: ["+917208010831"],
+  address: "",
+  addressLink: "https://maps.app.goo.gl/MjRRY26Xh3Hg7T7a8",
   socialMedia: {
     facebook: "https://www.facebook.com",
     instagram: "https://www.instagram.com/",
   },
-  callCta: `tel:+91xxxxxxxx`,
-  WhatsappCta: ``,
-  // formDomain: "",
-  formDomain: "testmulti", //for testing
+  callCta: `tel: +917208010831`,
+  WhatsappCta: `https://wa.me/+917208010831?text=${enCodeText}`,
+  formDomain: "aspa",
+  // formDomain: "testmulti", //for testing
   formHid: "",
   // formHid: "",
 };

@@ -4,10 +4,9 @@ import {
   HouseKeepingIcon,
   KitchenIcon,
   ParkingIcon,
-  PowerIcon,
   SecurityIcon,
   WaterIcon,
-  WifiIcon,
+  WifiIcon
 } from "@/utils/amenities";
 import { contact } from "@/utils/constent";
 import {
@@ -23,15 +22,16 @@ import {
 } from "@/utils/Icons";
 import { ReactNode } from "react";
 
+interface Button {
+  label: string;
+  link: string;
+}[]
 export interface HeroData {
   tag?: string;
   title: string;
   description: string;
   images: string[];
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
+  buttons: button;
   benefits: string;
   features: HeroFeature[];
 }
@@ -48,26 +48,14 @@ export interface AboutData {
   title: string;
   description: string;
   image: string;
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
+  buttons: button;
 }
 
 export interface StayCard {
   title: string;
   description: string;
   image: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
 }
 
 export interface StayData {
@@ -85,16 +73,7 @@ export interface AmenityCard {
 export interface AmenitiesData {
   tagline: string;
   title: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
   amenities: AmenityCard[];
 }
 
@@ -107,16 +86,8 @@ export interface NearbyPlace {
 export interface NearbyPlacesData {
   tagline: string;
   title: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  mapSrc: string;
+  buttons: button;
   places: NearbyPlace[];
 }
 
@@ -125,16 +96,7 @@ export interface GalleryData {
   title: string;
   description: string;
   images: string[];
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
 }
 
 export interface PricingCard {
@@ -146,16 +108,7 @@ export interface PricingCard {
   description: string;
   features: string[];
   variant: "light" | "dark";
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
+  buttons: button;
 }
 export interface PricingData {
   tagline: string;
@@ -164,30 +117,30 @@ export interface PricingData {
   note: string;
 }
 
-export const heroPageData: { hero: HeroData } = {
+export const heroPageData = {
   hero: {
     // tag: "ASPA ULWE",
-    title:
-      'Home,<br />Reimagined for<br /><span class="text-gold">Every Journey.</span>',
-    description:
-      "Spacious serviced apartments crafted for peaceful and luxurious stays.",
+    title: `For Stays You.<span class='text-gold'>Remember</span> Long After <br/> You've <span class='text-gold'>Checked </span> Out`,
+    description: "Refresh . Relax · Rejuvenate · Reimagine · Remember",
     images: [
-      "/images/68.jpeg",
-      "/images/1.jpeg",
-      "/images/22.jpeg",
-
+      "/images/69.jpeg",
+      "/images/58.jpeg",
+      "/images/48.jpeg",
+      "/images/50.jpeg",
       "/images/20.jpeg",
+      "/images/31.jpeg",
+      "/images/22.jpeg",
     ],
-    buttons: {
-      enquire: {
+    buttons: [
+      {
         label: "Enquire Now",
-        href: contact.WhatsappCta,
+        link: contact.WhatsappCta,
       },
-      book: {
+      {
         label: "Book Now",
-        href: "#form",
+        link: "#form",
       },
-    },
+    ],
     benefits: "Free cancellation on most dates* - Instant confirmation",
 
     features: [
@@ -208,13 +161,13 @@ export const heroPageData: { hero: HeroData } = {
       {
         icon: <BookingIcon />,
         stars: "★★★★★",
-        title: "Booking.com Rating",
+        title: "Booking.com Exceptional Rating",
         value: "9.5/10",
-        subtitle: "(50+ Guests)",
+        subtitle: "(60+ Guests)",
       },
       {
         icon: <FaceIcon />,
-        title: "Facial Recognition",
+        title: "Facial Recognition  Entry",
         value: "",
         subtitle: "Next-gen safety for peace of mind",
       },
@@ -226,7 +179,7 @@ export const heroPageData: { hero: HeroData } = {
       },
       {
         icon: <CapIcon />,
-        title: "Fully Loaded",
+        title: "Fully Loaded Kitchen",
         value: "",
         subtitle: "Fully equipped for home-cooked meals",
       },
@@ -247,48 +200,54 @@ export const heroPageData: { hero: HeroData } = {
 };
 
 export const AboutData = {
-  tagline: "ABOUT ASPA APARTMENTS",
-  title:
-    'Don\'t Settle for a <em>Cramped Hotel Room.</em> Upgrade to a <span class="text-gold-tag">Private Escape!</span>',
+  tagline: "OUR STORY",
+  title: 'Upgrade to a <span class="text-gold-tag">Private Escape!</span>',
   description: `
     <p>
-      Welcome to ASPA, a premium serviced apartment in the peaceful neighborhood of Ulwe, Navi Mumbai, designed for travelers who value comfort, convenience, and a true home-away-from-home experience.
+      Welcome to <strong> aspa </strong>, a premium serviced-apartment experience in the peaceful neighbourhood of <strong> Ulwe, Navi Mumbai </strong> —where the comfort of home meets the convenience of a professionally managed stay.
+    </p>
+    <p>    
+Whether you're here for <strong> business, medical visits, JNPT operations, relocation, family occasions, leisure or a spiritual journey </strong>, ASPA gives you more space, privacy and flexibility than a conventional hotel room.
+Ideally located with convenient connectivity to <strong> Atal Setu, South Mumbai, Apollo Hospitals, JNPT and Navi Mumbai International Airport </strong>, ASPA makes it easy to stay close to the places that matter
     </p>
     <p>
-      Whether you're visiting for <strong>medical treatment</strong>, <strong>business meetings</strong>, <strong>JNPT port operations</strong>, <strong>relocation</strong>, <strong>family celebrations</strong>, or a <strong>spiritual trip to Siddhivinayak Temple</strong>, ASPA places you close to everything that matters.
+      Our thoughtfully designed apartments, modern amenities, secure surroundings and attentive service make every stay <strong> comfortable, convenient and hassle-free </strong> —whether you're staying for a night, a weekend, a few weeks or longer.
     </p>
+
     <p>
-      With seamless connectivity via <strong>Atal Setu</strong>, easy access to the <strong>upcoming Navi Mumbai International Airport</strong>, <strong>Apollo Hospital</strong>, and <strong>South Mumbai</strong>, our spacious apartments, modern amenities, and secure environment make every stay relaxing and hassle-free. From short weekend getaways to extended business or family stays, ASPA is the perfect base for every journey.
+    <strong>
+    ASPA isn't just a place to stay. It's your home away from home.
+     </strong>
     </p>
   `,
-  image: "/images/69.jpeg",
-  buttons: {
-    enquire: {
+  image: "/images/20.jpeg",
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
 };
 export const statsData = [
   {
-    value: "9.5",
-    label: "GUEST RATING",
+    value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
+    label: "FROM 81 AIR BNB REVIEWS",
   },
   {
-    value: "9.6",
-    label: "CLEANLINESS",
+    value: "Guest Favourite",
+    label: `THIS HOME IS A GUEST FAVOURITE BASED ON RATINGS, REVIEWS AND RELIABILITY. <span class ="text-black/50">Source Air BnB</span>`,
   },
   {
-    value: "9.7",
-    label: "STAFF",
+    value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
+    label: "FOR CLEANLINESS AIR BNB REVIEWS",
   },
   {
-    value: "400+",
-    label: "VERIFIED REVIEWS",
+    value: 'Rated <span class="text-gold-tag">4.8/5</span> Stars',
+    label: "FOR VALUE AIR BNB REVIEWS",
   },
 ];
 export const StayData = {
@@ -298,191 +257,194 @@ export const StayData = {
     {
       title: "Business Travel",
       description:
-        "Fast Wi-Fi, a real dining-table desk and a 24-hour front desk for late landings — plus GST invoicing for corporate bookings.",
+        "Work comfortably. Stay conveniently.\nFast Wi-Fi, a dedicated dining/work desk, a quiet private apartment and 24×7 assistance—with GST invoicing available for corporate bookings.",
       image: "/images/img1.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Pet-Friendly Rentals",
       description:
-        "Bring the family pet. Tiled floors, a private entrance and green walking space right outside the tower.",
+        "When some of the family member has four legs. Bring the family pet. Room to roam, a private entrance and green walking space right outside the tower.",
       image: "/images/img2.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Group Travel",
       description:
-        "Two bedrooms, four beds and a full kitchen — with interconnected rooms so a larger group can stay side by side.",
+        "Stay together, with space for everyone.\nIdeal for families, friends and larger groups, with multiple apartments available on the same floor. Enjoy the convenience of staying close together, with spacious bedrooms, multiple beds and fully equipped kitchens with large sized refrigerator & washing machines.",
       image: "/images/img3.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Weekend Getaways",
       description:
         "A balcony with skyline views, quick access to Mumbai's markets and temples, and a self-check-in that fits a two-night trip.",
       image: "/images/img4.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Long Stays",
       description:
-        "Washing machine, kitchen and daily housekeeping make a month feel like living here. Monthly rates on request.",
+        "Stay longer. Live comfortably. Ideal for extended stays, with monthly rates on request, a large refrigerator, washing machine, fully equipped kitchen and daily housekeeping—giving you all the comforts of home, even when you're away.",
       image: "/images/img5.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Family Rentals",
       description:
-        "650 sq ft of space, two bathrooms and a sofa bed — with wheelchair-accessible units and free private parking.",
+        "Because family time deserves more than a hotel room. Spread out, relax and enjoy quality time together in a spacious 650 sq. ft. apartment, complete with a comfortable living space, two bathrooms and a fully equipped kitchen. It's the freedom and privacy of having your own home while you're away from home.",
       image: "/images/img6.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Romantic Getaways",
       description:
-        "Rated 8.4 by couples. Quiet floors, a private terrace and a whole apartment to yourselves.",
+        "A little more privacy. A little more togetherness.Enjoy quiet surroundings, a private balcony and an entire apartment to yourselves—the perfect setting to relax, reconnect and enjoy quality time together.",
       image: "/images/img7.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       title: "Medical Tourism",
-      description: "Ideal for patients and families visiting nearby hospitals.",
+      description:
+        "Comfort when it matters most. A peaceful, wheelchair-friendly apartment, neat pathway within campus to walk, a fully equipped kitchen to prepare fresh, home-cooked meals suited to the patient’s recommended diet.",
       image: "/images/img8.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
-      title: "Relocation Tourism",
-      description: "For guests relocating to Navi Mumbai.",
+      title: "Religious & Cultural Visits",
+      description:
+        "Explore Mumbai’s diverse heritage.Conveniently visit, within an hour via Atal Setu, Siddhivinayak, Mahalakshmi, Haji Ali, St. Thomas Cathedral,  Babulnath, Mumbadevi, Gateway of India and CSMT while enjoying the comfort of your own apartment.",
       image: "/images/img9.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
-      title: "Birthday Parties",
+      title: "Birthday Celebrations",
       description:
-        "Celebrate intimate occasions without booking a large hotel.",
+        "Make your special day feel truly personal.Celebrate the occasion with your loved ones in the comfort and privacy of your own apartment.",
       image: "/images/img10.jpg",
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
-      title: "House Warming",
-      description: "Hosting friends or relatives visiting for a new home?",
-      image: "/images/img11.jpg",
-      buttons: {
-        enquire: {
-          label: "Enquire Now",
-          href: contact.WhatsappCta,
-        },
-        book: {
-          label: "Book Now",
-          href: "#form",
-        },
-      },
-    },
-    {
-      title: "Visit Siddhivinayak Temple",
+      title: "House Warming Stays",
       description:
-        "Stay comfortably in Ulwe and visit one of Mumbai's most revered temples.",
-      image: "/images/img12.jpg",
-      buttons: {
-        enquire: {
+        "Make room for the people who matter.Hosting friends and relatives for your new home? Give them the comfort, privacy and convenience of a spacious apartment while they celebrate this special milestone with you.",
+      image: "/images/img11.jpg",
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
+    },
+    {
+      title: "Religious & Cultural Visits",
+      description:
+        "Explore Mumbai’s diverse heritage. Conveniently visit, within an hour via Atal Setu, Siddhivinayak, Mahalakshmi, Haji Ali, St. Thomas Cathedral, Babulnath, Mumbadevi, Gateway of India and CSMT while enjoying the comfort of your own apartment.",
+      image: "/images/img12.jpg",
+      buttons: [
+        {
+          label: "Enquire Now",
+          link: contact.WhatsappCta,
+        },
+        {
+          label: "Book Now",
+          link: "#form",
+        },
+      ],
     },
   ],
 };
@@ -491,16 +453,16 @@ export const AmenitiesData = {
   tagline: "AMENITIES",
   title:
     'Quietly thoughtful. <span class="text-gold italic">Nothing</span> Missing.',
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
   amenities: [
     {
       icon: <AirIcon />,
@@ -533,12 +495,12 @@ export const AmenitiesData = {
       title: "24/7 Security",
       description: "Round-the-clock security ensures complete peace of mind.",
     },
-    {
-      icon: <PowerIcon />,
-      title: "Power Backup",
-      description:
-        "Uninterrupted comfort with reliable backup during power outages.",
-    },
+    // {
+    //   icon: <PowerIcon />,
+    //   title: "Power Backup",
+    //   description:
+    //     "Uninterrupted comfort with reliable backup during power outages.",
+    // },
     {
       icon: <HouseKeepingIcon />,
       title: "Daily Housekeeping",
@@ -550,6 +512,48 @@ export const AmenitiesData = {
       description:
         "Enhanced safety with secure biometric access for guests only.",
     },
+    {
+      icon: <EntryIcon />,
+      title: "Smart TV",
+      description:
+        "Enjoy your favorite shows, movies, and entertainment from the comfort of your stay.",
+    },
+    {
+      icon: <EntryIcon />,
+      title: "Washing Machine",
+      description:
+        "Convenient laundry facilities to keep your clothes fresh throughout your stay.",
+    },
+    {
+      icon: <EntryIcon />,
+      title: "Microwave",
+      description: "Quickly heat and prepare your meals with ease.",
+    },
+    {
+      icon: <EntryIcon />,
+      title: "Bottled Water",
+      description:
+        "Enjoy clean, refreshing bottled water throughout your stay.",
+    },
+    {
+      icon: <EntryIcon />,
+      title: "IKEA Furniture",
+      description:
+        "Relax in stylish, thoughtfully designed IKEA furnishings for a comfortable stay.",
+    },
+    {
+      icon: <EntryIcon />,
+      title: "Fresh Linen & Towels",
+      description:
+        "Enjoy fresh, clean linen and soft towels for a comfortable stay.",
+    },
+
+    {
+      icon: <EntryIcon />,
+      title: "Kitchen Essentials",
+      description:
+        "Everything you need for convenient everyday cooking and dining.",
+    },
   ],
 };
 
@@ -557,16 +561,17 @@ export const NearbyPlacesData = {
   tagline: "NEARBY PLACES",
   title:
     'Find the Stay that <span class="text-gold italic">Matches</span> your Trip',
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
+  mapSrc: "",
   places: [
     {
       icon: <PlaneIcon />,
@@ -603,6 +608,31 @@ export const NearbyPlacesData = {
       title: "Tata Memorial Hospital",
       duration: "45–60 min",
     },
+    {
+      icon: <MapIcon />,
+      title: "Bandra Kurla Complex",
+      duration: "35 min",
+    },
+    {
+      icon: <MapIcon />,
+      title: "South Mumbai",
+      duration: "45 min",
+    },
+    {
+      icon: <MapIcon />,
+      title: "CBD Belapur",
+      duration: "15 min",
+    },
+    {
+      icon: <MapIcon />,
+      title: "Nexus Seawoods",
+      duration: "15 min",
+    },
+    {
+      icon: <MapIcon />,
+      title: "DY Patil Stadium",
+      duration: "20 min",
+    },
   ],
 };
 
@@ -613,31 +643,43 @@ export const GalleryData = {
   description:
     "A look at the rooms, lounge spaces and quiet corners across the ASPA building.",
   images: [
-    "/images/2.jpeg",
-    "/images/7.jpeg",
-    "/images/15.jpeg",
-    "/images/16.jpeg",
-    "/images/17.jpeg",
-    "/images/21.jpeg",
-    "/images/28.jpeg",
-    "/images/31.jpeg",
-    "/images/40.jpeg",
-    "/images/44.jpeg",
-    "/images/42.jpeg",
-    "/images/47.jpeg",
-    "/images/52.jpeg",
     "/images/58.jpeg",
+    "/images/69.jpeg",
+    "/images/67.jpeg",
+    "/images/50.jpeg",
+    "/images/48.jpeg",
+    "/images/42.jpeg",
+    "/images/41.jpeg",
+    "/images/30.jpeg",
+    "/images/21.jpeg",
+    "/images/9.jpeg",
+    "/images/14.jpeg",
+    "/images/15.jpeg",
+
+    // "/images/2.jpeg",
+    // "/images/7.jpeg",
+    // "/images/15.jpeg",
+    // "/images/16.jpeg",
+    // "/images/17.jpeg",
+    // "/images/21.jpeg",
+    // "/images/28.jpeg",
+    // "/images/31.jpeg",
+    // "/images/40.jpeg",
+    // "/images/44.jpeg",
+    // "/images/42.jpeg",
+    // "/images/47.jpeg",
+    // "/images/52.jpeg",
   ],
-  buttons: {
-    enquire: {
+  buttons: [
+    {
       label: "Enquire Now",
-      href: contact.WhatsappCta,
+      link: contact.WhatsappCta,
     },
-    book: {
+    {
       label: "Book Now",
-      href: "#form",
+      link: "#form",
     },
-  },
+  ],
 };
 
 export const PricingData: PricingData = {
@@ -660,16 +702,16 @@ export const PricingData: PricingData = {
         "Fresh linen & toiletries",
         "Wi-Fi + power backup",
       ],
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
     {
       tag: "LONG STAY",
@@ -685,18 +727,87 @@ export const PricingData: PricingData = {
         "Electricity on actuals",
         "Workspace setup on request",
       ],
-      buttons: {
-        enquire: {
+      buttons: [
+        {
           label: "Enquire Now",
-          href: contact.WhatsappCta,
+          link: contact.WhatsappCta,
         },
-        book: {
+        {
           label: "Book Now",
-          href: "#form",
+          link: "#form",
         },
-      },
+      ],
     },
   ],
 
   note: "All bookings are confirmed manually within a few hours. Prefer to talk? WhatsApp us directly.",
+};
+
+export const TestimonialsData = {
+  tagline: "REVIEWS",
+  title: "Trusted by Travellers",
+  testimonials: [
+    {
+      rating: 5,
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      name: "Ravi K.",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      name: "Ravi K.",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      name: "Ravi K.",
+      location: "Guest, Delhi",
+    },
+  ],
+
+  buttons: [
+    {
+      label: "Enquire Now",
+      link: contact.WhatsappCta,
+    },
+    {
+      label: "Book Now",
+      link: "#form",
+    },
+  ],
+};
+
+export const FAQData = {
+  faqs: [
+    {
+      question: "What are the check-in and check-out timings?",
+      answer:
+        "Check-in and check-out timings are subject to the property's standard policies. Please contact us for the exact timings and any early check-in or late check-out options.",
+    },
+    {
+      question: "Is complimentary Wi-Fi available?",
+      answer:
+        "Yes, complimentary high-speed Wi-Fi is available for guests throughout their stay.",
+    },
+    {
+      question: "Does the resort have a restaurant?",
+      answer:
+        "Please contact our team for information about dining options and nearby restaurants available during your stay.",
+    },
+    {
+      question: "Is parking available?",
+      answer:
+        "Yes, parking facilities are available for guests. Please contact us in advance for further details.",
+    },
+    {
+      question: "How can I make a reservation?",
+      answer:
+        "You can make a reservation by using the Book Now option on the website or by contacting our team directly.",
+    },
+  ],
 };

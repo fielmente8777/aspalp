@@ -4,13 +4,13 @@ export const navData = {
   logo: "/images/logo.png",
 
   links: [
-    { label: "About", href: "#about" },
+    { label: "Our Story", href: "#about" },
     { label: "Stays", href: "#stays" },
     { label: "Amenities", href: "#amenities" },
-    { label: "Nearby", href: "#nearby" },
+    // { label: "Nearby", href: "#nearby" },
     { label: "Gallery", href: "#gallery" },
-    // { label: "Reviews", href: "#reviews" },
-    // { label: "Contact", href: "#contact" },
+    { label: "Reviews", href: "#reviews" },
+    { label: "FAQs", href: "#faqs" },
   ],
 
   buttons: [

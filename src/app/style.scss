@@ -108,8 +108,7 @@
   }
 }
 
-
-.room-card{
+.room-card {
   .swiper-button-next,
   .swiper-button-prev {
     width: 40px;
@@ -135,4 +134,8 @@
       }
     }
   }
+}
+
+.font-instrument {
+  font-family: var(--font-instrument-serif);
 }

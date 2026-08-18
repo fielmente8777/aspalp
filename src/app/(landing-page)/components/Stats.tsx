@@ -1,6 +1,6 @@
 "use client";
 
-import { Section} from "@/components/sectionComponants";
+import { Section } from "@/components/sectionComponants";
 
 interface Stat {
   value: string;
@@ -13,39 +13,39 @@ interface StatsProps {
 
 const StatsSection = ({ stats }: StatsProps) => {
   return (
-    <Section
-    defaultPadding={false}>
-    <section className="border-y border-[#D8D1C4] bg-white">
-      <div className="">
-        <div className="grid grid-cols-2 lg:grid-cols-4">
-          {stats.map((item, index) => (
-            <div
-              key={index}
-              className={`
-                flex flex-col items-center justify-center
-                py-8 lg:py-10
-                text-center
-                border-b lg:border-b-0
-                border-[#D8D1C4]
-                ${
-                  index !== stats.length - 1
-                    ? "lg:border-r"
-                    : ""
-                }
+    <Section defaultPadding={false}>
+      <section className="border-y border-[#D8D1C4] bg-white">
+        <div>
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {stats.map((item, index) => (
+              <div
+                key={index}
+                className={`
+               flex flex-col
+  py-4
+  text-center
+  border-[#D8D1C4]
+  border-b
+  even:border-l
+  lg:border-b-0
+  lg:even:border-l-0
+                ${index !== stats.length - 1 ? "lg:border-r" : ""}
               `}
-            >
-              <h3 className="font-serif text-[42px] leading-none text-p2">
-                {item.value}
-              </h3>
+              >
+                <h3
+                  className="font-serif text-[2.25rem] leading-none text-p2 font-instrument"
+                  dangerouslySetInnerHTML={{ __html: item.value }}
+                />
 
-              <p className="mt-2 font-mono text-[12px] uppercase tracking-[0.18em] text-[#7B7B7B]">
-                {item.label}
-              </p>
-            </div>
-          ))}
+                <p
+                  className="mt-4 max-w-[400px] mx-auto font-mono text-xs text-p2"
+                  dangerouslySetInnerHTML={{ __html: item.label }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </Section>
   );
 };
