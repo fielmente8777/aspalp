@@ -5,6 +5,7 @@ import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 import Image from "next/image";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { HeroData } from "./pageData";
+import FeaturesSlider from "./FeaturesSlider";
 
 const ImageBanner: React.FC<HeroData> = ({
   title,

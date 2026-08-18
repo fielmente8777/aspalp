@@ -26,7 +26,9 @@ export default function Home() {
   return (
     <main>
       <HeroSection {...heroPageData.hero} />
-      <FeaturesSlider />
+      <div className="xl:hidden">
+        <FeaturesSlider features={heroPageData.hero.features} />
+      </div>
       <SectionWithContainer
         defaultPadding={false}
         sectionClassName="lg:py-14 py-10 bg-p1"
