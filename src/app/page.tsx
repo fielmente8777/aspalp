@@ -20,11 +20,13 @@ import Gallery from "./(landing-page)/components/Gallery";
 import StatsSection from "./(landing-page)/components/Stats";
 import Testimonials from "./(landing-page)/components/Reviews";
 import FAQ from "./(landing-page)/components/Faqs";
+import FeaturesSlider from "./(landing-page)/components/FeaturesSlider";
 
 export default function Home() {
   return (
     <main>
       <HeroSection {...heroPageData.hero} />
+      <FeaturesSlider />
       <SectionWithContainer
         defaultPadding={false}
         sectionClassName="lg:py-14 py-10 bg-p1"
