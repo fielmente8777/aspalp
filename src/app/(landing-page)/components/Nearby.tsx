@@ -1,14 +1,9 @@
-"use client";
 
-import Link from "next/link";
-import LinkButton, {
-  CalendarIcon,
-  WhatsAppIcon,
-} from "@/components/buttons/LinkButton";
-import { NearbyPlacesData } from "./pageData";
-import { SectionWithContainer } from "@/components/sectionComponants";
+import LinkButton from "@/components/buttons/LinkButton";
 import LazyLoadedMap from "@/components/map/LazyLoadedMap";
+import { SectionWithContainer } from "@/components/sectionComponants";
 import { contact } from "@/utils/constent";
+import { NearbyPlacesData } from "./pageData";
 
 const NearbyPlaces = ({
   tagline,

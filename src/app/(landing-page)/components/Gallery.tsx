@@ -1,15 +1,11 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import LinkButton, {
-  CalendarIcon,
-  WhatsAppIcon,
-} from "@/components/buttons/LinkButton";
-import { GalleryData } from "./pageData";
+import LinkButton from "@/components/buttons/LinkButton";
 import { SectionWithContainer } from "@/components/sectionComponants";
-import { GalleryIcon } from "@/utils/Icons";
 import { useWebContext } from "@/context-api/WebContext";
+import { GalleryIcon } from "@/utils/Icons";
+import Image from "next/image";
+import { GalleryData } from "./pageData";
 
 const Gallery = ({
   tagline,

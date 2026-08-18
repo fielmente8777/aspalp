@@ -1,15 +1,11 @@
 "use client";
 
 import { FC } from "react";
-import Link from "next/link";
 
-import TestimonialsSlider from "@/components/sliders/TestimonialsSlider";
-import LinkButton, {
-  CalendarIcon,
-  WhatsAppIcon,
-} from "@/components/buttons/LinkButton";
 import { TestimonialDataType } from "@/@types/landingPageTypes";
-import { Section, SectionWithContainer } from "@/components/sectionComponants";
+import LinkButton from "@/components/buttons/LinkButton";
+import { SectionWithContainer } from "@/components/sectionComponants";
+import TestimonialsSlider from "@/components/sliders/TestimonialsSlider";
 
 interface TestimonialsProps {
   tagline: string;

@@ -1,15 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { Section } from "@/components/sectionComponants";
 import SwiperCarousel from "@/components/sliders/SwiperCarousel";
-import LinkButton, {
-  CalendarIcon,
-  WhatsAppIcon,
-} from "@/components/buttons/LinkButton";
-import { Section, SectionWithContainer } from "@/components/sectionComponants";
-import { HeroData, HeroFeature } from "./pageData";
+import Image from "next/image";
+import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { HeroData } from "./pageData";
 
 const ImageBanner: React.FC<HeroData> = ({
   title,
@@ -26,7 +21,7 @@ const ImageBanner: React.FC<HeroData> = ({
       >
         <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
           <div className="max_width">
-            <div className=" w-full max-w-[500px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
+            <div className=" w-full max-w-[500px] bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-6 rounded-2xl text-white flex flex-col gap-4 border border-white/10 shadow-2xl">
               <h1
                 className="font-serif text-[28px] md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
@@ -56,7 +51,7 @@ const ImageBanner: React.FC<HeroData> = ({
               </ul> */}
             </div>
             <div className="mt-8 hidden xl:block">
-              <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-[2px] px-8 py-6">
+              <div className="rounded-3xl bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] px-8 py-6">
                 <div className="grid grid-cols-7 divide-x divide-white/20">
                   {features.map((item, index) => (
                     <div key={index} className="flex flex-col text-center">

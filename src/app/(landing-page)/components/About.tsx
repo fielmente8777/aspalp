@@ -1,12 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import LinkButton, {
-  CalendarIcon,
-  WhatsAppIcon,
-} from "@/components/buttons/LinkButton";
+import LinkButton from "@/components/buttons/LinkButton";
 import { SectionWithContainer } from "@/components/sectionComponants";
+import Image from "next/image";
 import { AboutData } from "./pageData";
 
 const AboutSection: React.FC<AboutData> = ({

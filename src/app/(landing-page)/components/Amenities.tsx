@@ -1,9 +1,5 @@
-"use client";
 
-import LinkButton, {
-  CalendarIcon,
-  WhatsAppIcon,
-} from "@/components/buttons/LinkButton";
+import LinkButton from "@/components/buttons/LinkButton";
 import SectionWithContainer from "@/components/sectionComponants/SectionWithContainer";
 
 import { AmenitiesData } from "./pageData";
