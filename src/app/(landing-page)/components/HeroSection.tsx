@@ -20,7 +20,7 @@ const ImageBanner: React.FC<HeroData> = ({
         className="relative w-full overflow-hidden"
         defaultPadding={false}
       >
-        <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
+        <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full pointer-events-none">
           <div className="max_width">
             <div className=" w-full max-w-[500px] bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-6 rounded-2xl text-white flex flex-col gap-4 border border-white/10 shadow-2xl">
               <h1
@@ -102,6 +102,7 @@ const ImageBanner: React.FC<HeroData> = ({
               "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
             bulletActiveClass: "!w-8 !bg-white",
           }}
+          className="hero-swiper relative"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
             <div className="relative w-full aspect-[4/5.5] md:aspect-[16/9] ">
