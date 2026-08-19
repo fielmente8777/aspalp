@@ -228,7 +228,7 @@ Ideally located with convenient connectivity to <strong> Atal Setu, South Mumbai
      </strong>
     </p>
   `,
-  image: "/images/68.jpeg",
+  image: "/images/609.jpeg",
   buttons: [
     {
       label: "Enquire Now",
@@ -342,22 +342,22 @@ export const StayData = {
         },
       ],
     },
-    {
-      title: "Family Rentals",
-      description:
-        "Because family time deserves more than a hotel room. Spread out, relax and enjoy quality time together in a spacious 650 sq. ft. apartment, complete with a comfortable living space, two bathrooms and a fully equipped kitchen. It's the freedom and privacy of having your own home while you're away from home.",
-      image: "/images/img6.jpg",
-      buttons: [
-        {
-          label: "Enquire Now",
-          link: contact.WhatsappCta,
-        },
-        {
-          label: "Book Now",
-          link: "#form",
-        },
-      ],
-    },
+    // {
+    //   title: "Family Rentals",
+    //   description:
+    //     "Because family time deserves more than a hotel room. Spread out, relax and enjoy quality time together in a spacious 650 sq. ft. apartment, complete with a comfortable living space, two bathrooms and a fully equipped kitchen. It's the freedom and privacy of having your own home while you're away from home.",
+    //   image: "/images/img6.jpg",
+    //   buttons: [
+    //     {
+    //       label: "Enquire Now",
+    //       link: contact.WhatsappCta,
+    //     },
+    //     {
+    //       label: "Book Now",
+    //       link: "#form",
+    //     },
+    //   ],
+    // },
     {
       title: "Romantic Getaways",
       description:
@@ -422,22 +422,22 @@ export const StayData = {
         },
       ],
     },
-    {
-      title: "House Warming Stays",
-      description:
-        "Make room for the people who matter.Hosting friends and relatives for your new home? Give them the comfort, privacy and convenience of a spacious apartment while they celebrate this special milestone with you.",
-      image: "/images/img11.jpg",
-      buttons: [
-        {
-          label: "Enquire Now",
-          link: contact.WhatsappCta,
-        },
-        {
-          label: "Book Now",
-          link: "#form",
-        },
-      ],
-    },
+    // {
+    //   title: "House Warming Stays",
+    //   description:
+    //     "Make room for the people who matter.Hosting friends and relatives for your new home? Give them the comfort, privacy and convenience of a spacious apartment while they celebrate this special milestone with you.",
+    //   image: "/images/img11.jpg",
+    //   buttons: [
+    //     {
+    //       label: "Enquire Now",
+    //       link: contact.WhatsappCta,
+    //     },
+    //     {
+    //       label: "Book Now",
+    //       link: "#form",
+    //     },
+    //   ],
+    // },
     {
       title: "Religious & Cultural Visits",
       description:
@@ -806,11 +806,11 @@ export const TestimonialsData = {
 
 export const FAQData = {
   faqs: [
-    {
-      question: "What are the check-in and check-out timings?",
-      answer:
-        "Check-in and check-out timings are subject to the property's standard policies. Please contact us for the exact timings and any early check-in or late check-out options.",
-    },
+    // {
+    //   question: "What are the check-in and check-out timings?",
+    //   answer:
+    //     "Check-in and check-out timings are subject to the property's standard policies. Please contact us for the exact timings and any early check-in or late check-out options.",
+    // },
     {
       question: "Is Wi-Fi complimentary?",
       answer:
@@ -830,6 +830,46 @@ export const FAQData = {
       question: "How can I make a reservation?",
       answer:
         "You can make a reservation by using the Book Now option on the website or by contacting our team directly.",
+    },
+     {
+      question: "How many people can stay in an apartment?",
+      answer:
+        "Up to 4 adults and 2 children can stay in an apartment. For every extra adult, up to a maximum of six, additional Rs.1,000/- per night shall be levied.",
+    },
+     {
+      question: "Are house-keeping & Utensil-cleaning complimentary?",
+      answer:
+        "Yes, both the services are complimentary.",
+    },
+     {
+      question: "Is there a kitchen?",
+      answer:
+        "Yes, Fully loaded kitchen with all modern amenities.",
+    },
+         {
+      question: "Do you allow long stays?",
+      answer:
+        "Yes, guests can stay as long as they want provided they follow the house-rules.",
+    },
+             {
+      question: "Are families welcome?",
+      answer:
+        "Yes, Families are welcome.",
+    },
+     {
+      question: "What are the check-in and check-out timings?",
+      answer:
+        "Check-in time is 1pm whereas check-out time is 11am.",
+    },
+     {
+      question: "How do i reach ASPA?",
+      answer:
+        "Click on the Location at the footer of the page.",
+    },
+       {
+      question: "Can i contact someone directly?",
+      answer:
+        "Yes, You can call at +91 7028010831",
     },
   ],
 };

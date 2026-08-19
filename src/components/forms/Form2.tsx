@@ -1,4 +1,5 @@
 "use client";
+
 import { getDateInputLimits } from "@/hooks/getDateInputLimits";
 import useBookingForm from "@/hooks/useBookingForm";
 import {
@@ -17,6 +18,7 @@ import { countries } from "../../utils/constent";
 interface Props {
   gridView?: boolean;
 }
+
 const Form2 = ({ gridView }: Props) => {
   const {
     isSubmitting,
@@ -34,6 +36,7 @@ const Form2 = ({ gridView }: Props) => {
       setEndDate(null);
     },
   });
+
   const { min, max } = getDateInputLimits({
     showPast: false,
     showFuture: true,
@@ -49,30 +52,53 @@ const Form2 = ({ gridView }: Props) => {
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
 
-  const handleDateChange = (dates: [Date | null, Date | null]) => {
+  const handleDateChange = (
+    dates: [Date | null, Date | null]
+  ) => {
     const [start, end] = dates;
 
     setStartDate(start);
     setEndDate(end);
 
     if (start) {
-      setFieldValue("checkIn", start.toISOString().split("T")[0]);
+      setFieldValue(
+        "checkIn",
+        start.toISOString().split("T")[0]
+      );
     }
 
     if (end) {
-      setFieldValue("checkOut", end.toISOString().split("T")[0]);
+      setFieldValue(
+        "checkOut",
+        end.toISOString().split("T")[0]
+      );
     }
   };
-  const guestLabel = `${adults} Adult${adults !== 1 ? "s" : ""}${
-    children > 0 ? `, ${children} Child${children !== 1 ? "ren" : ""}` : ""
+
+  const guestLabel = `${adults} Adult${
+    adults !== 1 ? "s" : ""
+  }${
+    children > 0
+      ? `, ${children} Child${
+          children !== 1 ? "ren" : ""
+        }`
+      : ""
   }`;
+
   const formFields = [
     {
-      name: "name",
-      label: "Name",
-      type: "text",
-      value: formData.name,
+      name: "checkIn",
+      label: "Check-in & out",
+      type: "date",
+      value: formData.checkIn || "",
       onChange: handleChange,
+      icon: <CalendarIcon />,
+    },
+    {
+      name: "guests",
+      label: "Guests",
+      type: "guests",
+      value: guestLabel,
       icon: <UserIcon />,
     },
     {
@@ -84,35 +110,65 @@ const Form2 = ({ gridView }: Props) => {
       icon: <CallIcon />,
     },
     {
+      name: "name",
+      label: "Name",
+      type: "text",
+      value: formData.name,
+      onChange: handleChange,
+      icon: <UserIcon />,
+    },
+    {
       name: "email",
       label: "Email ID",
       type: "email",
-      value: formData.email,
+      value: formData.email || "",
       onChange: handleChange,
       icon: <MailIcon />,
     },
   ];
-  // useEffect(() => {
-  //   if (submitSuccess) {
-  //     setStartDate(null);
-  //     setEndDate(null);
-  //   }
-  // }, [submitSuccess]);
 
   return (
     <form
       onSubmit={handleSubmit}
-      className={`${gridView ? "flex flex-col gap-2" : "grid md:grid-cols-6 items-center gap-3.5 "} font-body xl:px-4 bg-transparent  max-md:divide-y divide-p1`}
+      className={`
+        ${
+          gridView
+            ? "flex flex-col gap-2"
+            : "grid grid-cols-1 md:grid-cols-6 items-center gap-3.5"
+        }
+        font-body
+        xl:px-4
+        bg-transparent
+        max-md:divide-y
+        divide-p1
+      `}
     >
-      {formFields.map((field, index) => (
-        <React.Fragment key={index}>
+      {formFields.map((field) => (
+        <React.Fragment key={field.name}>
+          {/* ================= DATE ================= */}
           {field.type === "date" ? (
             <div
-              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
-                gridView ? "p-4" : "px-3 py-3 lg:px-2"
-              }`}
+              className={`
+                bg-white
+                flex
+                items-center
+                gap-2.5
+                w-full
+                min-w-0
+                lg:border-[0.5px]
+                lg:shadow
+                border-light/30
+                lg:rounded-lg
+                ${
+                  gridView
+                    ? "p-4"
+                    : "px-3 py-3 lg:px-2"
+                }
+              `}
             >
-              <label className="text-secondary">{field.icon}</label>
+              <label className="text-secondary shrink-0">
+                {field.icon}
+              </label>
 
               <DatePicker
                 selected={startDate}
@@ -125,38 +181,175 @@ const Form2 = ({ gridView }: Props) => {
                 placeholderText={`${field.label} *`}
                 calendarClassName="!z-[99999]"
                 popperClassName="!z-[99999]"
-                className="pointer-events-auto placeholder:text-secondarya outline-none w-full h-full bg-transparent text-base text-secondarya"
+                className="
+                  pointer-events-auto
+                  placeholder:text-secondarya
+                  outline-none
+                  w-full
+                  min-w-0
+                  h-full
+                  bg-transparent
+                  text-base
+                  text-secondarya
+                "
                 wrapperClassName="w-full h-full !flex items-center"
               />
+
+              {errors[field.name] && (
+                <p className="absolute top-full left-0 text-red-500 text-xs">
+                  {errors[field.name]}
+                </p>
+              )}
+            </div>
+          ) : field.type === "guests" ? (
+            /* ================= GUESTS ================= */
+            <div
+              className={`
+                relative
+                z-[100]
+                bg-white
+                flex
+                items-center
+                gap-2.5
+                w-full
+                cursor-pointer
+                lg:border-[0.5px]
+                lg:shadow
+                border-light/30
+                lg:rounded-lg
+                ${
+                  gridView
+                    ? "p-4"
+                    : "px-3 py-3 lg:px-2"
+                }
+              `}
+              onClick={() =>
+                setGuestOpen((prev) => !prev)
+              }
+            >
+              <span className="text-secondarya/60 shrink-0">
+                {field.icon}
+              </span>
+
+              <span className="flex-1 text-base text-black/50 truncate">
+                {field.value}
+              </span>
+
+              <IoIosArrowDown
+                className={`
+                  pointer-events-none
+                  shrink-0
+                  text-secondarya/60
+                  transition-transform
+                  duration-200
+                  ${guestOpen ? "rotate-180" : ""}
+                `}
+              />
+
+              {guestOpen && (
+                <div
+                  className="
+                    absolute
+                    left-0
+                    top-full
+                    z-[99999]
+                    mt-1
+                    w-full
+                    min-w-[250px]
+                    rounded-lg
+                    bg-white
+                    p-4
+                    shadow-xl
+                  "
+                  onClick={(e) =>
+                    e.stopPropagation()
+                  }
+                >
+                  <GuestRow
+                    label="Adults"
+                    value={adults}
+                    min={1}
+                    onChange={setAdults}
+                  />
+
+                  <GuestRow
+                    label="Children"
+                    value={children}
+                    min={0}
+                    onChange={setChildren}
+                  />
+                </div>
+              )}
             </div>
           ) : field.type === "tel" ? (
+            /* ================= PHONE ================= */
             <div
-              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
-                gridView ? "p-4" : "px-3 py-3 lg:px-2"
-              }`}
+              className={`
+                bg-white
+                flex
+                items-center
+                gap-2.5
+                w-full
+                min-w-0
+                lg:border-[0.5px]
+                lg:shadow
+                border-light/30
+                lg:rounded-lg
+                ${
+                  gridView
+                    ? "p-4"
+                    : "px-3 py-3 lg:px-2"
+                }
+              `}
             >
-              <label className="text-secondary">{field.icon}</label>
+              <label className="text-secondary shrink-0">
+                {field.icon}
+              </label>
 
-              <div className="relative">
+              <div className="relative shrink-0">
                 <select
-                  className="ps-2 cursor-pointer border-p1 appearance-none w-full placeholder:text-secondarya focus:outline-none text-secondarya"
+                  className="
+                    ps-1
+                    pr-4
+                    cursor-pointer
+                    appearance-none
+                    border-p1
+                    bg-transparent
+                    focus:outline-none
+                    text-secondarya
+                    text-sm
+                  "
                   name="countryCode"
                   value={formData.countryCode}
-                  onChange={(e) => setFieldValue("countryCode", e.target.value)}
-                  style={{
-                    width: `${formData.countryCode.length * 2}ch`,
-                  }}
+                  onChange={(e) =>
+                    setFieldValue(
+                      "countryCode",
+                      e.target.value
+                    )
+                  }
                   aria-label="Country Code"
                 >
                   {countries.map((country, index) => (
-                    <option key={index} value={country.code}>
+                    <option
+                      key={index}
+                      value={country.code}
+                    >
                       {country.code}
                     </option>
                   ))}
                 </select>
 
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <IoIosArrowDown />
+                <span
+                  className="
+                    absolute
+                    right-0
+                    top-1/2
+                    -translate-y-1/2
+                    pointer-events-none
+                    text-secondarya
+                  "
+                >
+                  <IoIosArrowDown size={12} />
                 </span>
               </div>
 
@@ -164,115 +357,103 @@ const Form2 = ({ gridView }: Props) => {
                 type="tel"
                 name={field.name}
                 placeholder={`${field.label} *`}
-                className="w-full placeholder:text-secondarya focus:outline-none text-secondarya"
+                className="
+                  w-full
+                  min-w-0
+                  bg-transparent
+                  placeholder:text-secondarya
+                  focus:outline-none
+                  text-secondarya
+                "
                 value={field.value}
                 onChange={field.onChange}
               />
+
+              {errors[field.name] && (
+                <p className="absolute top-full left-0 text-red-500 text-xs">
+                  {errors[field.name]}
+                </p>
+              )}
             </div>
           ) : (
+            /* ================= NAME / EMAIL ================= */
             <div
-              className={`flex bg-white items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
-                gridView ? "p-4" : "px-3 py-3 lg:px-2"
-              }`}
+              className={`
+                relative
+                flex
+                bg-white
+                items-center
+                gap-2.5
+                w-full
+                min-w-0
+                lg:border-[0.5px]
+                lg:shadow
+                border-light/30
+                lg:rounded-lg
+                ${
+                  gridView
+                    ? "p-4"
+                    : "px-3 py-3 lg:px-2"
+                }
+              `}
             >
-              <label className="text-secondary">{field.icon}</label>
+              <label className="text-secondary shrink-0">
+                {field.icon}
+              </label>
 
               <input
                 type={field.type}
                 name={field.name}
-                placeholder={`${field.label} *`}
-                className="w-full placeholder:text-secondarya focus:outline-none text-secondarya"
+                placeholder={
+                  field.name === "email"
+                    ? field.label
+                    : `${field.label}`
+                }
+                className="
+                  w-full
+                  min-w-0
+                  bg-transparent
+                  placeholder:text-secondarya
+                  focus:outline-none
+                  text-secondarya
+                "
                 value={field.value}
                 onChange={field.onChange}
               />
-            </div>
-          )}
 
-          {errors[field.name] && (
-            <p className="text-red-500">{errors[field.name]}</p>
+              {errors[field.name] && (
+                <p className="absolute top-full left-0 text-red-500 text-xs">
+                  {errors[field.name]}
+                </p>
+              )}
+            </div>
           )}
         </React.Fragment>
       ))}
 
-      <div
-        className={`relative z-[100] bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
-          gridView ? "p-4" : "px-3 py-3 lg:px-2"
-        }`}
-        onClick={() => setGuestOpen((o) => !o)}
-      >
-        <span className="text-secondarya/60">
-          <UserIcon />
-        </span>
-
-        <span className="flex-1 cursor-pointer text-base text-black/50">
-          {guestLabel}
-        </span>
-
-        <IoIosArrowDown
-          className={`pointer-events-none text-secondarya/60 transition-transform duration-200 ${
-            guestOpen ? "rotate-180" : ""
-          }`}
-        />
-
-        {guestOpen && (
-          <div
-            className="absolute left-0 top-full z-[99999] mt-1 w-full min-w-[250px] rounded-lg bg-white p-4 shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <GuestRow
-              label="Adults"
-              value={adults}
-              min={1}
-              onChange={setAdults}
-            />
-
-            <GuestRow
-              label="Children"
-              value={children}
-              min={0}
-              onChange={setChildren}
-            />
-          </div>
-        )}
-      </div>
-
-      <div
-        className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
-          gridView ? "p-4" : "px-3 py-3 lg:px-2"
-        }`}
-      >
-        <label className="text-secondary">
-          <CalendarIcon />
-        </label>
-
-        <DatePicker
-          selected={startDate}
-          onChange={handleDateChange}
-          startDate={startDate}
-          endDate={endDate}
-          selectsRange
-          minDate={minDate}
-          maxDate={maxDate}
-          placeholderText="Check-in & out *"
-          calendarClassName="!z-[99999]"
-          popperClassName="!z-[99999]"
-          className="pointer-events-auto placeholder:text-secondarya outline-none w-full h-full bg-transparent text-base text-secondarya"
-          wrapperClassName="w-full h-full !flex items-center"
-        />
-      </div>
+      {/* ================= BOOK NOW ================= */}
       <button
         type="submit"
-        className=" bg-gold w-full rounded-lg text-white text-lg py-3"
+        className="
+          bg-gold
+          w-full
+          rounded-lg
+          text-white
+          text-lg
+          py-3
+          flex
+          items-center
+          justify-center
+          gap-2.5
+        "
       >
         {isSubmitting ? (
           "Submitting..."
         ) : (
-          <span className="flex items-center justify-center gap-2.5">
-            <span className="">
-              <BookingCalenderIcon />
-            </span>{" "}
-            Book Now{" "}
-          </span>
+          <>
+            <BookingCalenderIcon />
+            Book Now
+          </>
         )}
       </button>
     </form>
@@ -288,27 +469,57 @@ function GuestRow({
   label: string;
   value: number;
   min: number;
-  onChange: (v: number) => void;
+  onChange: (value: number) => void;
 }) {
   return (
     <div className="mb-3 flex items-center justify-between last:mb-0">
-      <span className="text-sm text-secondarya">{label}</span>
+      <span className="text-sm text-secondarya">
+        {label}
+      </span>
 
       <div className="flex items-center gap-3">
         <button
           type="button"
-          onClick={() => value > min && onChange(value - 1)}
-          className="flex h-7 w-7 items-center justify-center rounded-full border text-base leading-none transition hover:bg-gray-100"
+          onClick={() =>
+            value > min && onChange(value - 1)
+          }
+          className="
+            flex
+            h-7
+            w-7
+            items-center
+            justify-center
+            rounded-full
+            border
+            text-base
+            leading-none
+            transition
+            hover:bg-gray-100
+          "
         >
           −
         </button>
 
-        <span className="w-4 text-center text-sm text-secondarya">{value}</span>
+        <span className="w-4 text-center text-sm text-secondarya">
+          {value}
+        </span>
 
         <button
           type="button"
           onClick={() => onChange(value + 1)}
-          className="flex h-7 w-7 items-center justify-center rounded-full border text-base leading-none transition hover:bg-gray-100"
+          className="
+            flex
+            h-7
+            w-7
+            items-center
+            justify-center
+            rounded-full
+            border
+            text-base
+            leading-none
+            transition
+            hover:bg-gray-100
+          "
         >
           +
         </button>
