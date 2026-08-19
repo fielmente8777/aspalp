@@ -4,18 +4,17 @@ import { TestimonialDataType } from "@/@types/landingPageTypes";
 import Image from "next/image";
 import { useState } from "react";
 
-const TestimonialCard: React.FC<TestimonialDataType["testimonials"][0]> = ({
-  name,
-  review,
-  location,
-  rating,
-}) => {
+const TestimonialCard: React.FC<
+  TestimonialDataType["testimonials"][0]
+> = ({ name, review, location, rating }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="rounded-2xl backdrop-blur-sm border border-gold bg-white p-4 flex flex-col gap-4">
+    <div className="rounded-2xl backdrop-blur-sm border border-gold bg-white p-6 flex flex-col gap-5">
       {/* Rating */}
-      <p className="text-[#c8a96a]">{"★".repeat(rating || 5)}</p>
+      <p className="text-[#c8a96a]">
+        {"★".repeat(rating || 5)}
+      </p>
 
       {/* Review */}
       <p
@@ -50,12 +49,23 @@ const TestimonialCard: React.FC<TestimonialDataType["testimonials"][0]> = ({
       {/* User */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-lg text-dark capitalize">{name}</p>
+          <p className="text-lg text-dark capitalize">
+            {name}
+          </p>
 
-          {location && <p className="text-sm text-dark/60">{location}</p>}
+          {location && (
+            <p className="text-sm text-dark/60">
+              {location}
+            </p>
+          )}
         </div>
 
-        <Image src="/g-icon.png" alt="Google Icon" width={24} height={24} />
+        <Image
+          src="/g-icon.png"
+          alt="Google Icon"
+          width={24}
+          height={24}
+        />
       </div>
     </div>
   );

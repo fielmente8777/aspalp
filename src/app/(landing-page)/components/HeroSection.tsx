@@ -91,7 +91,7 @@ const ImageBanner: React.FC<HeroData> = ({
           modules={[Autoplay, Pagination, EffectFade]}
           effect="fade"
           fadeEffect={{ crossFade: true }}
-          loop={true}
+          loop={false}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,

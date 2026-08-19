@@ -232,7 +232,7 @@ const Form2 = ({ gridView }: Props) => {
               </span>
 
               <span className="flex-1 text-base text-black/50 truncate">
-                {field.value}
+                {field.value} *
               </span>
 
               <IoIosArrowDown
@@ -281,75 +281,34 @@ const Form2 = ({ gridView }: Props) => {
                 </div>
               )}
             </div>
-          ) : field.type === "tel" ? (
-            /* ================= PHONE ================= */
+          )  : field.type === "tel" ? (
             <div
-              className={`
-                bg-white
-                flex
-                items-center
-                gap-2.5
-                w-full
-                min-w-0
-                lg:border-[0.5px]
-                lg:shadow
-                border-light/30
-                lg:rounded-lg
-                ${
-                  gridView
-                    ? "p-4"
-                    : "px-3 py-3 lg:px-2"
-                }
-              `}
+              className={`bg-white flex items-center gap-2.5 lg:border-[0.5px] lg:shadow border-light/30 lg:rounded-lg ${
+                gridView ? "p-4" : "px-3 py-3 lg:px-2"
+              }`}
             >
-              <label className="text-secondary shrink-0">
-                {field.icon}
-              </label>
+              <label className="text-secondary">{field.icon}</label>
 
-              <div className="relative shrink-0">
+              <div className="relative">
                 <select
-                  className="
-                    ps-1
-                    pr-4
-                    cursor-pointer
-                    appearance-none
-                    border-p1
-                    bg-transparent
-                    focus:outline-none
-                    text-secondarya
-                    text-sm
-                  "
+                  className="ps-2 cursor-pointer border-p1 appearance-none w-full placeholder:text-secondarya focus:outline-none text-secondarya"
                   name="countryCode"
                   value={formData.countryCode}
-                  onChange={(e) =>
-                    setFieldValue(
-                      "countryCode",
-                      e.target.value
-                    )
-                  }
+                  onChange={(e) => setFieldValue("countryCode", e.target.value)}
+                  style={{
+                    width: `${formData.countryCode.length * 2}ch`,
+                  }}
                   aria-label="Country Code"
                 >
                   {countries.map((country, index) => (
-                    <option
-                      key={index}
-                      value={country.code}
-                    >
+                    <option key={index} value={country.code}>
                       {country.code}
                     </option>
                   ))}
                 </select>
 
-                <span
-                  className="
-                    absolute
-                    right-0
-                    top-1/2
-                    -translate-y-1/2
-                    pointer-events-none
-                    text-secondarya
-                  "
-                >
-                  <IoIosArrowDown size={12} />
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <IoIosArrowDown />
                 </span>
               </div>
 
@@ -357,25 +316,13 @@ const Form2 = ({ gridView }: Props) => {
                 type="tel"
                 name={field.name}
                 placeholder={`${field.label} *`}
-                className="
-                  w-full
-                  min-w-0
-                  bg-transparent
-                  placeholder:text-secondarya
-                  focus:outline-none
-                  text-secondarya
-                "
+                className="w-full placeholder:text-secondarya focus:outline-none text-secondarya"
                 value={field.value}
                 onChange={field.onChange}
               />
-
-              {errors[field.name] && (
-                <p className="absolute top-full left-0 text-red-500 text-xs">
-                  {errors[field.name]}
-                </p>
-              )}
             </div>
-          ) : (
+          ) :  
+          (
             /* ================= NAME / EMAIL ================= */
             <div
               className={`
@@ -407,7 +354,7 @@ const Form2 = ({ gridView }: Props) => {
                 placeholder={
                   field.name === "email"
                     ? field.label
-                    : `${field.label}`
+                    : `${field.label} *`
                 }
                 className="
                   w-full
