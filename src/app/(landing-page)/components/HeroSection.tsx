@@ -15,14 +15,14 @@ const ImageBanner: React.FC<HeroData> = ({
   features,
 }) => {
   return (
-    <main>
+
       <Section
         className="relative w-full overflow-hidden"
         defaultPadding={false}
       >
         <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full pointer-events-none">
           <div className="max_width">
-            <div className=" w-full max-w-[500px] bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-6 rounded-2xl text-white flex flex-col gap-4 border border-white/10 shadow-2xl">
+            <div className=" w-full max-w-[330px] md:max-w-[500px] bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-4 md:p-6 rounded-2xl text-white flex flex-col gap-4 border border-white/10 shadow-2xl">
               <h1
                 className="font-serif text-[28px] md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
@@ -105,7 +105,7 @@ const ImageBanner: React.FC<HeroData> = ({
           className="hero-swiper relative"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-[4/5.5] md:aspect-[16/9] ">
+            <div className="relative w-full aspect-[4/6] md:aspect-[16/9] ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
@@ -118,7 +118,7 @@ const ImageBanner: React.FC<HeroData> = ({
           )}
         />
       </Section>
-    </main>
+   
   );
 };
 
