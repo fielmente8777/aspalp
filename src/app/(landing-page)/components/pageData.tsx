@@ -949,11 +949,11 @@ export const FAQData = {
       answer: "Check-in time is 1pm whereas check-out time is 11am.",
     },
     {
-      question: "How do i reach ASPA?",
+      question: "How do I reach ASPA?",
       answer: "Click on the Location at the footer of the page.",
     },
     {
-      question: "Can i contact someone directly?",
+      question: "Can I contact someone directly?",
       answer: "Yes, You can call at +91 7028010831",
     },
   ],
