@@ -53,11 +53,11 @@ const TestimonialCard: React.FC<
             {name}
           </p>
 
-          {location && (
+          {/* {location && (
             <p className="text-sm text-dark/60">
               {location}
             </p>
-          )}
+          )} */}
         </div>
 
         <Image

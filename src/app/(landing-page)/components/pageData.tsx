@@ -137,7 +137,7 @@ export const heroPageData = {
       "/images/50.jpeg",
       "/images/banner.jpeg",
       "/images/31.jpeg",
-      "/images/22.jpeg",
+      // "/images/22.jpeg",
     ],
     buttons: [
       {
@@ -212,7 +212,7 @@ export const AboutData = {
   title: 'Upgrade to a <span class="text-gold-tag">Private Escape!</span>',
   description: `
     <p>
-      Welcome to <strong> aspa </strong>, a premium serviced-apartment experience in the peaceful neighbourhood of <strong> Ulwe, Navi Mumbai </strong> —where the comfort of home meets the convenience of a professionally managed stay.
+      Welcome to <strong> aspa</strong>, a premium serviced-apartment experience in the peaceful neighbourhood of <strong> Ulwe, Navi Mumbai </strong> —where the comfort of home meets the convenience of a professionally managed stay.
     </p>
     <p>    
 Whether you're here for <strong> business, medical visits, JNPT operations, relocation, family occasions, leisure or a spiritual journey </strong>, ASPA gives you more space, privacy and flexibility than a conventional hotel room.
@@ -758,36 +758,127 @@ export const TestimonialsData = {
     {
       rating: 5,
       review:
-        "Amazing service by the staff members, we were provided a very comfortable stay and the team was very responsive throughout our stay.  We’d definitely visit again and recommend for a short-medium term stay in a well connected neighbourhood.",
-      name: "Abhishek Nagekar",
+        "Had a really pleasant stay at this property in Navi Mumbai. The place is exceptionally clean and very well maintained, which immediately made it feel comfortable and welcoming. You can tell the management puts in consistent effort to keep everything in top condition—from the rooms to the common areas. The overall ambiance is calm and neat, making it a great option whether you're traveling for work or just a short getaway. Everything felt organized and thoughtfully managed, which made the stay smooth and hassle-free. Definitely a reliable choice if you're looking for a clean, well-kept place in Navi Mumbai. Would happily stay here again!",
+      name: "Rey — Canada",
       location: "Guest, Delhi",
     },
     {
       rating: 5,
       review:
-        "The apartments are very clean, maintained, and well furnished. The staff is very friendly.Security is great too.Locality is nice.Overall it was a very nice experience and i struggle to find any negative points about it.",
-      name: "Saurabh Satavalekar",
+        "Excellent spacious apartment, new furniture, new appliances, clean, fresh linens and towels. Polite and attentive staff. I recommend it.",
+      name: "Krasnopyorova — Kazakhstan 🇰🇿",
       location: "Guest, Delhi",
     },
     {
+      rating: 5,
+      review:
+        "We were in Navi Mumbai for a family trip and work. Had booked a long stay. First of all the location: It is very close to Atal Setu, so coming in from Mumbai, once you cross Atal Setu, the property is just within 5 mins. So convenient for both…",
+      name: "Rajarshi — UAE 🇦🇪",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "Had a very pleasant stay at this service apartment in Mumbai. The apartment was clean, comfortable, and well-maintained. What stood out the most was the excellent service and caring customer support. The staff was always responsive, helpful, and…",
+      name: "Durai — UAE 🇦🇪",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "The apartment is very well kept and very large and very modern with all facilities. The hosts are very hospitable and friendly. Mr Pandey is a very helpful and nice person. This is a great place to stay, it is very well located!",
+      name: "Karl — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "It was spotlessly clean and the check-in was smooth. Mr Mitra was extremely helpful and he helped me check in even when we were 50 mins late. I highly recommend this place.",
+      name: "Akansha — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+    {
+      rating: 5,
+      review:
+        "Lavish & Modern Amenities. What truly sets this home apart are the lavishing amenities. It is equipped with everything a modern traveler needs: High-End Tech: Smart entertainment systems and high-speed connectivity. Gourmet Kitchen: Fully modular and stocked with premium appliances. Designer Bathrooms: Featuring contemporary fixtures that provide a spa-like experience. Climate Control: Perfectly regulated for a comfortable stay regardless of the weather outside. Superb Hospitality By Mitra Pandey, Guard ji and team.",
+      name: "Hemant — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "It was a very pleasant and comfortable stay. The host was a very polite person and he helped us with everything. Recommended for everyone.",
+      name: "Akshay — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "It was very convenient, comfy and tidy. Overall a great experience And recommended for both leisure and business.",
+      name: "Sriram — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "Nice spacious apartment with all facilities. Very helpful host.",
+      name: "Ajithkumar — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "Very nice place to stay. near to New Mumbai airport, away from all the noises and pollution. Comfy and very supportive staff.",
+      name: "Ram — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "Stay was very comfortable. Well light room, good ventilation.",
+      name: "Aman — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "It was a very nice stay. The host was very good he was available at a single call. Worth it.",
+      name: "Swati — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "The place was very tidy and comfortable for our stay with all the facilities.",
+      name: "Mir — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "We liked the quick response of the apartment staff while checking and also nice services at the room.",
+      name: "Praveen — India 🇮🇳",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "A good location, clean and safe place to stay. The onsite supervisor always ready to help you.",
+      name: "Mansoor T. - United States US",
+      location: "Guest, Delhi",
+    },
+        {
+      rating: 5,
+      review:
+        "The house at ASPA reminds me of my home in Somalia - spacious, quiet, neat and beautiful.",
+      name: "Abdullahi Abdi Somalia SO",
+      location: "Guest, Delhi",
+    },
+        {
       rating: 5,
       review:
         "Had a beautiful stay at ASPA Apartment. The staff were incredibly kind, welcoming, and made the whole place feel like home from the moment I arrived. Everything was very clean, comfortable, and well taken care of. You can really feel the warmth and hospitality here. Highly recommend to anyone looking for a peaceful and pleasant stay!",
-      name: "Dil Buttar",
-      location: "Guest, Delhi",
-    },
-    {
-      rating: 5,
-      review:
-        "An amazing property. We stayed with our kids and parents in a 2 bedroom apartment. Super clean, and fully furnished with all the amenities. Well maintained, clean and decent place. Highly recommend for families. Special shoutout to the caretaker and host. They were very helpful. Even helped to return a missing item. Very courteous and friendly",
-      name: "Nestar K",
-      location: "Guest, Delhi",
-    },
-    {
-      rating: 5,
-      review:
-        "ASPA Apartment is very neat, clean, and well maintained. The flat and common areas are properly managed, and the environment is peaceful and comfortable. The location is also very convenient with easy access to nearby facilities. Overall, it is a great place to live.",
-      name: "Anusko Chatterjee",
+      name: "Dil Buttar Canada CA",
       location: "Guest, Delhi",
     },
   ],
@@ -831,45 +922,39 @@ export const FAQData = {
       answer:
         "You can make a reservation by using the Book Now option on the website or by contacting our team directly.",
     },
-     {
+    {
       question: "How many people can stay in an apartment?",
       answer:
         "Up to 4 adults and 2 children can stay in an apartment. For every extra adult, up to a maximum of six, additional Rs.1,000/- per night shall be levied.",
     },
-     {
+    {
       question: "Are house-keeping & Utensil-cleaning complimentary?",
-      answer:
-        "Yes, both the services are complimentary.",
+      answer: "Yes, both the services are complimentary.",
     },
-     {
+    {
       question: "Is there a kitchen?",
-      answer:
-        "Yes, Fully loaded kitchen with all modern amenities.",
+      answer: "Yes, Fully loaded kitchen with all modern amenities.",
     },
-         {
+    {
       question: "Do you allow long stays?",
       answer:
         "Yes, guests can stay as long as they want provided they follow the house-rules.",
     },
-             {
+    {
       question: "Are families welcome?",
-      answer:
-        "Yes, Families are welcome.",
+      answer: "Yes, Families are welcome.",
     },
-     {
+    {
       question: "What are the check-in and check-out timings?",
-      answer:
-        "Check-in time is 1pm whereas check-out time is 11am.",
+      answer: "Check-in time is 1pm whereas check-out time is 11am.",
     },
-     {
+    {
       question: "How do i reach ASPA?",
-      answer:
-        "Click on the Location at the footer of the page.",
+      answer: "Click on the Location at the footer of the page.",
     },
-       {
+    {
       question: "Can i contact someone directly?",
-      answer:
-        "Yes, You can call at +91 7028010831",
+      answer: "Yes, You can call at +91 7028010831",
     },
   ],
 };
