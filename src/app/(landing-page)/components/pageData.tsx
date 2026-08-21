@@ -804,77 +804,75 @@ export const TestimonialsData = {
       name: "Hemant — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "It was a very pleasant and comfortable stay. The host was a very polite person and he helped us with everything. Recommended for everyone.",
       name: "Akshay — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "It was very convenient, comfy and tidy. Overall a great experience And recommended for both leisure and business.",
       name: "Sriram — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
-      review:
-        "Nice spacious apartment with all facilities. Very helpful host.",
+      review: "Nice spacious apartment with all facilities. Very helpful host.",
       name: "Ajithkumar — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "Very nice place to stay. near to New Mumbai airport, away from all the noises and pollution. Comfy and very supportive staff.",
       name: "Ram — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
-      review:
-        "Stay was very comfortable. Well light room, good ventilation.",
+      review: "Stay was very comfortable. Well light room, good ventilation.",
       name: "Aman — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "It was a very nice stay. The host was very good he was available at a single call. Worth it.",
       name: "Swati — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "The place was very tidy and comfortable for our stay with all the facilities.",
       name: "Mir — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "We liked the quick response of the apartment staff while checking and also nice services at the room.",
       name: "Praveen — India 🇮🇳",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "A good location, clean and safe place to stay. The onsite supervisor always ready to help you.",
       name: "Mansoor T. - United States US",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "The house at ASPA reminds me of my home in Somalia - spacious, quiet, neat and beautiful.",
       name: "Abdullahi Abdi Somalia SO",
       location: "Guest, Delhi",
     },
-        {
+    {
       rating: 5,
       review:
         "Had a beautiful stay at ASPA Apartment. The staff were incredibly kind, welcoming, and made the whole place feel like home from the moment I arrived. Everything was very clean, comfortable, and well taken care of. You can really feel the warmth and hospitality here. Highly recommend to anyone looking for a peaceful and pleasant stay!",
