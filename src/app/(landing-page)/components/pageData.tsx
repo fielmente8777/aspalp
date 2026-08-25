@@ -39,6 +39,7 @@ export interface HeroData {
   title: string;
   description: string;
   images: string[];
+  imagesMobile: string[];
   buttons: button[];
   benefits: string;
   features: HeroFeature[];
@@ -131,12 +132,21 @@ export const heroPageData = {
     title: `For Stays You <span class='text-gold italic'> Remember</span> Long After <br/> You've <span class='text-gold italic'>Checked </span> Out`,
     description: "Refresh . Relax · Rejuvenate · Reimagine · Remember",
     images: [
-      "/images/609.jpeg",
+      "/69-A.jpeg",
       "/images/58.jpeg",
       "/images/48.jpeg",
       "/images/50.jpeg",
       "/images/banner.jpeg",
-      "/images/31.jpeg",
+      "/20-A.jpeg",
+      // "/images/22.jpeg",
+    ],
+    imagesMobile: [
+      "/69-A.jpeg",
+      "/images/58.jpeg",
+      "/room.png",
+      "/room-2.png",
+      "/images/banner.jpeg",
+      "/20-A.jpeg",
       // "/images/22.jpeg",
     ],
     buttons: [
@@ -228,7 +238,7 @@ Ideally located with convenient connectivity to <strong> Atal Setu, South Mumbai
      </strong>
     </p>
   `,
-  image: "/images/609.jpeg",
+  image: "/69-A.jpeg",
   buttons: [
     {
       label: "Enquire Now",
@@ -652,7 +662,7 @@ export const GalleryData = {
     "A look at the rooms, lounge spaces and quiet corners across the <strong> aspa </strong> building.",
   images: [
     "/images/58.jpeg",
-    "/images/609.jpeg",
+    "/69-A.jpeg",
     "/images/67.jpeg",
     "/images/50.jpeg",
     "/images/48.jpeg",
@@ -663,20 +673,6 @@ export const GalleryData = {
     "/images/9.jpeg",
     "/images/14.jpeg",
     "/images/15.jpeg",
-
-    // "/images/2.jpeg",
-    // "/images/7.jpeg",
-    // "/images/15.jpeg",
-    // "/images/16.jpeg",
-    // "/images/17.jpeg",
-    // "/images/21.jpeg",
-    // "/images/28.jpeg",
-    // "/images/31.jpeg",
-    // "/images/40.jpeg",
-    // "/images/44.jpeg",
-    // "/images/42.jpeg",
-    // "/images/47.jpeg",
-    // "/images/52.jpeg",
   ],
   buttons: [
     {

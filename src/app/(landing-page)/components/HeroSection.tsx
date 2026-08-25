@@ -5,12 +5,12 @@ import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 import Image from "next/image";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { HeroData } from "./pageData";
-import FeaturesSlider from "./FeaturesSlider";
 
 const ImageBanner: React.FC<HeroData> = ({
   title,
   description,
   images,
+  imagesMobile,
   buttons,
   features,
 }) => {
@@ -102,10 +102,41 @@ const ImageBanner: React.FC<HeroData> = ({
               "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
             bulletActiveClass: "!w-8 !bg-white",
           }}
-          className="hero-swiper relative"
+          className="hero-swiper relative lg:block hidden!"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-[4/6] md:aspect-[16/9] ">
+            <div className="relative w-full aspect-4/5.5 md:aspect-video ">
+              <Image
+                src={imgSrc}
+                alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
+                fill
+                priority={index === 0}
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
+          )}
+        />
+        <SwiperCarousel
+          data={imagesMobile}
+          modules={[Autoplay, Pagination, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          loop={false}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+            bulletClass:
+              "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
+            bulletActiveClass: "!w-8 !bg-white",
+          }}
+          className="hero-swiper relative block lg:hidden!"
+          swiperSlideClassName=" "
+          renderSlide={(imgSrc: string, index?: number) => (
+            <div className="relative w-full aspect-4/5.5 md:aspect-video ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
