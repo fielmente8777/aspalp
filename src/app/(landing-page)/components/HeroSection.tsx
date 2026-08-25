@@ -102,7 +102,7 @@ const ImageBanner: React.FC<HeroData> = ({
               "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
             bulletActiveClass: "!w-8 !bg-white",
           }}
-          className="hero-swiper relative lg:block hidden!"
+          className="hero-swiper relative max-lg:hidden!"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
             <div className="relative w-full aspect-4/5.5 md:aspect-video ">
@@ -133,7 +133,7 @@ const ImageBanner: React.FC<HeroData> = ({
               "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
             bulletActiveClass: "!w-8 !bg-white",
           }}
-          className="hero-swiper relative block lg:hidden!"
+          className="hero-swiper relative lg:hidden!"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
             <div className="relative w-full aspect-4/5.5 md:aspect-video ">
