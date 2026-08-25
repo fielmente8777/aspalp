@@ -105,7 +105,7 @@ const ImageBanner: React.FC<HeroData> = ({
           className="hero-swiper relative max-lg:hidden!"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-4/5.5 md:aspect-video ">
+            <div className="relative w-full aspect-4/5.5 md:aspect-16/9.25 ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
