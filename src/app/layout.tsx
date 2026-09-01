@@ -40,7 +40,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${cormorant.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <head>
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script
+          id="analytics"
+          strategy="afterInteractive"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-BR98CN78BK"
+        ></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {` window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BR98CN78BK');`}
+        </Script>
+      </head>
+      <body suppressHydrationWarning={true}>
         <WebProvider>
           <LandingNavbar />
           {children}
