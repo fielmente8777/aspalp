@@ -7,7 +7,7 @@ interface BookingFormData {
   name: string;
   countryCode: string;
   phone: string;
-  email: string;
+  email: string ;
   checkIn?: string;
   checkOut?: string;
   noOfPeople: number | "";
@@ -127,7 +127,7 @@ const useBookingForm = ({
       isValid = false;
     }
 
-    if (!validateEmail(formData.email)) {
+    if (formData.email && !validateEmail(formData.email)) {
       newErrors.email = "Invalid email format";
       isValid = false;
     }

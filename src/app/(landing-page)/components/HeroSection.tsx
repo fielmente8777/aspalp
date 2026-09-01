@@ -1,73 +1,58 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { Section } from "@/components/sectionComponants";
 import SwiperCarousel from "@/components/sliders/SwiperCarousel";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
-import { Section, SectionWithContainer } from "@/components/sectionComponants";
-import { HeroFeature } from "./pageData";
+import Image from "next/image";
+import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { HeroData } from "./pageData";
 
-export interface HeroDataProps {
-  title: string;
-  description: string;
-  images: string[];
-  features: HeroFeature[];
-  buttons: {
-    enquire: { label: string; href: string };
-    book: { label: string; href: string };
-  };
-  benefits?: string;
-}
-
-const ImageBanner: React.FC<HeroDataProps> = ({
+const ImageBanner: React.FC<HeroData> = ({
   title,
   description,
   images,
+  imagesMobile,
   buttons,
   features,
-}: HeroDataProps) => {
+}) => {
   return (
-    <>
+
       <Section
         className="relative w-full overflow-hidden"
         defaultPadding={false}
       >
-        <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full">
+        <div className="absolute z-40 pb-8 flex-1 flex items-end inset-0 w-full pointer-events-none">
           <div className="max_width">
-            <div className=" max-w-[480px] bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs p-[24px] rounded-[16px] text-white flex flex-col gap-[16px] border border-white/10 shadow-2xl">
+            <div className=" w-full max-w-[330px] md:max-w-[500px] bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] p-4 md:p-6 rounded-2xl text-white flex flex-col gap-4 border border-white/10 shadow-2xl">
               <h1
-                className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight font-normal text-white [&>span]:text-gold"
+                className="font-serif text-[28px] md:text-4xl lg:text-5xl leading-tight font-normal text-white [&>span]:text-gold"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
               <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                 {description}
               </p>
 
-              <div className="hidden md:grid grid-cols-2 w-full items-center gap-4 pt-2">
-                <Link
-                  href={buttons.enquire.href}
-                  className="flex items-center justify-center gap-2 bg-white text-p1 px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-95 shadow-sm"
-                >
-                  <span>
-                    <WhatsAppIcon />
-                  </span>
-                  <span>{buttons.enquire.label}</span>
-                </Link>
-
-                <Link
-                  href={buttons.book.href}
-                  className="flex items-center justify-center gap-2 bg-p1 text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-p1-hover transition-all duration-300 hover:scale-95 shadow-sm border border-white/70"
-                >
-                  <span>
-                    <CalendarIcon />
-                  </span>
-                  <span>{buttons.book.label}</span>
-                </Link>
-              </div>
+              {/* <ul className="md:grid hidden grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+                {buttons.map((button, index) => (
+                  <li key={index}>
+                    <LinkButton
+                      href={button.link}
+                      label={button.label}
+                      whatsAppIcon={index === 0}
+                      calendarIcon={index === 1}
+                      className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-white text-p1"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+                    />
+                  </li>
+                ))}
+              </ul> */}
             </div>
-            <div className="mt-8 hidden lg:block">
-              <div className="rounded-3xl bg-gradient-to-b from-p2/60 to-black/60 backdrop-blur-xs px-8 py-6">
+            <div className="mt-8 hidden xl:block">
+              <div className="rounded-3xl bg-linear-to-b from-p2/60 to-black/60 backdrop-blur-[2px] px-8 py-6">
                 <div className="grid grid-cols-7 divide-x divide-white/20">
                   {features.map((item, index) => (
                     <div key={index} className="flex flex-col text-center">
@@ -106,7 +91,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
           modules={[Autoplay, Pagination, EffectFade]}
           effect="fade"
           fadeEffect={{ crossFade: true }}
-          loop={true}
+          loop={false}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
@@ -117,9 +102,41 @@ const ImageBanner: React.FC<HeroDataProps> = ({
               "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
             bulletActiveClass: "!w-8 !bg-white",
           }}
+          className="hero-swiper relative max-lg:hidden!"
           swiperSlideClassName=" "
           renderSlide={(imgSrc: string, index?: number) => (
-            <div className="relative w-full aspect-[4/5] md:aspect-[16/8.6] ">
+            <div className="relative w-full aspect-4/5.5 md:aspect-16/9.25 ">
+              <Image
+                src={imgSrc}
+                alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
+                fill
+                priority={index === 0}
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
+          )}
+        />
+        <SwiperCarousel
+          data={imagesMobile}
+          modules={[Autoplay, Pagination, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          loop={false}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+            bulletClass:
+              "inline-block h-2.5 w-2.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer mx-1",
+            bulletActiveClass: "!w-8 !bg-white",
+          }}
+          className="hero-swiper relative lg:hidden!"
+          swiperSlideClassName=" "
+          renderSlide={(imgSrc: string, index?: number) => (
+            <div className="relative w-full aspect-4/5.5 md:aspect-video ">
               <Image
                 src={imgSrc}
                 alt={`Hero Slide ${index !== undefined ? index + 1 : 1}`}
@@ -132,50 +149,7 @@ const ImageBanner: React.FC<HeroDataProps> = ({
           )}
         />
       </Section>
-      {/* <div className="relative z-10 lg:hidden mt-4 pb-6">
-        <div className="max_width">
-          <SwiperCarousel<HeroFeature>
-            data={features}
-            modules={[Pagination, Autoplay]}
-            slidesPerView={1.2}
-            spaceBetween={16}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            pagination={{ clickable: true }}
-            className="feature-swiper"
-            swiperSlideClassName="h-auto"
-            renderSlide={(item, index) => (
-              <div
-                key={index}
-                className="rounded-2xl bg-[#1B2C27]/90 backdrop-blur-xl p-5"
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-3 text-gold">{item.icon}</div>
-
-                  {item.stars && (
-                    <div className="mb-2 flex justify-center text-gold">
-                      {item.stars}
-                    </div>
-                  )}
-
-                  <p className="text-sm font-semibold text-white">
-                    {item.value}
-                  </p>
-
-                  <p className="mt-1 text-xs text-white">{item.title}</p>
-
-                  <p className="mt-2 text-[11px] leading-5 text-white/70">
-                    {item.subtitle}
-                  </p>
-                </div>
-              </div>
-            )}
-          />
-        </div>
-      </div> */}
-    </>
+   
   );
 };
 

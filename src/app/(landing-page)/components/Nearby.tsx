@@ -1,11 +1,9 @@
-"use client";
 
-import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
-import { NearbyPlacesData } from "./pageData";
-import { SectionWithContainer } from "@/components/sectionComponants";
+import LinkButton from "@/components/buttons/LinkButton";
 import LazyLoadedMap from "@/components/map/LazyLoadedMap";
+import { SectionWithContainer } from "@/components/sectionComponants";
 import { contact } from "@/utils/constent";
+import { NearbyPlacesData } from "./pageData";
 
 const NearbyPlaces = ({
   tagline,
@@ -31,25 +29,27 @@ const NearbyPlaces = ({
               className="font-serif text-3xl md:text-5xl leading-[1.1] [&>span]:text-gold"
               dangerouslySetInnerHTML={{ __html: title }}
             />
-
-            <div className="mt-10 hidden lg:flex gap-4">
-              <Link
-                href={buttons.enquire.href}
-                className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-white font-medium text-p1"
-              >
-                <WhatsAppIcon />
-                {buttons.enquire.label}
-              </Link>
-
-              <Link
-                href={buttons.book.href}
-                className="flex h-14 w-[220px] items-center justify-center gap-2 rounded-xl bg-gold text-white font-medium"
-              >
-                <CalendarIcon />
-                {buttons.book.label}
-              </Link>
-            </div>
-            <div className="mt-14 h-[630px] w-full overflow-hidden rounded-xl">
+            
+            <ul className="hidden md:grid mt-10 grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+              {buttons.map((button, index) => (
+                <li key={index}>
+                  <LinkButton
+                    href={button.link}
+                    label={button.label}
+                    whatsAppIcon={index === 0}
+                    calendarIcon={index === 1}
+                    className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-white text-p1"
+                        : "border-none text-white bg-gold"
+                    }
+                    `}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className="mt-14 h-[400px] md:h-[630px] w-full overflow-hidden rounded-xl">
               <LazyLoadedMap src={contact.mapUrl} />
             </div>
           </div>
@@ -73,8 +73,9 @@ const NearbyPlaces = ({
               </div>
             ))}
           </div>
-          <div className="mt-8 flex flex-col gap-4 lg:hidden">
+          {/* <div className="mt-8 flex flex-col gap-4 lg:hidden">
             <Link
+              target="_blank"
               href={buttons.enquire.href}
               className="w-full flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
             >
@@ -82,14 +83,32 @@ const NearbyPlaces = ({
               {buttons.enquire.label}
             </Link>
 
-            <Link
+            <LinkButton
               href={buttons.book.href}
-              className="w-full flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 font-medium text-white"
-            >
-              <CalendarIcon />
-              {buttons.book.label}
-            </Link>
-          </div>
+              className="flex rounded-md bg-p1 px-6 py-3 text-white text-sm font-medium items-center justify-center hover:bg-p1-hover transition"
+              label="Book Now"
+              calendarIcon
+            />
+          </div> */}
+           <ul className="md:hidden grid mt-6 grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+            {buttons.map((button, index) => (
+              <li key={index}>
+                <LinkButton
+                  href={button.link}
+                  label={button.label}
+                  whatsAppIcon={index === 0}
+                  calendarIcon={index === 1}
+                  className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-white text-p1"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </SectionWithContainer>

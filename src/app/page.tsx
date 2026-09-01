@@ -9,7 +9,6 @@ import {
   GalleryData,
   heroPageData,
   NearbyPlacesData,
-  PricingData,
   statsData,
   StayData,
   TestimonialsData,
@@ -21,14 +20,18 @@ import Gallery from "./(landing-page)/components/Gallery";
 import StatsSection from "./(landing-page)/components/Stats";
 import Testimonials from "./(landing-page)/components/Reviews";
 import FAQ from "./(landing-page)/components/Faqs";
+import FeaturesSlider from "./(landing-page)/components/FeaturesSlider";
 
 export default function Home() {
   return (
     <main>
       <HeroSection {...heroPageData.hero} />
+      <div className="xl:hidden">
+        <FeaturesSlider features={heroPageData.hero.features} />
+      </div>
       <SectionWithContainer
         defaultPadding={false}
-        sectionClassName="py-14 bg-p1"
+        sectionClassName="lg:py-14 py-10 bg-p1"
         containerClassName="space-y-4"
       >
         <Form2 />

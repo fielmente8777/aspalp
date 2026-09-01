@@ -1,33 +1,10 @@
-"use client";
 
-import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
+import LinkButton from "@/components/buttons/LinkButton";
 import SectionWithContainer from "@/components/sectionComponants/SectionWithContainer";
-import { ReactNode } from "react";
 
-interface AmenityCard {
-  icon: ReactNode;
-  title: string;
-  description: string;
-}
+import { AmenitiesData } from "./pageData";
 
-interface AmenitiesProps {
-  tagline: string;
-  title: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
-  amenities: AmenityCard[];
-}
-
-const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
+const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesData) => {
   return (
     <SectionWithContainer
       sectionClassName="bg-cream-card"
@@ -46,61 +23,66 @@ const Amenities = ({ tagline, title, buttons, amenities }: AmenitiesProps) => {
             />
           </div>
 
-          <div className="hidden lg:flex gap-4">
-            <Link
-              href={buttons.enquire.href}
-              className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
-            >
-              <WhatsAppIcon />
-              {buttons.enquire.label}
-            </Link>
-
-            <Link
-              href={buttons.book.href}
-              className="flex items-center gap-2 rounded-lg bg-p1 px-6 py-3 font-medium text-white"
-            >
-              <CalendarIcon />
-              {buttons.book.label}
-            </Link>
-          </div>
+          <ul className="hidden md:grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+            {buttons.map((button, index) => (
+              <li key={index}>
+                <LinkButton
+                  href={button.link}
+                  label={button.label}
+                  whatsAppIcon={index === 0}
+                  calendarIcon={index === 1}
+                  className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-white text-p1 border-none"
+                        : "border-none text-white bg-p1"
+                    }
+                    `}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-1 xl:grid-cols-3">
           {amenities.map((item, index) => (
             <div
               key={index}
-              className="rounded-2xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-2xl bg-white p-4 lg:p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="mb-8 flex h-10 w-10 items-center justify-center rounded-lg bg-[#F5F5F5]">
+              <div className=" md:mb-6 flex h-10 w-10 items-center justify-center">
                 {item.icon}
               </div>
 
-              <h3 className="font-serif text-2xl lg:text-2xl text-p2">{item.title}</h3>
+              <h3 className="font-serif mt-4 md:mt-0 text-2xl lg:text-2xl text-p2">
+                {item.title}
+              </h3>
 
-              <p className="mt-4 text-base leading-7 text-[#6B6B6B]">
+              <p className="mt-2 mb:mt-4 text-base leading-7 text-[#6B6B6B]">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
-
-        <div className="mt-8 flex flex-col gap-4 lg:hidden">
-          <Link
-            href={buttons.enquire.href}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-p2 shadow"
-          >
-            <WhatsAppIcon />
-            {buttons.enquire.label}
-          </Link>
-
-          <Link
-            href={buttons.book.href}
-            className="w-full flex items-center justify-center gap-2 rounded-lg bg-p1 px-6 py-3 font-medium text-white"
-          >
-            <CalendarIcon />
-            {buttons.book.label}
-          </Link>
-        </div>
+        <ul className="md:hidden mt-8 grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          {buttons.map((button, index) => (
+            <li key={index}>
+              <LinkButton
+                href={button.link}
+                label={button.label}
+                whatsAppIcon={index === 0}
+                calendarIcon={index === 1}
+                className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-white text-p1 border border-[#c8a96a]"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </SectionWithContainer>
   );

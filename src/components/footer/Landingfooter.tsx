@@ -1,15 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { footerData, FooterData } from "./footerdata";
+import { footerData } from "./footerdata";
 import Form2 from "../forms/Form2";
 import { Container, Section, SectionWithContainer } from "../sectionComponants";
-import Link from "next/dist/client/link";
-import LazyLoadedMap from "../map/LazyLoadedMap";
-import { contact } from "@/utils/constent";
+import Link from "next/link";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
-  const data = footerData;
   return (
     <footer className="bg-p1">
       <Section defaultPadding={false}>
@@ -19,27 +17,29 @@ const Footer = () => {
           containerClassName="space-y-4"
         >
           <Form2 />
+
           <p className="text-center text-white">
-            Free cancellation on most dates* · Instant confirmation
+            Free cancellation on most dates* · Instant confirmation
           </p>
         </SectionWithContainer>
 
         <div className="border-b border-gold" />
 
         <Container>
-          <div className="grid py-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_.7fr_.5fr] gap-12">
+          <div className="grid py-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_.7fr_.5fr] gap-12">
+
             {/* Logo */}
-            <div className="flex flex-col gap-6 lg:max-w-sm">
-              <div className="relative w-40 aspect-[4/3]">
+            <div className="flex flex-col gap-2 lg:max-w-sm lg:items-center">
+              <div className="relative w-40 aspect-[4/2]">
                 <Image
                   src={footerData.logo}
                   alt="ASPA Apartments Logo"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
 
-              <p className="text-white/70 leading-7">
+              <p className="text-white/70 leading-7 lg:text-center">
                 {footerData.description}
               </p>
             </div>
@@ -63,14 +63,36 @@ const Footer = () => {
                           {item.label}
                         </Link>
                       ) : (
-                        <p className="text-white/80 leading-8">{item.title}</p>
+                        <p className="text-white/80 leading-8">
+                          {item.title}
+                        </p>
                       )}
                     </li>
                   ))}
                 </ul>
-                {list.title === "LOCATION" && (
-                  <div className="mt-8 h-[200px] w-full overflow-hidden rounded-xl">
-                    <LazyLoadedMap src={contact.mapUrl} />
+
+                {/* Social Icons - Only under CONTACT */}
+                {list.title === "CONTACT" && (
+                  <div className="flex items-center gap-4 mt-7">
+                    <Link
+                      href="YOUR_FACEBOOK_URL"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-gold hover:border-gold hover:text-p1 transition-all duration-300"
+                    >
+                      <FaFacebookF size={15} />
+                    </Link>
+
+                    <Link
+                      href="YOUR_INSTAGRAM_URL"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-gold hover:border-gold hover:text-p1 transition-all duration-300"
+                    >
+                      <FaInstagram size={17} />
+                    </Link>
                   </div>
                 )}
               </div>

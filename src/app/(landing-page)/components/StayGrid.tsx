@@ -3,35 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
+import LinkButton, {
   CalendarIcon,
   WhatsAppIcon,
 } from "@/components/buttons/LinkButton";
 import { SectionWithContainer } from "@/components/sectionComponants";
+import { StayCard, StayData } from "./pageData";
 
-export interface StayCard {
-  title: string;
-  description: string;
-  image: string;
-  buttons: {
-    enquire: {
-      label: string;
-      href: string;
-    };
-    book: {
-      label: string;
-      href: string;
-    };
-  };
-}
-
-interface StayGridProps {
-  title: string;
-  tagline: string;
-  stays: StayCard[];
-}
-
-const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
+const StayGrid = ({ title, tagline, stays }: StayData) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const toggleDescription = (index: number) => {
@@ -39,10 +18,7 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
   };
 
   return (
-    <SectionWithContainer
-      sectionClassName="bg-cream-bg"
-      containerId="#stays"
-    >
+    <SectionWithContainer sectionClassName="bg-cream-bg" containerId="#stays">
       <div>
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-6">
@@ -64,9 +40,8 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
+                className="overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
               >
-                
                 <div className="relative h-[240px]">
                   <Image
                     src={stay.image}
@@ -76,13 +51,11 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                   />
                 </div>
 
-                
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="font-serif text-3xl text-p2 mb-3">
                     {stay.title}
                   </h3>
 
-                
                   <p
                     className={`text-sm text-gray-600 leading-7 ${
                       isExpanded ? "" : "line-clamp-3"
@@ -91,33 +64,33 @@ const StayGrid = ({ title, tagline, stays }: StayGridProps) => {
                     {stay.description}
                   </p>
 
-                  
                   <button
                     type="button"
                     onClick={() => toggleDescription(index)}
                     className="mt-1 mb-4 w-fit text-sm font-medium text-gold underline underline-offset-4 hover:text-gold/80 transition-colors"
                   >
-                    {isExpanded ? "Show Less" : "Know More"}
+                    {isExpanded ? "Show Less" : "Read More"}
                   </button>
 
-
-                  <div className="mt-auto pt-2 flex gap-4">
-                    <Link
-                      href={stay.buttons.enquire.href}
-                      className="flex-1 h-11 rounded-md border border-p2 text-p2 text-sm font-medium flex items-center justify-center gap-2 hover:bg-p2 hover:text-white transition"
-                    >
-                      <WhatsAppIcon />
-                      Enquire Now
-                    </Link>
-
-                    <Link
-                      href={stay.buttons.book.href}
-                      className="flex-1 h-11 rounded-md bg-p1 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-p1-hover transition"
-                    >
-                      <CalendarIcon />
-                      Book Now
-                    </Link>
-                  </div>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 max-w-sm gap-4 justify-center ">
+                    {stay.buttons.map((button, index) => (
+                      <li key={index}>
+                        <LinkButton
+                          href={button.link}
+                          label={button.label}
+                          whatsAppIcon={index === 0}
+                          calendarIcon={index === 1}
+                          className={`rounded-md w-full justify-center
+                                      ${
+                                        index === 0
+                                          ? "bg-transparent text-p1"
+                                          : "border border-primary text-white bg-p1"
+                                      }
+                                      `}
+                        />
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             );

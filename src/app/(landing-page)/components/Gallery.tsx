@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { CalendarIcon, WhatsAppIcon } from "@/components/buttons/LinkButton";
-import { GalleryData } from "./pageData";
+import LinkButton from "@/components/buttons/LinkButton";
 import { SectionWithContainer } from "@/components/sectionComponants";
-import { GalleryIcon } from "@/utils/Icons";
 import { useWebContext } from "@/context-api/WebContext";
+import { GalleryIcon } from "@/utils/Icons";
+import Image from "next/image";
+import { GalleryData } from "./pageData";
 
 const Gallery = ({
   tagline,
@@ -17,8 +16,9 @@ const Gallery = ({
 }: GalleryData) => {
   const { openGallery } = useWebContext();
   return (
+
     <SectionWithContainer
-      sectionClassName="bg-cream-bg py-8"
+      sectionClassName="bg-cream-bg py-8 border-t border-gold"
       containerId="#gallery"
       defaultPadding={false}
     >
@@ -36,9 +36,10 @@ const Gallery = ({
             />
           </div>
 
-          <p className="max-w-md text-md md:text-lg leading-8 text-[#6E6E6E]">
-            {description}
-          </p>
+          <p
+            className="max-w-md text-md md:text-lg leading-8 text-[#6E6E6E]"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
         <div className="relative mt-12">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -51,7 +52,6 @@ const Gallery = ({
                     images,
                     index,
                   })
-                 
                 }
               >
                 <Image
@@ -79,23 +79,25 @@ const Gallery = ({
         </div>
 
         {/* CTA */}
-        <div className="mt-16 flex flex-col sm:flex-row  justify-center gap-4">
-          <Link
-            href={buttons.enquire.href}
-            className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg border border-gold bg-white text-p1 font-medium transition hover:bg-gray-100 "
-          >
-            <WhatsAppIcon />
-            {buttons.enquire.label}
-          </Link>
-
-          <Link
-            href={buttons.book.href}
-            className="flex h-12 min-w-[190px] items-center justify-center gap-2 rounded-lg bg-p1 text-white font-medium transition hover:bg-p1-hover"
-          >
-            <CalendarIcon />
-            {buttons.book.label}
-          </Link>
-        </div>
+        <ul className="grid grid-cols-1 mt-8 mx-auto md:grid-cols-2 max-w-sm gap-4 justify-center ">
+          {buttons.map((button, index) => (
+            <li key={index}>
+              <LinkButton
+                href={button.link}
+                label={button.label}
+                whatsAppIcon={index === 0}
+                calendarIcon={index === 1}
+                className={`rounded-md w-full justify-center
+                    ${
+                      index === 0
+                        ? "bg-white text-p1 border border-[#c8a96a]"
+                        : "border border-primary text-white bg-p1"
+                    }
+                    `}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </SectionWithContainer>
   );

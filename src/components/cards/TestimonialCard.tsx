@@ -1,35 +1,67 @@
+"use client";
+
 import { TestimonialDataType } from "@/@types/landingPageTypes";
+import Image from "next/image";
+import { useState } from "react";
 
-const TestimonialCard: React.FC<
-  TestimonialDataType["testimonials"][0]
-> = ({ name, review, location, rating }) => {
+const TestimonialCard: React.FC<TestimonialDataType["testimonials"][0]> = ({
+  name,
+  review,
+  location,
+  rating,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <div className="h-[200px] w-full rounded-2xl border border-[#D8B66A] bg-white p-4 sm:min-h-[210px] sm:p-5">
-
-      {/* Stars */}
-      <div className="mb-3 flex gap-1 text-[#D8B66A]">
-        {Array.from({ length: rating }).map((_, index) => (
-          <span
-            key={index}
-            className="text-[12px] leading-none sm:text-[13px]"
-          >
-            ★
-          </span>
-        ))}
-      </div>
+    <div className="rounded-2xl backdrop-blur-sm border border-gold bg-white p-6 flex flex-col justify-between gap-5 min-h-65">
+      {/* Rating */}
+      <p className="text-[#c8a96a]">{"★".repeat(rating || 5)}</p>
 
       {/* Review */}
-      <p className="font-body text-[13px] leading-5 text-[#777777] sm:text-sm sm:leading-5">
-        {review}
+      <p className={`text-dark transition-all duration-300`}>
+        {review.length > 70 && !isExpanded
+          ? review.slice(0, 70) + "..."
+          : review}
       </p>
 
-      {/* Divider */}
-      <div className="my-3 border-t border-[#D8B66A]" />
+      {/* Read More / Show Less */}
+      {review.length > 70 && (
+        <button
+          type="button"
+          onClick={() => setIsExpanded((prev) => !prev)}
+          className="
+          w-fit
+          text-sm
+          font-medium
+          text-gold
+          underline
+          underline-offset-4
+          hover:text-gold/80
+          transition-colors
+        "
+        >
+          {isExpanded ? "Show Less" : "Read More"}
+        </button>
+      )}
 
-      {/* Guest */}
-      <div className="font-body text-[11px] leading-4 text-p2 sm:text-xs">
-        <p>{name}</p>
-        <p>{location}</p>
+      <div className="space-y-4">
+        {/* Divider */}
+        <div className="w-full h-px bg-gold" />
+
+        {/* User */}
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-lg text-dark capitalize">{name}</p>
+
+            {/* {location && (
+            <p className="text-sm text-dark/60">
+              {location}
+            </p>
+          )} */}
+          </div>
+
+          <Image src="/g-icon.png" alt="Google Icon" width={24} height={24} />
+        </div>
       </div>
     </div>
   );

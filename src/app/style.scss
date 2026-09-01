@@ -139,3 +139,14 @@
 .font-instrument {
   font-family: var(--font-instrument-serif);
 }
+
+.hero-swiper {
+  .swiper-pagination {
+    z-index: 999 !important;
+    pointer-events: auto !important;
+  }
+
+  .swiper-pagination-bullet {
+    cursor: pointer !important;
+  }
+}
