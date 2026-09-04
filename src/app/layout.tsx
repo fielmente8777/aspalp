@@ -42,6 +42,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${cormorant.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <head>
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+        >{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W8RVGPSV');`}</Script>
         {/* <!-- Google tag (gtag.js) --> */}
         <Script
           id="analytics"
@@ -58,6 +66,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </Script>
       </head>
       <body suppressHydrationWarning={true}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W8RVGPSV"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <WebProvider>
           <LandingNavbar />
           {children}
